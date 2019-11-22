@@ -24,7 +24,8 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
                         <li class="nav-item active"><span class="nav-link text-success">Username</span></li> <!--shows name of logged in user -->
-                        <li class="nav-item active"><a class="nav-link text-success" href="layer2/about.php">About</a></li>
+                        <li class="nav-item active"><a class="nav-link text-success" href="">News</a></li>
+                        <li class="nav-item active"><a class="nav-link text-success" href="">About</a></li>
                         <li class="nav-item active"><a class="nav-link text-success" href="">Shop</a></li>
 
                         <div class="btn-group">
