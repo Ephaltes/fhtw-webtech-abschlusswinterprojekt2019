@@ -14,3 +14,7 @@ footer ul, footer li{
 .dropdown-menu {
     min-width: 20rem;
 }
+
+.dropdown-toggle::after { 
+            content: none; 
+        }
