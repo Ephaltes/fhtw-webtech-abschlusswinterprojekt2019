@@ -32,7 +32,7 @@
                                     <li class="dropdown open">
                                         <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../nondynamicdata/img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
 
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu p-2" style="right: 0; left: auto;">
                                             <li class="nav-header">reeeeeeeee</li>
                                             <li>
                                                 <span class="">1x</span>

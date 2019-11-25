@@ -12,9 +12,6 @@ and open the template in the editor.
     Author     : lukas
 */
 
-#About img{
-    height:345px;
-}
 #quicklinks li, #quicklinks ul{
     list-style-type: none;
 }
@@ -23,10 +20,15 @@ footer ul, footer li{
 }
 .carousel-item{
     width: 100%; /*width you want*/
-    height: 500px; /*height you want*/
+    height: auto; /*height you want*/
     overflow: hidden;
 }
 .carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-item video{
     width: 100%;
     height: 100%;
     object-fit: cover;
