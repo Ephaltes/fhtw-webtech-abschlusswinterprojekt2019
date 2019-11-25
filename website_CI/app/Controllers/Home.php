@@ -54,6 +54,17 @@ class Home extends Controller
             return view("home/shop");
 
     }
+    public function dynamicnews()
+    {
+        if(!$this->session->has("user"))
+        {
+            return redirect()->to(base_url(). "/home/index");
+        }
+
+            $data["user"]=$this->session->get("user");
+            return view("home/dynamicnews");
+
+    }
 
     public function about()
     {
