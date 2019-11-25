@@ -42,7 +42,7 @@ if (isset($_SESSION['Privs'])) {
                         <li class="nav-item active"><span class="nav-link text-success"><?php echo"$Vorname $Nachnahme" ?></span></li> <!--shows name of logged in user -->
                         <?php
                         if (isset($_SESSION['Privs'])) {
-                            echo "<li class=\"nav-item active\"><a class=\"nav-link text-success\" href=\"layer2/about.php\">About</a></li>\n";
+                            echo ">About</a></li>\n";
                             echo "                        <li class=\"nav-item active\"><a class=\"nav-link text-success\" href=\"layer2/shop.php\">Shop</a></li>\n";
                             echo "                        <li class=\"nav-item active\">\n";
                             echo "                            <div id=\"shoppingcart\" class=\"nav-collapse cart-collapse\">\n";
