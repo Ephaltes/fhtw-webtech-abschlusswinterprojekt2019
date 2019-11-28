@@ -1,18 +1,17 @@
 <?php
+require_once ("Entities/UserEntity.php");
 session_start();
-if (isset($_SESSION['Vorname'])) {
-    $Vorname = $_SESSION['Vorname'];
-} else {
-    $Vorname = "anoym";
+
+if(!empty($_GET["logout"]))
+{
+    session_destroy();
+    header('location: /');
 }
-if (isset($_SESSION['Nachnahme'])) {
-    $Nachnahme = $_SESSION['Nachnahme'];
-} else {
-    $Nachnahme = "";
-}
-if (isset($_SESSION['Privs'])) {
-    $Privs = $_SESSION['Privs'];
-}
+
+
+if(!empty($_SESSION["user"]))
+$user = $_SESSION["user"];
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,7 +22,7 @@ if (isset($_SESSION['Privs'])) {
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="nondynamicdata/css/index-stylesheet.css" type="text/css">
+        <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
 
         <title>index.php!</title>
     </head>
@@ -31,7 +30,7 @@ if (isset($_SESSION['Privs'])) {
         <header>
 
             <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
-                <img src="nondynamicdata/img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;">
+                <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;">
 
                 <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,11 +38,16 @@ if (isset($_SESSION['Privs'])) {
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
-                        <li class="nav-item active"><span class="nav-link text-success"><?php echo"$Vorname $Nachnahme" ?></span></li> <!--shows name of logged in user -->
-                        <?php
-                        if (isset($_SESSION['Privs'])) { ?>
-                             <li class="nav-item active"><a class="nav-link text-success" href="<?php echo base_url() ?>/home/about">About</a></li>
-                            <li class="nav-item active"><a class="nav-link text-success" href="<?php echo base_url() ?>/home/shop">Shop</a></li>
+                        <li class="nav-item active"><span class="nav-link text-success"><?php
+                                if (empty($user)) {
+                                    echo "anonym";
+                                } else {
+                                    echo $user->firstname . $user->lastname;
+                                }
+                                ?></span></li> <!--shows name of logged in user -->
+                        <?php if (!empty($user)) { ?>
+                             <li class="nav-item active"><a class="nav-link text-success" href="sites/about.php">About</a></li>
+                            <li class="nav-item active"><a class="nav-link text-success" href="sites/shop.php">Shop</a></li>
                             <li class="nav-item active">
                                 <div id="shoppingcart" class="nav-collapse cart-collapse">
                                     <ul class="nav pull-right">
@@ -74,12 +78,13 @@ if (isset($_SESSION['Privs'])) {
                         }
 
 
-                        if (!isset($_SESSION['Privs'])) { ?>
+                        if (empty($user)) {
+                            ?>
                             <li class="nav-item active">
                                 <div class="nav-item-dropdown dropdown">
                                     <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
                                     <div class="dropdown-menu drop-menu-right border-dark" style="right: 0; left: auto;">
-                                        <form class="p-4" method="POST" action="<?php echo base_url() . "/home/login" ?>">
+                                        <form class="p-4" method="POST" action="sites/login.php">
                                             <div class="form-group">
                                                 <label for="User">User</label>
                                                 <input type="text" class="form-control" id="user" name="username"
@@ -103,12 +108,13 @@ if (isset($_SESSION['Privs'])) {
                                 </div>
 
                             </li>
-                        <?php
+                            <?php
                         }
-                        if (isset($_SESSION['Privs'])) {
-                            echo " <li class=\"nav-item active\"><a class=\"nav-link text-success\" href=\"abmelden.php\">Abmelden</a></li>\n";
-                        }
-                        ?>
+                            if (!empty($user)) {
+                            ?>
+                            <li class="nav-item active"><a class="nav-link text-success" href="index.php?logout=true" ?>Abmelden</a></li>
+                        <?php } ?>
+
                     </ul>
                 </div>
             </nav>
@@ -137,7 +143,7 @@ if (isset($_SESSION['Privs'])) {
                             <div class="card mb-3 border-success border-left-0 border-right-0">
                                 <div class="row no-gutters ">
                                     <div class="col-md-4">
-                                        <img src="nondynamicdata/img/teammitglied1.jpg" class="card-img p-2 d-block mx-auto" alt="...">
+                                        <img src="img/teammitglied1.jpg" class="card-img p-2 d-block mx-auto" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -151,7 +157,7 @@ if (isset($_SESSION['Privs'])) {
                             <div class="card mb-3 border-success  border-left-0 border-right-0">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="nondynamicdata/img/teammitglied1.jpg" class="card-img p-2 d-block mx-auto" alt="...">
+                                        <img src="img/teammitglied1.jpg" class="card-img p-2 d-block mx-auto" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -165,7 +171,7 @@ if (isset($_SESSION['Privs'])) {
                             <div class="card border-success  border-left-0 border-right-0">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="nondynamicdata/img/teammitglied1.jpg" class="card-img p-2 d-block mx-auto" alt="...">
+                                        <img src="img/teammitglied1.jpg" class="card-img p-2 d-block mx-auto" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">

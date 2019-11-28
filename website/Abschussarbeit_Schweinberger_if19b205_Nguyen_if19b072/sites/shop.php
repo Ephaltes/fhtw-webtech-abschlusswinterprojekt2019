@@ -7,7 +7,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="nondynamicdata/css/index-stylesheet.css" type="text/css">
+        <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
 
         <title>index.php!</title>
     </head>
@@ -15,7 +15,7 @@
         <header>
 
             <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
-                <img src="../nondynamicdata/img/342_logo_big_FH_only.png" class="img-fluid " style="height:50px;">
+                <img src="../img/342_logo_big_FH_only.png" class="img-fluid " style="height:50px;">
 
                 <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
                             <div id="shoppingcart" class="nav-collapse cart-collapse">
                                 <ul class="nav pull-right">
                                     <li class="dropdown open">
-                                        <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../nondynamicdata/img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
+                                        <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
 
                                         <ul class="dropdown-menu p-2" style="right: 0; left: auto;">
                                             <li class="nav-header">reeeeeeeee</li>

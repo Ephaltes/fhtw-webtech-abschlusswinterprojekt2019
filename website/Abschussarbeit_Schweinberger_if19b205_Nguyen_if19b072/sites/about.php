@@ -7,7 +7,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="../nondynamicdata/css/about-stylesheet.css" type="text/css">
+        <link rel="stylesheet" href="../css/about-stylesheet.css" type="text/css">
 
         <title>index.php!</title>
     </head>
@@ -15,7 +15,7 @@
         <header>
 
             <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
-                <img src="../nondynamicdata/img/342_logo_big_FH_only.png" class="img-fluid " style="height:50px;">
+                <img src="../img/342_logo_big_FH_only.png" class="img-fluid " style="height:50px;">
 
                 <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
                             <div id="shoppingcart" class="nav-collapse cart-collapse">
                                 <ul class="nav pull-right">
                                     <li class="dropdown open">
-                                        <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../nondynamicdata/img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
+                                        <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
 
                                         <ul class="dropdown-menu p-2" style="right: 0; left: auto;">
                                             <li class="nav-header">reeeeeeeee</li>
@@ -86,14 +86,14 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" data-intervall="8">
-                                        <img src="../nondynamicdata/img/Teammitglied1.jpg" class="d-block w-100 img-fluid" alt="lukas">
+                                        <img src="../img/Teammitglied1.jpg" class="d-block w-100 img-fluid" alt="lukas">
                                         <div class="carousel-caption d-xs-block">
                                             <h5>Lukas Schweinberger</h5>
                                             <p>Author :)</p>
                                         </div>
                                     </div>
                                     <div class="carousel-item" data-intervall="8">
-                                        <img src="../nondynamicdata/img/Teammitglied1.jpg" class="d-block w-100 img-fluid" alt="lam">
+                                        <img src="../img/Teammitglied1.jpg" class="d-block w-100 img-fluid" alt="lam">
                                         <div class="carousel-caption  d-xs-block">
                                             <h5>Lam</h5>
                                             <p>Author :)</p>
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="carousel-item h-100" data-intervall="false" data-pause="hover">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <video class="w-100 embed-responsive-item"  width="1280" height="720" controls><source src="../nondynamicdata/img/SampleVideo_1280x720_1mb (2).mp4" type="video/mp4"></video>
+                                            <video class="w-100 embed-responsive-item"  width="1280" height="720" controls><source src="../img/SampleVideo_1280x720_1mb (2).mp4" type="video/mp4"></video>
                                         </div>
                                     </div>
                                 </div>

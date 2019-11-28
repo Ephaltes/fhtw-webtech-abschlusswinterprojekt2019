@@ -7,7 +7,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="../nondynamicdata/css/dynamicnews-stylesheet.css" type="text/css">
+        <link rel="stylesheet" href="../css/dynamicnews-stylesheet.css" type="text/css">
 
         <title>index.php!</title>
     </head>
@@ -15,7 +15,7 @@
         <header>
 
             <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
-                <img src="../nondynamicdata/img/342_logo_big_FH_only.png" class="img-fluid " style="height:50px;">
+                <img src="../img/342_logo_big_FH_only.png" class="img-fluid " style="height:50px;">
 
                 <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                             <div id="shoppingcart" class="nav-collapse cart-collapse">
                                 <ul class="nav pull-right">
                                     <li class="dropdown open">
-                                        <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../nondynamicdata/img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
+                                        <a href="" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="../img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
 
                                         <ul class="dropdown-menu p-2" style="right: 0; left: auto;">
                                             <li class="nav-header">reeeeeeeee</li>
@@ -78,7 +78,7 @@
                         <div class="card mb-3 border-success border-bottom-0 border-left-0 border-right-0">
                             <div class="row no-gutters ">
                                 <div class="col-md-4">
-                                    <img src="../nondynamicdata/img/Teammitglied1.jpg" class="card-im img-fluid pl-5 pt-5" alt="..."> <!-- main card image -->
+                                    <img src="../img/Teammitglied1.jpg" class="card-im img-fluid pl-5 pt-5" alt="..."> <!-- main card image -->
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -106,13 +106,13 @@
                                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                         <div class="card-deck ">
                                             <div class="card col-4 border-0">
-                                                <img src="../nondynamicdata/img/Teammitglied1.jpg" alt="" class="card-img img-fluid" style="">
+                                                <img src="../img/Teammitglied1.jpg" alt="" class="card-img img-fluid" style="">
                                             </div>
                                             <div class="card col-4 border-0">
-                                                <img src="../nondynamicdata/img/Teammitglied1.jpg" alt="" class="card-img img-fluid" style="">
+                                                <img src="../img/Teammitglied1.jpg" alt="" class="card-img img-fluid" style="">
                                             </div>
                                             <div class="card col-4 border-0">
-                                                <img src="../nondynamicdata/img/Teammitglied1.jpg" alt="" class="card-img img-fluid" style="">
+                                                <img src="../img/Teammitglied1.jpg" alt="" class="card-img img-fluid" style="">
                                             </div>
                                         </div>
                                     </div>
