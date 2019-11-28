@@ -41,56 +41,69 @@ if (isset($_SESSION['Privs'])) {
                     <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
                         <li class="nav-item active"><span class="nav-link text-success"><?php echo"$Vorname $Nachnahme" ?></span></li> <!--shows name of logged in user -->
                         <?php
-                        if (isset($_SESSION['Privs'])) {
-                            echo ">About</a></li>\n";
-                            echo "                        <li class=\"nav-item active\"><a class=\"nav-link text-success\" href=\"layer2/shop.php\">Shop</a></li>\n";
-                            echo "                        <li class=\"nav-item active\">\n";
-                            echo "                            <div id=\"shoppingcart\" class=\"nav-collapse cart-collapse\">\n";
-                            echo "                                <ul class=\"nav pull-right\">\n";
-                            echo "                                    <li class=\"dropdown open\">\n";
-                            echo "                                        <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle nav-link text-success\"><img src=\"nondynamicdata/img/shopping-cart-icon.jpg\" alt=\"shopping-cart-icon\" style=\"width:20px;\"></a>\n";
-                            echo "                                        <ul class=\"dropdown-menu p-2\" style=\"right: 0; left: auto;\">\n";
-                            echo "                                            <li class=\"nav-header\">reeeeeeeee</li>\n";
-                            echo "                                            <li>\n";
-                            echo "                                                <span class=\"\">1x</span>\n";
-                            echo "                                                <span class=\"\">Test Product </span>\n";
-                            echo "                                                <span class=\"\"><a class=\"removefromcart\" href=\"#\">x</a></span>\n";
-                            echo "                                            </li>\n";
-                            echo "                                            <li><p>Total:</p></li>\n";
-                            echo "                                            <li><a href=\"\">I wanna buy it daddy</a></li>\n";
-                            echo "                                        </ul>\n";
-                            echo "                                    </li>\n";
-                            echo "                                </ul>\n";
-                            echo "                            </div>\n";
-                            echo "                        </li>\n";
+                        if (isset($_SESSION['Privs'])) { ?>
+                             <li class="nav-item active"><a class="nav-link text-success" href="<?php echo base_url() ?>/home/about">About</a></li>
+                            <li class="nav-item active"><a class="nav-link text-success" href="<?php echo base_url() ?>/home/shop">Shop</a></li>
+                            <li class="nav-item active">
+                                <div id="shoppingcart" class="nav-collapse cart-collapse">
+                                    <ul class="nav pull-right">
+                                        <li class="dropdown open">
+                                            <a href="#" data-toggle="dropdown"
+                                               class="dropdown-toggle nav-link text-success">
+                                                <i class="fas fa-shopping-basket"> <!-- see https://fontawesome.com/icons?d=gallery&q=shopping -->
+                                                    <span class="badge badge-success text-dark">11</span>
+                                                </i></a>
+
+                                            <ul class="dropdown-menu border-dark p-2" style="right: 0; left: auto;">
+                                                <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
+                                                    <li class="nav-header">reeeeeeeee</li>
+                                                    <li>
+                                                        <span class="">1x</span>
+                                                        <span class="">Test Product </span>
+                                                        <span class=""><a class="removefromcart" href="#">x</a></span>
+                                                    </li>
+                                                    <li><p>Total:</p></li>
+                                                    <li><a href="">I wanna buy it daddy</a></li>
+                                                </form>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php
                         }
 
-                        if (!isset($_SESSION['Privs'])) {
-                            echo "<li class=\"nav-item active\">\n";
-                            echo "                            <div class=\"nav-item-dropdown dropdown\">                                \n";
-                            echo "                                <span data-toggle=\"dropdown\" class=\"dropdown-toggle nav-link text-success\">Anmelden</span>\n";
-                            echo "                                <div class=\"dropdown-menu drop-menu-right border-dark\" style=\"right: 0; left: auto;\">\n";
-                            echo "                                    <form class=\"p-4\" methode=\"GET\" action=\"controller-index.php\">\n";
-                            echo "                                        <div class=\"form-group\">\n";
-                            echo "                                            <label for=\"User\">User</label>\n";
-                            echo "                                            <input type=\"text\" class=\"form-control\" id=\"User\" name=\"username\" placeholder=\"admin\">\n";
-                            echo "                                        </div>\n";
-                            echo "                                        <div class=\"form-group\">\n";
-                            echo "                                            <label for=\"Password\">Password</label>\n";
-                            echo "                                            <input type=\"password\" class=\"form-control\" id=\"Password\" name=\"passwort\" placeholder=\"Password\">\n";
-                            echo "                                        </div>\n";
-                            echo "                                        <div class=\"form-check\">\n";
-                            echo "                                            <input type=\"checkbox\" class=\"form-check-input\" id=\"dropdownCheck2\" name=\"forgetme\" value=\"plsdont\">\n";
-                            echo "                                            <label class=\"form-check-label\" for=\"dropdownCheck2\">\n";
-                            echo "                                                Remember me\n";
-                            echo "                                            </label>\n";
-                            echo "                                        </div>\n";
-                            echo "                                        <button type=\"submit\" class=\"btn btn-primary\">Sign in</button>\n";
-                            echo "                                    </form>\n";
-                            echo "                                </div>\n";
-                            echo "                            </div>\n";
-                            echo "                           \n";
-                            echo "                        </li> ";
+
+                        if (!isset($_SESSION['Privs'])) { ?>
+                            <li class="nav-item active">
+                                <div class="nav-item-dropdown dropdown">
+                                    <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
+                                    <div class="dropdown-menu drop-menu-right border-dark" style="right: 0; left: auto;">
+                                        <form class="p-4" method="POST" action="<?php echo base_url() . "/home/login" ?>">
+                                            <div class="form-group">
+                                                <label for="User">User</label>
+                                                <input type="text" class="form-control" id="user" name="username"
+                                                       placeholder="admin">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Password">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password"
+                                                       placeholder="Password">
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck2"
+                                                       name="forgetme" value="plsdont">
+                                                <label class="form-check-label" for="dropdownCheck2">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </li>
+                        <?php
                         }
                         if (isset($_SESSION['Privs'])) {
                             echo " <li class=\"nav-item active\"><a class=\"nav-link text-success\" href=\"abmelden.php\">Abmelden</a></li>\n";
