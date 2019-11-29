@@ -12,14 +12,13 @@ if (!empty($_GET["logout"])) {
 //check usermodel for cookiemonster and logincheck for call of function
 if (isset($_COOKIE['USERHASH'])) {
     $xml = simplexml_load_file("data/xml/user.xml") or die("Error: Cannot access database");
-    foreach ($xml->xpath('//user') as $user) {
-        $compare = strval($user->username);
-        //var_dump($compare);
-        //echo join(' ', str_split(bin2hex($compare), 2));  //dumps ascii chars
-        $hashed = hash('sha256', "$compare");
-        //var_dump($hashed);
+    foreach ($xml->xpath('//user') as $hashcheck) {
+        $compare = strval($hashcheck->username);
+        $hashme = preg_replace("/[^a-zA-Z]/", "", $compare);
+        var_dump($hashme);
+        $hashed = hash('sha256', "$hashme");
         if ($hashed == $_COOKIE['USERHASH']) {
-            $_SESSION['userquack'] = "hallo";
+            var_dump($hashed);
         }
     }
 }
