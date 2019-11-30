@@ -48,8 +48,12 @@ class UserModel {
     }
 
     /*public function comparecookie($USERHASH) {
-        foreach ($this->xml->xpath('//user') as $user) {
-            if ((hash('sha256', "$user")) == $USERHASH) {
+        $xml = simplexml_load_file("data/xml/user.xml") or die("Error: Cannot access database");
+        foreach ($xml->xpath('//user') as $hashcheck) {
+            $compare = strval($hashcheck->username);
+            $hashme = preg_replace("/[^a-zA-Z]/", "", $compare);
+            $hashed = hash('sha256', "$hashme");
+            if ($hashed == $_COOKIE['USERHASH']) {
                 $this->username = strval($user->username);
                 $this->firstname = strval($user->firstname);
                 $this->lastname = strval($user->lastname);

@@ -15,8 +15,8 @@
                                 }
                                 ?></span></li> <!--shows name of logged in user -->
                         <?php if (!empty($user)) { ?>
-                             <li class="nav-item active"><a class="nav-link text-success" href="sites/about.php">About</a></li>
-                            <li class="nav-item active"><a class="nav-link text-success" href="sites/shop.php">Shop</a></li>
+                             <li class="nav-item active"><a class="nav-link text-success" href="index.php?view=About">About</a></li>
+                            <li class="nav-item active"><a class="nav-link text-success" href="shop.php">Shop</a></li>
                             <li class="nav-item active">
                                 <div id="shoppingcart" class="nav-collapse cart-collapse">
                                     <ul class="nav pull-right">

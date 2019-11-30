@@ -1,25 +1,12 @@
 <?php
-require_once ("Entities/UserEntity.php");
-session_start();
-
+require_once("Entities/UserEntity.php");
+ session_start();
+ 
 if (!empty($_GET["logout"])) {
     session_destroy();
     unset($_COOKIE['USERHASH']);
     setcookie("USERHASH", "", 1, '/');
     header('location: /');
-}
-
-//check usermodel for cookiemonster and logincheck for call of function
-if (isset($_COOKIE['USERHASH'])) {
-    $xml = simplexml_load_file("data/xml/user.xml") or die("Error: Cannot access database");
-    foreach ($xml->xpath('//user') as $hashcheck) {
-        $compare = strval($hashcheck->username);
-        $hashme = preg_replace("/[^a-z0-9A-Z]/", "", $compare);
-        $hashed = hash('sha256', "$hashme");
-        if ($hashed == $_COOKIE['USERHASH']) {
-            var_dump($hashed);
-        }
-    }
 }
 
 if (!empty($_SESSION["user"])) {
@@ -41,15 +28,12 @@ if (!empty($_SESSION["user"])) {
     </head>
     <body style="padding-top:60px;">
         <header>
-
             <?php include('sites/navbar.php'); ?>
             <?php include('sites/quicklinks.php'); ?>
         </header>
         <main>
-            <?php include('sites/dynamicnews.php'); ?>
+            <?php include('sites/dynamicshop.php'); ?>
         </main>
-
-
         <?php include('sites/footer.php'); ?>
 
 
