@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
+﻿<nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
     <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;">
 
     <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
