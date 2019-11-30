@@ -20,26 +20,51 @@
                 <li class="nav-item active">
                     <div id="shoppingcart" class="nav-collapse cart-collapse">
                         <ul class="nav pull-right">
-                            <li class="dropdown open <?php if (isset($_SESSION['keepopen'])) {echo"show";} ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
+                            <li class="dropdown open <?php if (isset($_SESSION['keepopen'])) {
+                echo"show";
+            } ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
                                 <a href="#" data-toggle="dropdown"
-                                   class="dropdown-toggle nav-link text-success" aria-expanded="<?php if (isset($_SESSION['keepopen'])) {echo"true";}else{echo"false";}?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
+                                   class="dropdown-toggle nav-link text-success" aria-expanded="<?php if (isset($_SESSION['keepopen'])) {
+                echo"true";
+            } else {
+                echo"false";
+            } ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
                                     <i class="fas fa-shopping-basket"> <!-- see https://fontawesome.com/icons?d=gallery&q=shopping -->
                                         <span class="badge badge-success text-dark"> 
                                             <?php
                                             $all = 0; //show quanity in navbar
+                                            $gesamtpreis = 0;
                                             if (!empty($_SESSION['cart'])) {
                                                 foreach ($_SESSION['cart']as $key) {
-                                                    $wert = $key['quantity'];
-                                                    $all = $all + $wert;
+                                                    $anzahl = $key['quantity'];
+                                                    $all = $all + $anzahl;
+                                                    $item = $key['item'];
+
+                                                    //json read needed here no clue why ????? will say not a object if somewhere else
+                                                    $read = file_get_contents("data/shop/json_datein/produkte.json"); //gets a string
+                                                    if ($read === false) {
+                                                        // deal with error...
+                                                    } else {
+                                                        // var_dump($read);
+                                                        $data = json_decode($read); //decodes string to array
+                                                    }
+                                                    foreach ($data as $data) {
+                                                        if ($data->id == $item) {
+                                                            $gesamtpreis += ($data->preis) * $anzahl;
+                                                        }
+                                                    }
                                                 }
                                             }
-                                            echo"$all";
+                                            echo"<span class=\"border-right border-dark\">$all </span>";
+                                            echo"<span class=\"ml-1\">$gesamtpreis €</span>";
                                             ?>
                                         </span>
                                     </i>
                                 </a>
 
-                                <ul class="dropdown-menu border-dark p-2 <?php if (isset($_SESSION['keepopen'])) {echo"show";} ?>" style="right: 0; left: auto;"> <!-- php needed to keep dropdown open onklick/remove/add-->
+                                <ul class="dropdown-menu border-dark p-2 <?php if (isset($_SESSION['keepopen'])) {
+                                                echo"show";
+                                            } ?>" style="right: 0; left: auto;"> <!-- php needed to keep dropdown open onklick/remove/add-->
                                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
                                         <li class = "nav-header">Your Shoppingcart</li>
                                         <?php
@@ -82,32 +107,33 @@
                                         }
 
                                         echo"<li><p>Total: $gesamtpreis €</p></li>";
-                                        
-                                        if($gesamtpreis!=0){
+
+                                        if ($gesamtpreis != 0) {
                                             echo"<li><a href=\"\">I wanna buy it daddy</a></li>";
-                                        }else{
+                                        } else {
                                             echo"<li><a href=\"shop.php\">Lets go shopping <3 </a></li>";
-                                        } ?>
+                                        }
+                                        ?>
                                     </form>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <?php
-            }
+                    <?php
+                }
 
-            if (empty($user)) {
-                ?>
-                <li class="nav-item active"><a class="nav-link text-success" href="login.html">Login</a></li>
-                <?php } if (!empty($user)) {
+                if (empty($user)) {
                     ?>
+                <li class="nav-item active"><a class="nav-link text-success" href="login.html">Login</a></li>
+<?php } if (!empty($user)) {
+    ?>
                 <li class="nav-item active"><a class="nav-link text-success" href="index.php?logout=true">Abmelden</a></li>
 <?php } ?>
         </ul>
     </div>
 </nav>
-<?php unset($_SESSION['keepopen']); //keepopen to show dropdown onklick reset?> 
+<?php unset($_SESSION['keepopen']); //keepopen to show dropdown onklick reset ?> 
 
 <!-- old login below -->
 <!--  <li class="nav-item active">
