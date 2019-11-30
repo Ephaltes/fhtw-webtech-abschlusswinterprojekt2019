@@ -17,7 +17,6 @@ if (isset($_COOKIE['USERHASH'])) {
         $hashme = preg_replace("/[^a-z0-9A-Z]/", "", $compare);
         $hashed = hash('sha256', "$hashme");
         if ($hashed == $_COOKIE['USERHASH']) {
-            
         }
     }
 }
@@ -31,14 +30,14 @@ if (!isset($_SESSION['cart'])) {
 $_SESSION['currentpage']="index";
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="de">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
         <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
 
         <title>index.php!</title>
