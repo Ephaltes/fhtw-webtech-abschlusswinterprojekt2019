@@ -42,7 +42,8 @@
                                 <ul class="dropdown-menu border-dark p-2" style="right: 0; left: auto;">
                                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
                                         <li class = "nav-header">reeeeeeeee</li>
-                                        <?php // show what items in cart
+                                        <?php
+                                        // show what items in cart
                                         $gesamtpreis = 0;
                                         if (!empty($_SESSION['cart'])) {
                                             foreach ($_SESSION['cart']as $key) {
@@ -89,48 +90,17 @@
                 </li>
                 <?php
             }
-            if (!empty($_SESSION['userquack']))
-                echo"hereka";
 
             if (empty($user)) {
                 ?>
-                <li class="nav-item active">
-                    <div class="nav-item-dropdown dropdown">
-                        <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
-                        <div class="dropdown-menu drop-menu-right border-dark" style="right: 0; left: auto;">
-                            <form class="p-4" method="POST" action="sites/logincheck.php">
-                                <div class="form-group">
-                                    <label for="User">User</label>
-                                    <input type="text" class="form-control" id="user" name="username"
-                                           placeholder="admin">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                           placeholder="Password">
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="dropdownCheck2"
-                                           name="dontforgetme" value="plsdont">
-                                    <label class="form-check-label" for="dropdownCheck2">
-                                        Remember me
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Sign in</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </li>
-                <?php
-            }
-            if (!empty($user)) {
+                <li class="nav-item active"><a class="nav-link text-success" href="login.html" ?>Login</a></li>
+            <?php } if (!empty($user)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link text-success" href="index.php?logout=true" ?>Abmelden</a></li>
-            <?php
-            }
-            if (empty($user)) {
-                ?>
+                <li class="nav-item active"><a class="nav-link text-success" href="index.php?logout=true">Abmelden</a></li>
+            <?php } ?>
+        </ul>
+    </div>
+</nav>
                 <!--  <li class="nav-item active">
                       <div class="nav-item-dropdown dropdown">
                           <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
@@ -158,15 +128,3 @@
                           </div>
                       </div>
                   </li> -->
-                <li class="nav-item active"><a class="nav-link text-success" href="login.html" ?>Login</a></li>
-
-
-                <?php
-            }
-            if (!empty($user)) {
-                ?>
-                <li class="nav-item active"><a class="nav-link text-success" href="index.php?logout=true">Abmelden</a></li>
-<?php } ?>
-                                           </ul>
-                                           </div>
-                                           </nav>
