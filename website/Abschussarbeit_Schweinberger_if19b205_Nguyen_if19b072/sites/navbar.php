@@ -20,9 +20,9 @@
                 <li class="nav-item active">
                     <div id="shoppingcart" class="nav-collapse cart-collapse">
                         <ul class="nav pull-right">
-                            <li class="dropdown open">
+                            <li class="dropdown open <?php if (isset($_SESSION['keepopen'])) {echo"show";} ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
                                 <a href="#" data-toggle="dropdown"
-                                   class="dropdown-toggle nav-link text-success">
+                                   class="dropdown-toggle nav-link text-success" aria-expanded="<?php if (isset($_SESSION['keepopen'])) {echo"true";}else{echo"false";}?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
                                     <i class="fas fa-shopping-basket"> <!-- see https://fontawesome.com/icons?d=gallery&q=shopping -->
                                         <span class="badge badge-success text-dark"> 
                                             <?php
@@ -39,9 +39,9 @@
                                     </i>
                                 </a>
 
-                                <ul class="dropdown-menu border-dark p-2" style="right: 0; left: auto;">
+                                <ul class="dropdown-menu border-dark p-2 <?php if (isset($_SESSION['keepopen'])) {echo"show";} ?>" style="right: 0; left: auto;"> <!-- php needed to keep dropdown open onklick/remove/add-->
                                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
-                                        <li class = "nav-header">reeeeeeeee</li>
+                                        <li class = "nav-header">Your Shoppingcart</li>
                                         <?php
                                         // show what items in cart
                                         $gesamtpreis = 0;
@@ -68,20 +68,26 @@
                                                         $gesamtpreis += ($data->preis) * $anzahl;
 
                                                         echo"</span>";
-                                                        $objectremove = $data->id;
+                                                        $item = $data->id;
                                                         $linkme = $_SESSION['currentpage'];
-                                                        echo"<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/removefromcart.php?itemtoremove=$objectremove&site=$linkme\">x</a></span>";
+                                                        echo"<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/editcart.php?item=$item&site=$linkme&action=x\">x</a></span>";
+                                                        echo"<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/editcart.php?item=$item&site=$linkme&action=u\">+</a></span>"; //u = up increase + cant be trasnfered with get
+                                                        echo"<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/editcart.php?item=$item&site=$linkme&action=d\">-</a></span>"; //d = down decrease by 1 cant be transfered with get
                                                         echo"</li>";
                                                     }
                                                 }
                                             }
                                         } else {
-                                            echo"<h1>nothing found</h1>";
+                                            echo"<h3>sadly your basket is empty :(</h3>";
                                         }
 
                                         echo"<li><p>Total: $gesamtpreis €</p></li>";
-                                        ?>
-                                        <li><a href="">I wanna buy it daddy</a></li>
+                                        
+                                        if($gesamtpreis!=0){
+                                            echo"<li><a href=\"\">I wanna buy it daddy</a></li>";
+                                        }else{
+                                            echo"<li><a href=\"shop.php\">Lets go shopping <3 </a></li>";
+                                        } ?>
                                     </form>
                                 </ul>
                             </li>
@@ -93,38 +99,41 @@
 
             if (empty($user)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link text-success" href="login.html" ?>Login</a></li>
-            <?php } if (!empty($user)) {
-                ?>
+                <li class="nav-item active"><a class="nav-link text-success" href="login.html">Login</a></li>
+                <?php } if (!empty($user)) {
+                    ?>
                 <li class="nav-item active"><a class="nav-link text-success" href="index.php?logout=true">Abmelden</a></li>
-            <?php } ?>
+<?php } ?>
         </ul>
     </div>
 </nav>
-                <!--  <li class="nav-item active">
-                      <div class="nav-item-dropdown dropdown">
-                          <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
-                          <div class="dropdown-menu drop-menu-right border-dark" style="right: 0; left: auto;">
-                              <form class="p-4" method="POST" action="sites/logincheck.php">
-                                  <div class="form-group">
-                                      <label for="User">User</label>
-                                      <input type="text" class="form-control" id="user" name="username"
-                                             placeholder="admin">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="Password">Password</label>
-                                      <input type="password" class="form-control" id="password" name="password"
-                                             placeholder="Password">
-                                  </div>
-                                  <div class="form-check">
-                                      <input type="checkbox" class="form-check-input" id="dropdownCheck2"
-                                             name="dontforgetme" value="plsdont">
-                                      <label class="form-check-label" for="dropdownCheck2">
-                                          Remember me
-                                      </label>
-                                  </div>
-                                  <button type="submit" class="btn btn-primary">Sign in</button>
-                              </form>
-                          </div>
-                      </div>
-                  </li> -->
+<?php unset($_SESSION['keepopen']); //keepopen to show dropdown onklick reset?> 
+
+<!-- old login below -->
+<!--  <li class="nav-item active">
+      <div class="nav-item-dropdown dropdown">
+          <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
+          <div class="dropdown-menu drop-menu-right border-dark" style="right: 0; left: auto;">
+              <form class="p-4" method="POST" action="sites/logincheck.php">
+                  <div class="form-group">
+                      <label for="User">User</label>
+                      <input type="text" class="form-control" id="user" name="username"
+                             placeholder="admin">
+                  </div>
+                  <div class="form-group">
+                      <label for="Password">Password</label>
+                      <input type="password" class="form-control" id="password" name="password"
+                             placeholder="Password">
+                  </div>
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="dropdownCheck2"
+                             name="dontforgetme" value="plsdont">
+                      <label class="form-check-label" for="dropdownCheck2">
+                          Remember me
+                      </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+          </div>
+      </div>
+  </li> -->
