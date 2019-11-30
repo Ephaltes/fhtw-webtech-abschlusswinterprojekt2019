@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <link rel="stylesheet" href="summernote/summernote-bs4.css">
+
+    <title>News erstellen</title>
+
+
+</head>
+<body>
+<h1>News erstellen</h1>
+
+<form>
+
+
+    <div class="form-group col-md-4">
+        <label>Überschrift der News: </label>
+        <input class="form-control" type="text" name="title">
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="custom-file">
+            <input type="file" name="thumbnail" class="custom-file-input  " accept="image/*" id="thumbnail">
+            <label class="custom-file-label " for="thumbnail">Titelbild</label>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <img src="" id="preview" class="hide img-thumbnail img-fluid d-none">
+    </div>
+
+    <textarea id="summernote" name="content"></textarea>
+
+    <input type="submit" class="btn btn-primary" value="erstellen">
+
+</form>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/popper-utils.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="summernote/summernote-bs4.js"></script>
+
+
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+
+    $('input[type="file"]').change(function(e) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            // get loaded data and render thumbnail.
+            document.getElementById("preview").src = e.target.result;
+            $("#preview").addClass("d-block");
+            $("#preview").removeClass("d-none");
+
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+    });
+
+
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+</script>
+
+</body>
+</html>
