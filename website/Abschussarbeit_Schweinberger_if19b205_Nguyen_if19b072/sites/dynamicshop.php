@@ -1,7 +1,4 @@
-<?php
 
-?>
-<!-- wrapper -->
 <form action="shop.php" method="POST">
     <div class="container pt-3 mb-5" style="min-height: 500px;">
         <h1 class="">FH-Technikum Merch-Shop <3</h1>
@@ -31,6 +28,7 @@
                     echo "</div>";
                 }
             }
+            var_dump($_SESSION['cart']);
             ?>
 
 
