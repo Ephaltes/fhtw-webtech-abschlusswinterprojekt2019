@@ -50,7 +50,7 @@
 
                         if (empty($user)) {
                             ?>
-                            <li class="nav-item active">
+                          <!--  <li class="nav-item active">
                                 <div class="nav-item-dropdown dropdown">
                                     <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
                                     <div class="dropdown-menu drop-menu-right border-dark" style="right: 0; left: auto;">
@@ -76,8 +76,10 @@
                                         </form>
                                     </div>
                                 </div>
+                            </li> -->
+                            <li class="nav-item active"><a class="nav-link text-success" href="login.html" ?>Login</a></li>
 
-                            </li>
+
                             <?php
                         }
                             if (!empty($user)) {

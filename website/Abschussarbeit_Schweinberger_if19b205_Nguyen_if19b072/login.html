@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
+
+    <title>index.php!</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded shadow shadow-sm">
+                        <div class="card-header">
+                            <h3 class="mb-0">Login</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" action="sites/logincheck.php" id="formLogin" novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="true">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" name="password" required="true" >
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                <div>
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="rememberme" class="custom-control-input">
+                                        <span class="custom-control-indicator custom-control-label"></span>
+                                        <span class="custom-control-description small text-dark">Remember me on this computer</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+
+                </div>
+
+
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+<!--/container-->
+
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" />
+</body>
