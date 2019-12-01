@@ -22,7 +22,12 @@
                     echo "          <h5 class = \"card-title\">$data->titel</h5>\n";
                     echo "          <p class = \"card-text\">$data->beschreibung</p>\n";
                     echo "          <p>Price: <em>$data->preis €</em></p>\n";
-                    echo "          <button type=\"submit\" name=\"id\" value=\"$data->id\"class=\"btn btn-primary\">add to cart</button>\n";
+                    if ($user->usertype == "user") {
+                        echo "          <button type=\"submit\" name=\"id\" value=\"$data->id\"class=\"btn btn-primary\">add to cart</button>\n";
+                    }
+                    if ($user->usertype == "admin"){
+                        echo "          <button type=\"submit\" name=\"id\" value=\" \"class=\"btn btn-primary\" disabled>Admins cant add</button>\n";
+                    }
                     echo "        </div>\n";
                     echo "      </div>";
                     echo "</div>";

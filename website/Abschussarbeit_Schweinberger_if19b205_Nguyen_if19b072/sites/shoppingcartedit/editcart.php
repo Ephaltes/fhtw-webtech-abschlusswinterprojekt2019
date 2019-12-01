@@ -21,8 +21,8 @@ if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
         }
     }
     $_SESSION['keepopen']= "true";
-    header("location: ../$redirect");
+    header("location: ../../$redirect");
 } else {
-    header('location: ../index.php');
+    header('location: ../../index.php');
 }
 ?>
