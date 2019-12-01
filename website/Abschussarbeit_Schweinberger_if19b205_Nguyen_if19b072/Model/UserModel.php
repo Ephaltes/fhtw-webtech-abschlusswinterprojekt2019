@@ -43,26 +43,26 @@ class UserModel {
     public function cookiemonster($username) {
         $hashme = $username;
         $hashed = hash('sha256', "$hashme");
-        setcookie("USERHASH", "$hashed", time() + 60 * 10 * 10, '/');
+        setcookie("USERHASH", "$hashed", time() + 60, '/');
         return true;
     }
+    
 
-    /*public function comparecookie($USERHASH) {
-        $xml = simplexml_load_file("data/xml/user.xml") or die("Error: Cannot access database");
-        foreach ($xml->xpath('//user') as $hashcheck) {
+    public function validcookie($USERHASH) {
+        foreach ($this->xml->xpath('//user') as $hashcheck) {
             $compare = strval($hashcheck->username);
             $hashme = preg_replace("/[^a-zA-Z]/", "", $compare);
             $hashed = hash('sha256', "$hashme");
-            if ($hashed == $_COOKIE['USERHASH']) {
-                $this->username = strval($user->username);
-                $this->firstname = strval($user->firstname);
-                $this->lastname = strval($user->lastname);
-                $this->usertype = strval($user['type']);
+            if ($hashed == $USERHASH) {
+                $this->username = strval($hashcheck->username);
+                $this->firstname = strval($hashcheck->firstname);
+                $this->lastname = strval($hashcheck->lastname);
+                $this->usertype = strval($hashcheck['type']);
                 return true;
             }
         }
         return false;
-    }*/
+    }
 
     public function GetUserObject() {
         $user = new UserEntity();

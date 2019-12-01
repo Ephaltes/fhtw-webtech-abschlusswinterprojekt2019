@@ -9,17 +9,13 @@ if (!empty($_GET["logout"])) {
     header('location: /');
 }
 
-//check usermodel for cookiemonster and logincheck for call of function
-if (isset($_COOKIE['USERHASH'])) {
-    $xml = simplexml_load_file("data/xml/user.xml") or die("Error: Cannot access database");
-    foreach ($xml->xpath('//user') as $hashcheck) {
-        $compare = strval($hashcheck->username);
-        $hashme = preg_replace("/[^a-z0-9A-Z]/", "", $compare);
-        $hashed = hash('sha256', "$hashme");
-        if ($hashed == $_COOKIE['USERHASH']) {
-        }
-    }
+if(isset($_COOKIE['USERHASH'])&& empty($_SESSION["user"])){
+    header('location: sites/logincheck.php');
 }
+//check usermodel for cookiemonster and logincheck for call of function
+
+    
+    
 
 if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
@@ -27,7 +23,7 @@ if (!empty($_SESSION["user"])) {
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
-$_SESSION['currentpage']="index";
+$_SESSION['currentpage'] = "index";
 ?>
 <!doctype html>
 <html lang="de">
@@ -42,18 +38,24 @@ $_SESSION['currentpage']="index";
 
         <title>index.php!</title>
     </head>
-    <body style="padding-top:60px;">
+    <body style="padding-top:40px;">
         <header>
 
-            <?php include('sites/navbar.php'); ?>
-            <?php include('sites/quicklinks.php'); ?>
+            <?php include('sites/nav_footer/navbar.php'); ?>
+            <?php include('sites/nav_footer/quicklinks.php'); ?>
         </header>
         <main>
-            <?php include('sites/dynamicnews.php'); ?>
+            <?php
+            if (isset($_GET['viewme']) && !empty($_GET['viewme']) && $_GET['viewme'] == "About") {
+                include('sites/about.php');
+            } else {
+                include('sites/dynamicnews.php');
+            }
+            ?>
         </main>
 
 
-        <?php include('sites/footer.php'); ?>
+        <?php include('sites/nav_footer/footer.php'); ?>
 
 
         <!-- Optional JavaScript -->

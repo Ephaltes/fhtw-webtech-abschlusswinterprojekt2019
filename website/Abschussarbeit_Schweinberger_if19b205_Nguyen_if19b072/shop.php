@@ -28,16 +28,16 @@ $_SESSION['currentpage']="shop";
 
         <title>index.php!</title>
     </head>
-    <body style="padding-top:60px;">
+    <body style="padding-top:40px;">
         <header>
-            <?php include('sites/shoppingcartmagic.php')?>
-            <?php include('sites/navbar.php'); ?>
-            <?php include('sites/quicklinks.php'); ?>
+            <?php include('sites/shoppingcartedit/shoppingcartadd.php')?>
+            <?php include('sites/nav_footer/navbar.php'); ?>
+            <?php include('sites/nav_footer/quicklinks.php'); ?>
         </header>
         <main>
             <?php include('sites/dynamicshop.php'); ?>
         </main>
-        <?php include('sites/footer.php'); ?>
+        <?php include('sites/nav_footer/footer.php'); ?>
 
 
         <!-- Optional JavaScript -->
