@@ -20,7 +20,12 @@
                 Erstellt am <?php echo "$day.$month.$year $hour:$minute"; ?>
             </p>
 
+            <?php if(!empty($thumbnail))
+            {?>
             <img  src="<?php echo $thumbnail; ?>" class="img-fluid rounded mx-auto d-block">
+            <?php
+            }
+            ?>
             <hr>
             <?php echo $content ?>
         </div>

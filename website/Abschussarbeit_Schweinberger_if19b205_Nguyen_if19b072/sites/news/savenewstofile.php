@@ -1,12 +1,14 @@
 <?php
 if (!empty($_POST)) {
 
+$base64=null;
 
-    if (!empty($_FILES['thumbnail'])) {
+    if (!empty($_FILES['thumbnail']["size"])) {
         $file_tmp = $_FILES['thumbnail']['tmp_name'];
         $type = $_FILES['thumbnail']['type'];//pathinfo($file_tmp, PATHINFO_EXTENSION);
         $data = file_get_contents($file_tmp);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        echo var_dump($_FILES["thumbnail"]);
     }
 
 

@@ -104,6 +104,11 @@ if (!empty($_SESSION["user"])) {
 
     $("#btn_submit").click(function(){
 
+        //xss säuberung
+       var input = $("#summernote").summernote("code");
+       input = input.replace(/(\b)(on\S+)(\s*)=.*"|javascript|(<\s*)(\/*)script.*/ig,"");
+        $("#summernote").summernote("code",input);
+
         $("#content_raw").val($($("#summernote").summernote("code")).text());
         $("#form").submit();
 

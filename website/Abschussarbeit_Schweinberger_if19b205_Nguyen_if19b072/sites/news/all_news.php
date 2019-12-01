@@ -26,15 +26,9 @@ $files = scan_dir("data/news/");
 foreach ($files as $file) {
     $xml = simplexml_load_file("data/news/" . $file);
 
-    $title = $xml->title;
-    $date = $xml->date;
-    $thumbnail = $xml->thumbnail;
-    $content_raw = $xml->content_raw;
     $link = base64_encode($file);
-
-
     $format = "d_m_y_G_i_s";
-    $dateobject = DateTime::createFromFormat($format,$date);
+    $dateobject = DateTime::createFromFormat($format,$xml->date);
     $diff = date_diff(new DateTime("now"),$dateobject);
     //echo var_dump($diff);
 
@@ -43,10 +37,15 @@ foreach ($files as $file) {
     <div class="col-lg-4 col-md-6 col-12">
     <div class="card p-1 m-1">
         <a href="index.php?news=<?php echo $link; ?>" class="text-dark text-decoration-none">
-        <img class="card-img-top" src="<?php echo $thumbnail ?>" alt="Card image cap">
+            <?php if(!empty($xml->thumbnail))
+            {?>
+                <img class="card-img-top" src="<?php echo $xml->thumbnail ?>" alt="Card image cap">
+                <?php
+            }
+            ?>
         <div class="card-body">
-            <h5 class="card-title"><?php echo $title ?></h5>
-            <p class="card-text"> <?php echo $content_raw ?></p>
+            <h5 class="card-title"><?php echo $xml->title ?></h5>
+            <p class="card-text"> <?php echo $xml->content_raw ?></p>
             <p class="card-text"><small class="text-muted"><?php
                     if($diff->y > 0)
                         {
