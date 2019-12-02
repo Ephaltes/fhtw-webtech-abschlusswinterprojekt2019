@@ -33,7 +33,7 @@ if (!empty($_SESSION["user"])) {
             <div class="form-group row">
                 <div class="col">
                     <label>Überschrift der News: </label>
-                    <input class="form-control" type="title" name="title">
+                    <input class="form-control" type="title" name="title" >
                 </div>
             </div>
 
@@ -106,11 +106,14 @@ if (!empty($_SESSION["user"])) {
 
         //xss säuberung
        var input = $("#summernote").summernote("code");
-       input = input.replace(/(\b)(on\S+)(\s*)=.*"|javascript|(<\s*)(\/*)script.*/ig,"");
+       input = input.replace(/(\b)(on\S+)(\s*)=.*"|javascript|((<\s*)|(&lt;\s*))(\/*)script.*/ig,"");
         $("#summernote").summernote("code",input);
 
         $("#content_raw").val($($("#summernote").summernote("code")).text());
-        $("#form").submit();
+
+       setTimeout(function(){
+            $("#form").submit();
+        },100);
 
     });
 
