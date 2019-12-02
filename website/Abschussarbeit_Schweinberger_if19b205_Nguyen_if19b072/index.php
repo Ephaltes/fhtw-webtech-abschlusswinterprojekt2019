@@ -21,7 +21,6 @@ if (!empty($_SESSION["user"])) {
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
-$_SESSION['currentpage'] = "index";
 ?>
 <!doctype html>
 <html lang="de">

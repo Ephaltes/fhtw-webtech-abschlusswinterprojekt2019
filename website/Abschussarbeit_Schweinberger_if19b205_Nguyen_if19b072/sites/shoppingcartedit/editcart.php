@@ -4,7 +4,6 @@ session_start();
 
 if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
     $redirect = $_GET['site'];
-    $redirect .= ".php";
     $operation = $_GET['action'];
     
     
@@ -21,7 +20,7 @@ if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
         }
     }
     $_SESSION['keepopen']= "true";
-    header("location: ../../$redirect");
+    header("location: $redirect");
 } else {
     header('location: ../../index.php');
 }

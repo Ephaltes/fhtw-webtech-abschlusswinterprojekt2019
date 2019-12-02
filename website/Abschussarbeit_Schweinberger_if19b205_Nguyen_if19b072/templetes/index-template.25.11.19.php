@@ -40,14 +40,14 @@ if (isset($_SESSION['Privs'])) {
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
-                        <li class="nav-item active"><span class="nav-link text-success"><?php echo"$Vorname $Nachnahme"?></span></li> <!--shows name of logged in user -->
-                        <li class="nav-item active"><a class="nav-link text-success" href="layer2/about.php">About</a></li>
-                        <li class="nav-item active"><a class="nav-link text-success" href="layer2/shop.php">Shop</a></li>
+                        <li class="nav-item active"><span class="nav-link text-light"><?php echo"$Vorname $Nachnahme"?></span></li> <!--shows name of logged in user -->
+                        <li class="nav-item active"><a class="nav-link text-light" href="layer2/about.php">About</a></li>
+                        <li class="nav-item active"><a class="nav-link text-light" href="layer2/shop.php">Shop</a></li>
                         <li class="nav-item active">
                             <div id="shoppingcart" class="nav-collapse cart-collapse">
                                 <ul class="nav pull-right">
                                     <li class="dropdown open">
-                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link text-success"><img src="nondynamicdata/img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link text-light"><img src="nondynamicdata/img/shopping-cart-icon.jpg" alt="shopping-cart-icon" style="width:20px;"></a>
 
                                         <ul class="dropdown-menu">
                                             <li class="nav-header">reeeeeeeee</li>
@@ -67,7 +67,7 @@ if (isset($_SESSION['Privs'])) {
 
                         <li class="nav-item active">
                             <div class="btn-group">                                
-                                <span data-toggle="dropdown" class="dropdown-toggle nav-link text-success">Anmelden</span>
+                                <span data-toggle="dropdown" class="dropdown-toggle nav-link text-light">Anmelden</span>
                                 <div class="dropdown-menu border-dark">
                                     <form class="p-4" methode="GET" action="controller-index.php">
                                         <div class="form-group">
@@ -90,20 +90,20 @@ if (isset($_SESSION['Privs'])) {
                             </div>
                            
                         </li> <!-- anmelden or abmelden shown depending on login status -->
-                        <li class="nav-item active"><a class="nav-link text-success" href="abmelden.php">Abmelden</a></li>
+                        <li class="nav-item active"><a class="nav-link text-light" href="abmelden.php">Abmelden</a></li>
                     </ul>
                 </div>
             </nav>
             <div class="">
                 <div id="quicklinks" class="bg-dark pt-1 pb-1 "> <!-- center this !!!edit-->
                     <ul class="d-flex align-content-start flex-wrap flex-xs-row pt-2">
-                        <li class="col-1"><a class=" text-success" href="">randomNews1</a></li>
-                        <li class="col-1"><a class=" text-success" href="">randomNews1</a></li>
-                        <li class="col-1"><a class=" text-success" href="https://cis.technikum-wien.at/cis/index.php">CIS</a></li>
-                        <li class="col-1"><a class=" text-success" href="https://www.technikum-wien.at/">FHTW</a></li>
-                        <li class="col-1"><a class=" text-success" href="https://moodle.technikum-wien.at/">Moodle</a></li>
-                        <li class="col-1"><a class=" text-success" href="">!!!edit</a></li>
-                        <li class="col-1"><a class=" text-success" href="">!!!edit</a></li>
+                        <li class="col-1"><a class=" text-light" href="">randomNews1</a></li>
+                        <li class="col-1"><a class=" text-light" href="">randomNews1</a></li>
+                        <li class="col-1"><a class=" text-light" href="https://cis.technikum-wien.at/cis/index.php">CIS</a></li>
+                        <li class="col-1"><a class=" text-light" href="https://www.technikum-wien.at/">FHTW</a></li>
+                        <li class="col-1"><a class=" text-light" href="https://moodle.technikum-wien.at/">Moodle</a></li>
+                        <li class="col-1"><a class=" text-light" href="">!!!edit</a></li>
+                        <li class="col-1"><a class=" text-light" href="">!!!edit</a></li>
                     </ul>
                 </div>
             </div>

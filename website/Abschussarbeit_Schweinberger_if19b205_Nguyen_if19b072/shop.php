@@ -12,7 +12,6 @@ if (!empty($_GET["logout"])) {
 if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
-$_SESSION['currentpage'] = "shop";
 ?>
 
 <!doctype html>
