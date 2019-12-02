@@ -1,10 +1,10 @@
 <?php
 
-require_once ("Entities/UserEntity.php");
+require_once("Entities/UserEntity.php");
 
 session_start();
 
-if(empty($_COOKIE['USERHASH'])&& empty($_SESSION["user"])){
+if (empty($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
     header('location: sites/logincheck.php');
 }
 
@@ -15,79 +15,79 @@ if (!empty($_SESSION["user"])) {
 
 <!doctype html>
 <html lang="de">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-        <link rel="stylesheet" href="css/style.css" type="text/css">
-
-
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/popper-utils.js"></script>
-        <script src="js/bootstrap.bundle.js"></script>
-        <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/popper-utils.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script>
 
-        <title>News Verwaltung</title>
 
-    </head>
-    <body style="padding-top:40px;">
-        <header>
-            <?php include('sites/nav_footer/navbar.php'); ?>
-        </header>
+    <title>News Verwaltung</title>
 
-        <div>
+</head>
+<body style="padding-top:40px;">
+<header>
+    <?php include('sites/nav_footer/navbar.php'); ?>
+</header>
 
-            <div class="d-flex" id="wrapper">
+<div>
 
-                <!-- Sidebar -->
-                <nav class="border-right" id="sidebar-wrapper">
-                    <div class="sidebar-heading text-center list-group-item">Menü</div>
-                    <div class="list-group list-group-flush">
-                        <a href="news_admin.php" class="list-group-item list-group-item-action pl-3">News Verwaltung</a>
-                        <a href="news_admin.php?menu=create" class="list-group-item list-group-item-action pl-3">News erstellen</a>
-                        <a href="index.php" class="list-group-item list-group-item-action pl-3">Hauptseite</a>
-                    </div>
-                </nav>
-                <!-- /#sidebar-wrapper -->
-                <!-- Page Content -->
-                <div id="page-content-wrapper">
-                    <nav class="navbar navbar-expand-lg navbar-light  ">
-                        <button class="btn btn-lg" id="menu-toggle">&#9776;</button>
-                        <div class="col-md-12 display-4 text-center">News Verwaltung</div>
-                    </nav>
-                    <main class="container-fluid m-2 h-auto" id="body_partial">
-                        <?php
-                        if(!empty($_GET["menu"]) &&  $_GET["menu"] == "create")
+    <div class="d-flex" id="wrapper">
 
-                        require ("sites/news/createnews.php");
-
-                        ?>
-                    </main>
-                </div>
-                <!-- /#page-content-wrapper -->
+        <!-- Sidebar -->
+        <nav class="border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center list-group-item">Menü</div>
+            <div class="list-group list-group-flush">
+                <a href="news_admin.php" class="list-group-item list-group-item-action pl-3">News Verwaltung</a>
+                <a href="news_admin.php?menu=create" class="list-group-item list-group-item-action pl-3">News
+                    erstellen</a>
+                <a href="index.php" class="list-group-item list-group-item-action pl-3">Hauptseite</a>
             </div>
-            <!-- /#wrapper -->
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light  ">
+                <button class="btn btn-lg" id="menu-toggle">&#9776;</button>
+                <div class="col-md-12 display-4 text-center">News Verwaltung</div>
+            </nav>
+            <main class="container-fluid m-2 h-auto" id="body_partial">
+                <?php
+                if (!empty($_GET["menu"]) && $_GET["menu"] == "create")
+                    require("sites/news/createnews.php");
+                else
+                    require("sites/news/display_news_admin.php")
+                ?>
+            </main>
         </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+</div>
 
 
+<!-- Optional JavaScript -->
 
-        <!-- Optional JavaScript -->
+<script asp-add-nonce="true">
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
-        <script asp-add-nonce="true">
-            $("#menu-toggle").click(function (e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
-
-    </body>
+</body>
 </html>
