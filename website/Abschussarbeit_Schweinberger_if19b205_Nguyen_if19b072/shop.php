@@ -1,7 +1,7 @@
 <?php
 require_once("Entities/UserEntity.php");
- session_start();
- 
+session_start();
+
 if (!empty($_GET["logout"])) {
     session_destroy();
     unset($_COOKIE['USERHASH']);
@@ -12,7 +12,7 @@ if (!empty($_GET["logout"])) {
 if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
-$_SESSION['currentpage']="shop";
+$_SESSION['currentpage'] = "shop";
 ?>
 
 <!doctype html>
@@ -30,13 +30,14 @@ $_SESSION['currentpage']="shop";
     </head>
     <body style="padding-top:40px;">
         <header>
-            <?php include('sites/shoppingcartedit/shoppingcartadd.php')?>
+            <?php include('sites/shoppingcartedit/shoppingcartadd.php') ?>
             <?php include('sites/nav_footer/navbar.php'); ?>
-            <?php include('sites/nav_footer/quicklinks.php'); ?>
+
         </header>
         <main>
             <?php include('sites/dynamicshop.php'); ?>
         </main>
+        <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
 
 
