@@ -1,0 +1,5 @@
+robots.txt
+# robots.txt zu localhost fh-technikum
+
+User-agent: *
+Disallow: /data/xml

@@ -28,18 +28,14 @@ require_once ("Entities/UserEntity.php");
                                 <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
-                                <a class="dropdown-item" href="news_admin.php">News Verwaltung</a>
+                                <a class="dropdown-item" href="news_admin.php"><i class="fas fa-newspaper"></i>   News Verwaltung</a>
                             </div>
                         </li>
                 <?php    }
                     ?> <!--shows name of logged in user -->
-            <?php
-            if (isset($_GET['viewme']) && !empty($_GET['viewme']) && $_GET['viewme'] == "About") {
-                echo '<li class="nav-item active"><a class="nav-link text-success" href="index.php">News</a></li>';
-            } else {
-                echo '<li class="nav-item active"><a class="nav-link text-success" href="index.php?viewme=About">About</a></li>';
-            }
-            if (!empty($user->usertype)) {
+                <li class="nav-item active"><a class="nav-link text-success" href="index.php">News</a></li>        
+                <li class="nav-item active"><a class="nav-link text-success" href="index.php?viewme=About">About</a></li>    
+          <?php  if (!empty($user->usertype)) {
                 ?>
                 <li class="nav-item active"><a class="nav-link text-success" href="shop.php">Shop</a></li>
                 <?php
