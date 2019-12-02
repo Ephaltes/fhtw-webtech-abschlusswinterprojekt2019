@@ -22,6 +22,8 @@ $files = scan_dir("data/news/");
 
 
 <main class="container">
+
+    <a class="btn btn-primary float-right mb-2" href="news_admin.php?menu=create">News erstellen</a>
     <div class="table-responsive">
         <table class="table table-white border">
             <thead>
@@ -70,7 +72,7 @@ $files = scan_dir("data/news/");
                         </a>
 
 
-                        <a href="news.php?news=<?php echo $link ?>" class="ml-1">
+                        <a href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1">
                             <i class="fas fa-edit text-dark"></i>
                         </a>
 
@@ -91,8 +93,8 @@ $files = scan_dir("data/news/");
 
 <script>
     $(document).on("click",".admin_action_delete",function(e){
-        console.log( $(this).closest("form")..name);
-        if(confirm("Wollen Sie wirklich den Artikel löschen?"))
+        //console.log( $(this).closest("form").attr("name"));
+        if(confirm("Wollen Sie wirklich den Artikel \""+$(this).closest("form").attr("name")+ "\" löschen?" ))
         {
             $(this).closest("form").submit();
         }

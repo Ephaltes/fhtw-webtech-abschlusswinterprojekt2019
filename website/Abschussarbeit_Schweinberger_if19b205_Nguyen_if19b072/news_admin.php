@@ -26,14 +26,15 @@ if (!empty($_SESSION["user"])) {
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
+    <?php require_once("sites/lib_include/fontawesome.php");?>
+
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/popper-utils.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script>
 
 
     <title>News Verwaltung</title>
@@ -48,7 +49,8 @@ if (!empty($_SESSION["user"])) {
 
     <div class="d-flex" id="wrapper">
 
-        <!-- Sidebar -->
+
+        <!-- Sidebar
         <nav class="border-right" id="sidebar-wrapper">
             <div class="sidebar-heading text-center list-group-item">Menü</div>
             <div class="list-group list-group-flush">
@@ -58,19 +60,22 @@ if (!empty($_SESSION["user"])) {
                 <a href="index.php" class="list-group-item list-group-item-action pl-3">Hauptseite</a>
             </div>
         </nav>
-        <!-- /#sidebar-wrapper -->
+        /#sidebar-wrapper -->
+
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light  ">
+         <!--   <nav class="navbar navbar-expand-lg navbar-light  ">
                 <button class="btn btn-lg" id="menu-toggle">&#9776;</button>
-                <div class="col-md-12 display-4 text-center">News Verwaltung</div>
-            </nav>
+            </nav> -->
+            <div class="col-md-12 display-4 text-center mb-5">News Verwaltung</div>
             <main class="container-fluid m-2 h-auto" id="body_partial">
                 <?php
-                if (!empty($_GET["menu"]) && $_GET["menu"] == "create")
+                if ( (!empty($_GET["menu"]) && $_GET["menu"] == "create") || !empty($_GET["edit"]) )
                     require("sites/news/createnews.php");
                 else
-                    require("sites/news/display_news_admin.php")
+                    {
+                    require("sites/news/display_news_admin.php");
+                }
                 ?>
             </main>
         </div>
@@ -82,7 +87,7 @@ if (!empty($_SESSION["user"])) {
 
 <!-- Optional JavaScript -->
 
-<script asp-add-nonce="true">
+<script>
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");

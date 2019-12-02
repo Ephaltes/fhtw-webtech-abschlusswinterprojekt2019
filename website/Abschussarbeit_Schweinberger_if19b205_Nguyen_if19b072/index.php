@@ -34,6 +34,8 @@ $_SESSION['currentpage'] = "index";
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
 
+    <?php require_once("sites/lib_include/fontawesome.php");?>
+
     <title>index.php!</title>
 </head>
 <body style="padding-top:40px;">
@@ -72,7 +74,7 @@ if (isset($_GET['viewme']) && !empty($_GET['viewme']) && $_GET['viewme'] == "Abo
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script>
+<!--<script src="https://kit.fontawesome.com/34bdaf57ad.js" crossorigin="anonymous"></script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
