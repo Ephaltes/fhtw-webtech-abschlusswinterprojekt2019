@@ -11,6 +11,6 @@ footer ul, footer li{
     width:auto;
     max-height:300px;
 }
-.dropdown-menu {
+.dropdown-menu.p_basket {
     min-width: 20rem;
 }

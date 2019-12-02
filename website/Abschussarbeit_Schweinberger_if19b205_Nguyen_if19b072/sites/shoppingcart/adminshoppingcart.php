@@ -31,7 +31,7 @@
             <span class="badge badge-success text-dark">0</span>
         </i>
     </a>
-    <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminbasket">
+    <div class="dropdown-menu p_basket dropdown-menu-right position-absolute" aria-labelledby="adminbasket">
      <div class="dropdown-item-text">
          <b>Your Shoppingcart</b>
      </div>

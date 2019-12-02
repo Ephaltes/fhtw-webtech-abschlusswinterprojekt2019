@@ -4,6 +4,8 @@
 * Copyright 2013-2019 Start Bootstrap
 * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
 */
+
+/*
 body {
     overflow-x: hidden;
 }
@@ -47,8 +49,16 @@ body {
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
     }
+} */
+
+#page-content-wrapper {
+    min-width: 100vw;
 }
 
 a .card-img-top {
     object-fit: cover;
+}
+
+.cursor-pointer{
+    cursor: pointer !important;
 }

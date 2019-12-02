@@ -3,12 +3,17 @@ if (!empty($_POST)) {
 
 $base64=null;
 
+    if(!empty($_POST["thumbnail_original"]))
+    {
+        $base64 = $_POST["thumbnail_original"];
+    }
+
     if (!empty($_FILES['thumbnail']["size"])) {
         $file_tmp = $_FILES['thumbnail']['tmp_name'];
         $type = $_FILES['thumbnail']['type'];//pathinfo($file_tmp, PATHINFO_EXTENSION);
         $data = file_get_contents($file_tmp);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-        echo var_dump($_FILES["thumbnail"]);
+        //echo var_dump($_FILES["thumbnail"]);
     }
 
 
@@ -17,7 +22,10 @@ $base64=null;
     $dom->formatOutput = true;
 
     $title_replaced = str_replace(" ", "", $_POST["title"]);
+
     $xml_name = $title_replaced . "_" . date("d_m_y_G_i_s") . ".xml";
+    if(!empty($_POST["edit_filename"]))
+        $xml_name=$_POST["edit_filename"];
 
     $root = $dom->createElement("news");
 

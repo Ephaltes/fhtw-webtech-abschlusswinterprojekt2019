@@ -1,5 +1,6 @@
 <?php
 if ($xml = simplexml_load_file("data/news/" . base64_decode($_GET["news"]))){
+
     $title = $xml->title;
     $thumbnail = $xml->thumbnail;
     $content = $xml->content;
