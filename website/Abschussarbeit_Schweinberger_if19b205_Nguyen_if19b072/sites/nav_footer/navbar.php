@@ -44,7 +44,7 @@ require_once("Entities/UserEntity.php");
                        aria-expanded="false">
                         <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminmenu">
+                    <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
                         <!-- position-absolute entfernt -->
                         <?php if ($user->usertype == "admin") { ?>
                             <a class="dropdown-item" href="news_admin.php"><i class="fas fa-newspaper"></i> News

@@ -19,7 +19,7 @@ function scan_dir($dir)
 $files = scan_dir("data/news/");
 
 ?>
-
+<div class="container-fluid">
 <div class="row">
 
 <?php
@@ -97,4 +97,5 @@ foreach ($files as $file) {
     </div>
 
 <?php } ?>
+</div>
 </div>

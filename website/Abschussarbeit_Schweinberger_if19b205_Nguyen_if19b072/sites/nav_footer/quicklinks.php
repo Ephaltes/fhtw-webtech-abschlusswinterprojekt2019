@@ -1,13 +1,13 @@
 <section id="quicklinks" class="">
                 <div id="" class="bg-dark pt-1 pb-1 "> <!-- center this !!!edit-->
                     <ul class="d-flex justify-content-center flex-wrap flex-xs-row pt-2">
-                        <li class="col-lg-1  col-xs-3"><a class=" text-light" href="">randomNews1</a></li>
-                        <li class="col-lg-1 col-xs-3"><a class=" text-light" href="">randomNews1</a></li>
-                        <li class="col-lg-1 col-xs-3"><a class=" text-light" href="https://cis.technikum-wien.at/cis/index.php">CIS</a></li>
-                        <li class="col-lg-1 col-xs-3"><a class=" text-light" href="https://www.technikum-wien.at/">FHTW</a></li>
-                        <li class="col-lg-1 col-xs-3"><a class=" text-light" href="https://moodle.technikum-wien.at/">Moodle</a></li>
-                        <li class="col-lg-1 col-xs-3"><a class=" text-light" href="">!!!edit</a></li>
-                        <li class="col-lg-1 col-xs-3"><a class=" text-light" href="">!!!edit</a></li>
+                        <li class="p-3"><a class=" text-light" href="">randomNews1</a></li>
+                        <li class="p-3"><a class=" text-light" href="">randomNews1</a></li>
+                        <li class="p-3"><a class=" text-light" href="https://cis.technikum-wien.at/cis/index.php">CIS</a></li>
+                        <li class="p-3"><a class=" text-light" href="https://www.technikum-wien.at/">FHTW</a></li>
+                        <li class="p-3"><a class=" text-light" href="https://moodle.technikum-wien.at/">Moodle</a></li>
+                        <li class="p-3"><a class=" text-light" href="">!!!edit</a></li>
+                        <li class="p-3"><a class=" text-light" href="">!!!edit</a></li>
                     </ul>
                 </div>
             </section>

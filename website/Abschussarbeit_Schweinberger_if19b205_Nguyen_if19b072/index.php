@@ -12,7 +12,7 @@ if (!empty($_GET["logout"])) {
 if (isset($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
     header('location: sites/logincheck.php');
 }
-//check usermodel for cookiemonster and logincheck for call of function
+//check usermodel for cookiemonster and logincheck.php for call of function
 
 
 if (!empty($_SESSION["user"])) {
@@ -43,7 +43,7 @@ if (!isset($_SESSION['cart'])) {
             <?php include('sites/nav_footer/navbar.php'); ?>
 
         </header>
-        <?php if (isset($_GET['viewme']) && !empty($_GET['viewme']) && $_GET['viewme'] == "About") { ?>
+        <?php if (!empty($_GET['viewme']) && $_GET['viewme'] == "About") { ?>
         <about>
             <?php include('sites/about.php'); ?>
         </about>

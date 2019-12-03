@@ -5,16 +5,16 @@
         <div class="card-columns">
 
             <?php
-            $read = file_get_contents("data/shop/json_datein/produkte.json"); //gets a string
-            if ($read === false) {
+            $shop = file_get_contents("data/shop/json_datein/produkte.json"); //gets a string
+            if ($shop === false) {
                 // deal with error...
             } else {
                 // var_dump($read);
-                $data = json_decode($read); //decodes string to array
+                $shop = json_decode($shop); //decodes string to array
                 //echo " <br>";
                 //echo "<br>";
                 //var_dump($data);
-                foreach ($data as $data) {
+                foreach ($shop as $data) {
                     echo "<div class = \"card col-xs-4 mb-2 mt-2\" style = \"\">\n";
                     echo "     <div class=\"\">";
                     echo "        <img class = \"card-img-top p-1 d-block mx-auto img-fluid\" src = \"data/shop/bilder/$data->bild\" style=\"width:75%;\"alt = \"Card image cap\">\n";

@@ -43,14 +43,14 @@ $link .= $_SERVER['REQUEST_URI'];
                                     $item = $key['item'];
 
                                     //json read needed here no clue why ????? will say not a object if somewhere else
-                                    $read = file_get_contents("data/shop/json_datein/produkte.json"); //gets a string
-                                    if ($read === false) {
+                                    $shop = file_get_contents("data/shop/json_datein/produkte.json"); //gets a string
+                                    if ($shop === false) {
                                         // deal with error...
                                     } else {
                                         // var_dump($read);
-                                        $data = json_decode($read); //decodes string to array
+                                        $shop = json_decode($shop); //decodes string to array
                                     }
-                                    foreach ($data as $data) {
+                                    foreach ($shop as $data) {
                                         if ($data->id == $item) {
                                             $gesamtpreis += ($data->preis) * $anzahl;
                                         }
@@ -64,7 +64,7 @@ $link .= $_SERVER['REQUEST_URI'];
                     </i>
                 </a>
 
-                <ul class="dropdown-menu border-dark p-2 <?php
+                <ul class="dropdown-menu position-absolute p_basket border-dark p-2 <?php
                 if (isset($_SESSION['keepopen'])) {
                     echo "show";
                 }
@@ -100,9 +100,9 @@ $link .= $_SERVER['REQUEST_URI'];
                                             $item = $data->id;
                                             echo "</span>";
 
-                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x\">x</a></span>";
-                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u\">+</a></span>"; //u = up increase + cant be trasnfered with get
-                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d\">-</a></span>"; //d = down decrease by 1 cant be transfered with get
+                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x\"><small><i class=\"fas fa-trash-alt\"></i></small></a></span>";
+                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u\"><small><i class=\"fas fa-plus\"></i></small></a></span>"; //u = up increase + cant be trasnfered with get
+                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d\"><small><i class=\"fas fa-minus\"></i></small></a></span>"; //d = down decrease by 1 cant be transfered with get
                                             echo "</li>";
                                         }
                                     }
