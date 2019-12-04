@@ -72,6 +72,14 @@ $link .= $_SERVER['REQUEST_URI'];
                     <!-- php needed to keep dropdown open onklick/remove/add-->
                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
                         <li class="nav-header">Your Shoppingcart</li>
+                        <table class="table">
+                            <thead>
+                            <th class="col-scope">Bild</th>
+                            <th class="col-scope">Anzahl</th>
+                            <th class="col-scope">Titel</th>
+                            <th class="col-scope">Preis</th>
+                            <th class="col-scope">Action</th>
+                            </thead>
                             <?php
                             // show what items in cart
                             $gesamtpreis = 0;
@@ -91,26 +99,26 @@ $link .= $_SERVER['REQUEST_URI'];
                                     }
                                     foreach ($data as $data) {
                                         if ($data->id == $item) {
-                                            echo "<li>";
-                                            echo "<span class = \"pr-2\">$anzahl</span>";
-                                            echo "<span class = \"\">";
-                                            echo "$data->titel";
-                                            echo "  $data->preis €";
+                                            echo "<tr scope=\"row\" class=\"border\">";
+                                            echo "<td scope=\"row\" class=\"ml-2\"><img src=\"data/shop/bilder/$data->bild\" class=\"img-fluid\" style=\"width:25px;\">";
+                                            echo "<td scope=\"row\" class = \"ml-2\">$anzahl</td>";
+                                            echo "<td scope=\"row\" class=\"ml--2\">$data->titel</td>";
+                                            echo "<td scope=\"row`\" class=\"ml--2\">$data->preis&#x20AC</td>";
                                             $gesamtpreis += ($data->preis) * $anzahl;
                                             $item = $data->id;
-                                            echo "</span>";
 
-                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x\"><small><i class=\"fas fa-trash-alt\"></i></small></a></span>";
+
+                                            echo "<td><span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x\"><small><i class=\"fas fa-trash-alt\"></i></small></a></span>";
                                             echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u\"><small><i class=\"fas fa-plus\"></i></small></a></span>"; //u = up increase + cant be trasnfered with get
-                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d\"><small><i class=\"fas fa-minus\"></i></small></a></span>"; //d = down decrease by 1 cant be transfered with get
-                                            echo "</li>";
+                                            echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d\"><small><i class=\"fas fa-minus\"></i></small></a></span></td>"; //d = down decrease by 1 cant be transfered with get
+                                            echo "</tr>";
                                         }
                                     }
                                 }
                             } else {
                                 echo "<h3>sadly your basket is empty :(</h3>";
                             }
-
+                            echo"</table>";
                             echo "<li><p>Total: $gesamtpreis €</p></li>";
 
                             if ($gesamtpreis != 0) {
@@ -119,6 +127,7 @@ $link .= $_SERVER['REQUEST_URI'];
                                 echo "<li><a href=\"shop.php\">Lets go shopping <3 </a></li>";
                             }
                             ?>
+
                     </form>
                 </ul>
             </li>

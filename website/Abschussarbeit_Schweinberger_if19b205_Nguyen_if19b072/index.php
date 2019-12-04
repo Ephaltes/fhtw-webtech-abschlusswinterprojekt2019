@@ -32,7 +32,7 @@ if (!isset($_SESSION['cart'])) {
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
-        <link rel="icon" href="data/advertisment/748989-200.png">
+        <link rel="icon" href="img/748989-200.png">
         <?php require_once("sites/lib_include/fontawesome.php"); ?>
 
         <title>1nicer shop</title>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['cart'])) {
 
                 </div>
             </section>
-        </header>7
+        </header>
         
         
         <?php if (!empty($_GET['viewme']) && $_GET['viewme'] == "About") { ?>
