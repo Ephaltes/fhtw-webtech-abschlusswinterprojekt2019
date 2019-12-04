@@ -32,17 +32,29 @@ if (!isset($_SESSION['cart'])) {
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
+        <link rel="icon" href="data/advertisment/748989-200.png">
+        <?php require_once("sites/lib_include/fontawesome.php"); ?>
 
-    <?php require_once("sites/lib_include/fontawesome.php");?>
-
-    <title>index.php!</title>
-</head>
-<body style="padding-top:40px;">
-<header>
+        <title>1nicer shop</title>
+    </head>
+    <body style="padding-top:40px;">
+        <header>
 
             <?php include('sites/nav_footer/navbar.php'); ?>
 
-        </header>
+            <section id="ads">
+                <div class="p-3">
+                    <?php
+                    $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                    $Werbung = $images[array_rand($images)];
+                    echo"<img src=\"$Werbung\" class=\"d-block mx-auto rounded\" alt=\"werbung\"></img>";
+                    ?>
+
+                </div>
+            </section>
+        </header>7
+        
+        
         <?php if (!empty($_GET['viewme']) && $_GET['viewme'] == "About") { ?>
         <about>
             <?php include('sites/about.php'); ?>
