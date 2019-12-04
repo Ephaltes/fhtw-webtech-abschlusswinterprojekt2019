@@ -67,7 +67,7 @@ if (!empty($_SESSION["user"])) {
          <!--   <nav class="navbar navbar-expand-lg navbar-light  ">
                 <button class="btn btn-lg" id="menu-toggle">&#9776;</button>
             </nav> -->
-            <div class="col-md-12 display-4 text-center mb-5">News Verwaltung</div>
+            <div class="col-md-12 display-4 mt-3 text-center mb-5">News Verwaltung</div>
             <main class="container-fluid m-2 h-auto" id="body_partial">
                 <?php
                 if ( (!empty($_GET["menu"]) && $_GET["menu"] == "create") || !empty($_GET["edit"]) )

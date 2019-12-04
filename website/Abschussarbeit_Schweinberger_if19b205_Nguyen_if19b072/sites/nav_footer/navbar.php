@@ -6,7 +6,7 @@ require_once("Entities/UserEntity.php");
 
 <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
     <a href="/">
-        <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;">
+        <a href="index.php"><img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;"></a>
     </a>
     <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse"
             data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
