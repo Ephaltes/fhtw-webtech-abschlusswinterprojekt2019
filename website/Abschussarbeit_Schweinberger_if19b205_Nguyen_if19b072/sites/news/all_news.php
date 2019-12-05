@@ -25,8 +25,7 @@ $files = scan_dir("data/news/");
 <?php
 foreach ($files as $file) {
     $xml = simplexml_load_file("data/news/" . $file);
-
-    $link = base64_encode($file);
+    $link = $file;
     $format = "d_m_y_G_i_s";
     $dateobject = DateTime::createFromFormat($format,$xml->date);
     $diff = date_diff(new DateTime("now"),$dateobject);
@@ -42,6 +41,10 @@ foreach ($files as $file) {
                 <img class="card-img-top" src="<?php echo $xml->thumbnail ?>" alt="Card image cap">
                 <?php
             }
+            else
+            {?>
+                <img class="card-img-top" src="img/960x720.png" alt="Card image cap">
+            <?php }
             ?>
         <div class="card-body">
             <h5 class="card-title"><?php echo $xml->title ?></h5>

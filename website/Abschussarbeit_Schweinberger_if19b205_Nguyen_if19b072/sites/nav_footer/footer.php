@@ -9,7 +9,7 @@
                 </ul>
             </div>
             <div class="border-dotted-left col-xs-12 col-sm-6 col-md-3 pt-2" id="hallo2">
-                <h4 class="pl-0 mb-0 pb-2 font-weight-bold">Kontact/Impressum</h4>
+                <h4 class="pl-0 mb-0 pb-2 font-weight-bold">Kontakt/Impressum</h4>
                 <ul class="d-flex align-content-start flex-wrap flex-xs-row flex-md-column pl-0">
                     <li class="pl-3 pr-3"><a class="text-white" href="index.php?viewme=Impressum" target="_blank">Impressum</a></li>
                     <li class="pl-3 pr-3"><a class="text-white" href="http://www.technikumwien.at" target="_blank">Webpage</a></li>

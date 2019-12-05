@@ -51,7 +51,7 @@ if (!empty($_GET["edit"])) {
                             <div class="custom-file ">
                                 <input type="file" name="thumbnail" class="custom-file-input  " accept="image/*"
                                        id="thumbnail">
-                                <label id="thumbnail_label" class="custom-file-label form-check-label "
+                                <label id="thumbnail_label" class="custom-file-label form-check-label overflow-hidden"
                                        for="thumbnail">  <?php if (!empty($xml->thumbnail)) echo "Derzeitiges TitelBild";
                                     else echo "Bitte Titelbild auswählen"; ?>
                                 </label>
@@ -136,12 +136,12 @@ if (!empty($_GET["edit"])) {
         rules: {
             'title': {
                 required: true,
-                pattern: "[A-Za-z0-9+_#-]"
+                pattern: "((?![<>]).)+"
             }
         },
         messages: {
             'title': {
-                required: 'Password ist nicht ausgefüllt'
+                required: 'Titel fehlt'
             }
         }
     });

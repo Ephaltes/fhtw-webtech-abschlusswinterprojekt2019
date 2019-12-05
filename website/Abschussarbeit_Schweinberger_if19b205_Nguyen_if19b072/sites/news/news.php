@@ -1,6 +1,6 @@
 <?php
 libxml_use_internal_errors(TRUE); // no errors on screen
-if ($xml = simplexml_load_file("data/news/" . base64_decode($_GET["news"]))) {
+if ($xml = simplexml_load_file("data/news/" . $_GET["news"])) {
     $title = $xml->title;
     $thumbnail = $xml->thumbnail;
     $content = $xml->content;
@@ -24,11 +24,15 @@ if ($xml = simplexml_load_file("data/news/" . base64_decode($_GET["news"]))) {
                     Erstellt am <?php echo "$day.$month.$year $hour:$minute"; ?>
                 </p>
 
-                <?php if (!empty($thumbnail)) {
+                <?php if (!empty($xml->thumbnail)) {
                     ?>
-                    <img  src="<?php echo $thumbnail; ?>" class="img-fluid rounded mx-auto d-block">
+                    <img  src="<?php echo $xml->thumbnail; ?>" class="img-fluid rounded mx-auto d-block">
                     <?php
                 }
+                /*else
+                {?>
+                    <img class="img-fluid rounded mx-auto d-block" src="img/960x720.png" >
+                <?php } */
                 ?>
                 <hr>
                 <?php echo $content ?>

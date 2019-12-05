@@ -30,8 +30,9 @@ if (!isset($_SESSION['cart'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="icon" href="img/748989-200.png">
         <?php require_once("sites/lib_include/fontawesome.php"); ?>
 

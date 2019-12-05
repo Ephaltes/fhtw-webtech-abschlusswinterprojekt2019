@@ -3,3 +3,4 @@ robots.txt
 
 User-agent: *
 Disallow: /data/xml
+Disallow: /data/news
