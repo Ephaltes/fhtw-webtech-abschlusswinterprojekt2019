@@ -27,7 +27,7 @@ if (!empty($_GET["edit"])) {
 </head>
 
 
-<form method="POST" id="form" action="/sites/news/savenewstofile.php" enctype="multipart/form-data">
+<form method="POST" id="formid" action="/sites/news/savenewstofile.php" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-8 col-12">
@@ -105,8 +105,50 @@ if (!empty($_GET["edit"])) {
 
 <script src="vendor/summernote/summernote-bs4.js"></script>
 
+<script src="vendor/jquery_validation/jquery.validate.js"></script>
+<script src="vendor/jquery_validation/additional-methods.js"></script>
+<script src="vendor/jquery_validation/localization/messages_de.js"></script>
 
 <script>
+
+    $('#formid').validate({
+        errorClass: 'alert-danger form-control mt-2 help-block', // You can change the animation class for a different entrance animation - check animations page
+        errorElement: 'div',
+        errorPlacement: function (error, e) {
+            //e.parents('.form-group > div').append(error);
+            $(e).parents('.form-group > div').append(error);
+        },
+        highlight: function (e) {
+            //console.log("highlight");
+            $(e).closest('.form-control').removeClass('is-valid').addClass('is-invalid');
+            //$(e).closest('.help-block').remove();
+        },
+        unhighlight: function (e) {
+            //console.log("unhighlight");
+            $(e).closest('.form-control').removeClass('is-invalid'); //.addClass('is-valid');
+            //$(e).closest('.help-block').remove();
+        },
+        success: function (e) {
+            //console.log("success;");
+            //console.log($(e).closest('.form-control').removeClass('is-valid is-invalid'));
+            $(e).closest('.help-block').remove();
+        },
+        rules: {
+            'title': {
+                required: true,
+                pattern: "[A-Za-z0-9+_#-]"
+            }
+        },
+        messages: {
+            'title': {
+                required: 'Password ist nicht ausgefüllt'
+            }
+        }
+    });
+
+
+
+
     // Add the following code if you want the name of the file appear on select
     $(".custom-file-input").on("change", function () {
         var fileName = $(this).val().split("\\").pop();
@@ -155,9 +197,13 @@ if (!empty($_GET["edit"])) {
 
         $("#content_raw").val($($("#summernote").summernote("code")).text());
 
-        setTimeout(function () {
-            $("#form").submit();
-        }, 100);
+        if ($('#formid').valid()) {
+            setTimeout(function () {
+                $("#formid").submit();
+            }, 100);
+        }
+
+
 
     });
 

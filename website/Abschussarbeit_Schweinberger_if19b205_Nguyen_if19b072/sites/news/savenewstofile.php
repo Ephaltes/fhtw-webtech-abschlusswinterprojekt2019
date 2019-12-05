@@ -1,4 +1,7 @@
 <?php
+
+// Youtbe watch id besteht aus 8 stelliger ID die dann base64 encoded wird und dann geschaut ob schon vorhanden
+
 if (!empty($_POST)) {
 
 $base64=null;
@@ -30,6 +33,7 @@ $base64=null;
     $root = $dom->createElement("news");
 
     $title_node = $dom->createElement("title", trim($_POST["title"]));
+    if(empty($_POST["edit_filename"]))
     $time_node = $dom->createElement("date", date("d_m_y_G_i_s"));
     $content_node = $dom->createElement("content");
     $content_node->appendChild($dom->createCDATASection( $_POST["content"]));
