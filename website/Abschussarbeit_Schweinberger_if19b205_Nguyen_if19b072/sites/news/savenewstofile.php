@@ -19,6 +19,16 @@ $base64=null;
         //echo var_dump($_FILES["thumbnail"]);
     }
 
+    if(!empty($_POST["edit_filename"]))
+    {
+        $xml_orgiginal = simplexml_load_file("../../data/news/ids") or die("Error: Cannot access database");
+
+        foreach ($this->xml->xpath('//user') as $user) {
+            if (trim($username) == trim($user->username))
+                return true;
+        }
+    //geht noch nicht
+    }
 
     $dom = new DOMDocument();
     $dom->encoding = "utf-8";
