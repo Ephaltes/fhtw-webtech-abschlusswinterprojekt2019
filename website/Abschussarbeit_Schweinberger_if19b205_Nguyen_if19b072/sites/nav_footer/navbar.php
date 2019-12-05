@@ -17,8 +17,8 @@ require_once("Entities/UserEntity.php");
 
             <li class="nav-item active"><a class="nav-link text-light" href="index.php">News</a></li>
             <li class="nav-item active"><a class="nav-link text-light" href="index.php?viewme=About">About</a></li>
-<?php if (!empty($user->usertype)) {
-    ?>
+            <?php if (!empty($user->usertype)) {
+                ?>
                 <li class="nav-item active"><a class="nav-link text-light" href="shop.php">Shop</a></li>
                 <?php
                 if ($user->usertype == "user") {
@@ -31,35 +31,36 @@ require_once("Entities/UserEntity.php");
             if (empty($user)) {
                 ?>
                 <li class="nav-item active"><span class="nav-link text-light">anonym</span></li>
-            <?php
+                <?php
             }
 
             if (empty($user)) {
                 ?>
                 <li class="nav-item active"><a class="nav-link text-light" href="login.html">Login</a></li>
-            <?php }
+                <?php
+            }
             if (!empty($user)) {
                 ?>
                 <li class="dropdown">
                     <a href="/" class="nav-link dropdown-toggle text-light" id="adminmenu" data-toggle="dropdown"
                        aria-expanded="false">
-    <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
+                        <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
                         <!-- position-absolute entfernt -->
-    <?php if ($user->usertype == "admin") { ?>
+                        <?php if ($user->usertype == "admin") { ?>
                             <a class="dropdown-item" href="news_admin.php"><i class="fas fa-newspaper"></i> News
                                 Verwaltung</a>
-    <?php } ?>
+                        <?php } ?>
                         <a class="dropdown-item" href="index.php?logout=true"><i class="fas fa-sign-out-alt"></i>
                             Abmelden</a>
                     </div>
 
                 </li>
-<?php } ?> <!--shows name of logged in user -->
+            <?php } ?> <!--shows name of logged in user -->
 
 
         </ul>
     </div>
 </nav>
-<?php unset($_SESSION['keepopen']); ?>  <!-- keepopen to show dropdown onklick reset  -->
+<?php $_SESSION['keepopen']="false"; ?>  <!-- keepopen to show dropdown onklick reset  -->

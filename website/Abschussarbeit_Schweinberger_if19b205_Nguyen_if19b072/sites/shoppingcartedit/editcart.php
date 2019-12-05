@@ -5,13 +5,13 @@ session_start();
 if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
     $redirect = $_GET['site'];
     $operation = $_GET['action'];
-    
-    
+
+
     if ($operation == "x") {
-            unset($_SESSION['cart'][$_GET['item']]);      
+        unset($_SESSION['cart'][$_GET['item']]);
     }
     if ($operation == "u") { //u for increase by 1 see navbar cant send + with get
-            $_SESSION['cart'][$_GET['item']]['quantity']++;
+        $_SESSION['cart'][$_GET['item']]['quantity'] ++;
     }
     if ($operation == "d") { //d for decrease by 1 see navbar cant send - with get
         $_SESSION['cart'][$_GET['item']]['quantity'] --;
@@ -19,7 +19,11 @@ if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
             unset($_SESSION['cart'][$_GET['item']]);
         }
     }
-    $_SESSION['keepopen']= "true";
+    if (isset($_GET['dontkeepopen'])) {
+        $_SESSION['keepopen'] ="false";
+    } else {
+        $_SESSION['keepopen'] = "true";
+    }
     header("location: $redirect");
 } else {
     header('location: ../../index.php');

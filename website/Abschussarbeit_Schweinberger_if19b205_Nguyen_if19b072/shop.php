@@ -25,7 +25,7 @@ if (!empty($_SESSION["user"])) {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
 
-        <?php require_once("sites/lib_include/fontawesome.php");?>
+        <?php require_once("sites/lib_include/fontawesome.php"); ?>
 
         <title>index.php!</title>
     </head>
@@ -36,7 +36,13 @@ if (!empty($_SESSION["user"])) {
 
         </header>
         <main>
-            <?php include('sites/dynamicshop.php'); ?>
+            <?php
+            if (!empty($_GET['viewme']) && $_GET['viewme'] == "checkout") {
+                include('sites/checkout.php');
+            } else {
+                include('sites/dynamicshop.php');
+            }
+            ?>
         </main>
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
