@@ -1,7 +1,7 @@
 <?php
 
 // Youtbe watch id besteht aus 8 stelliger ID die dann base64 encoded wird und dann geschaut ob schon vorhanden
-
+// $returnValue = rand(9999999, 100000000); um 8 stellige zahl zu erstellen
 if (!empty($_POST)) {
 
 $base64=null;
