@@ -64,3 +64,7 @@ a .card-img-top {
 .cursor-pointer{
     cursor: pointer !important;
 }
+
+.about_video{
+    height:30vw;
+}
