@@ -15,7 +15,7 @@ if (!empty($_SESSION["user"])) {
     header('Location: /');
 }
 ?>
-
+<?php include('sites/shoppingcartedit/shoppingcartadd.php') // needed to add items to cart initally ?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -33,7 +33,7 @@ if (!empty($_SESSION["user"])) {
     </head>
     <body style="padding-top:40px;">
         <header>
-            <?php include('sites/shoppingcartedit/shoppingcartadd.php') ?>
+            
             <?php include('sites/nav_footer/navbar.php'); ?>
 
         </header>

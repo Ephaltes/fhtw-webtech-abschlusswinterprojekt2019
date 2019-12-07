@@ -1,5 +1,5 @@
 <?php
-
+// needed to use the edit buttons in the shoppingcart or checkout page
 session_start();
 
 if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
@@ -19,7 +19,7 @@ if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action'])) {
             unset($_SESSION['cart'][$_GET['item']]);
         }
     }
-    if (isset($_GET['dontkeepopen'])) {
+    if (isset($_GET['dontkeepopen'])) { // used in cart to keepopen onklick of buttons and in checkout set to false
         $_SESSION['keepopen'] ="false";
     } else {
         $_SESSION['keepopen'] = "true";

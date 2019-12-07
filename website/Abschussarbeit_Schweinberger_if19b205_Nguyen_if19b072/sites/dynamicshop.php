@@ -1,6 +1,6 @@
 
 <form action="shop.php" method="POST">
-    <div class="container pt-3 mb-5" style="min-height: 500px;">
+    <div class="container-fluid pt-3 mb-5">
         <h1 class="">FH-Technikum Merch-Shop <3</h1>
         <div class="card-columns">
 
@@ -17,7 +17,7 @@
                 foreach ($shop as $data) {
                     echo "<div class = \"card col-xs-4 mb-2 mt-2\" style = \"\">\n";
                     echo "     <div class=\"\">";
-                    echo "        <img class = \"card-img-top p-1 d-block mx-auto img-fluid\" src = \"data/shop/bilder/$data->bild\" style=\"width:75%;\"alt = \"$data->bild\">\n";
+                    echo "        <img class = \"card-img-top m-2 d-block mx-auto img-fluid\" src = \"data/shop/bilder/$data->bild\" style=\"width:50%;\"alt = \"$data->bild\">\n";
                     echo "        <div class = \"card-body\">\n";
                     echo "          <h5 class = \"card-title\">$data->titel</h5>\n";
                     echo "          <p class = \"card-text\">$data->beschreibung</p>\n";
@@ -33,7 +33,6 @@
                     echo "</div>";
                 }
             }
-            var_dump($_SESSION['cart']);
             ?>
 
 

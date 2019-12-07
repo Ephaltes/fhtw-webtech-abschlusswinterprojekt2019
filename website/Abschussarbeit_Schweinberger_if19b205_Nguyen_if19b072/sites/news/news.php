@@ -35,7 +35,7 @@ if ($xml = simplexml_load_file("data/news/" . $_GET["news"])) {
                   <?php } */
                 ?>
                 <hr>
-                <div style="min-height:250px;">
+                <div style="min-height:50vh;">
                     <?php echo $content ?>
                 </div>
             </div>

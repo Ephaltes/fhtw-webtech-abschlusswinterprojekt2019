@@ -36,7 +36,7 @@ require_once("Entities/UserEntity.php");
 
             if (empty($user)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link lead text-light" href="login.html">Login</a></li>
+                <li class="nav-item active"><a class="nav-link lead text-light" href="login.php">Login</a></li>
                 <?php
             }
             if (!empty($user)) {
