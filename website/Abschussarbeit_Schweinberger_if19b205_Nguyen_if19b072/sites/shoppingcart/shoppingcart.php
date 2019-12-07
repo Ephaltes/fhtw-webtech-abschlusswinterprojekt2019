@@ -22,7 +22,7 @@ $link .= $_SERVER['REQUEST_URI'];
             }
             ?>"> 
                 <a href="#" data-toggle="dropdown"
-                   class="dropdown-toggle nav-link text-light"
+                   class="dropdown-toggle nav-link lead text-light"
                    aria-expanded="<?php
                    if (!empty($_SESSION['keepopen']) && $_SESSION['keepopen'] == "true") {
                        echo "true";

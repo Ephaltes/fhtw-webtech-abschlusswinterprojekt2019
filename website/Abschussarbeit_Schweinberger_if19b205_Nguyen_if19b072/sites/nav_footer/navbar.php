@@ -15,11 +15,11 @@ require_once("Entities/UserEntity.php");
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
 
-            <li class="nav-item active"><a class="nav-link text-light" href="index.php">News</a></li>
-            <li class="nav-item active"><a class="nav-link text-light" href="index.php?viewme=About">About</a></li>
+            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php">News</a></li>
+            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php?viewme=About">About</a></li>
             <?php if (!empty($user->usertype)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link text-light" href="shop.php">Shop</a></li>
+                <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php">Shop</a></li>
                 <?php
                 if ($user->usertype == "user") {
                     include('sites/shoppingcart/shoppingcart.php');
@@ -30,19 +30,19 @@ require_once("Entities/UserEntity.php");
 
             if (empty($user)) {
                 ?>
-                <li class="nav-item active"><span class="nav-link text-light">anonym</span></li>
+                <li class="nav-item active"><span class="nav-link lead text-light">anonym</span></li>
                 <?php
             }
 
             if (empty($user)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link text-light" href="login.html">Login</a></li>
+                <li class="nav-item active"><a class="nav-link lead text-light" href="login.html">Login</a></li>
                 <?php
             }
             if (!empty($user)) {
                 ?>
                 <li class="dropdown">
-                    <a href="/" class="nav-link dropdown-toggle text-light" id="adminmenu" data-toggle="dropdown"
+                    <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" data-toggle="dropdown"
                        aria-expanded="false">
                         <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                     </a>
