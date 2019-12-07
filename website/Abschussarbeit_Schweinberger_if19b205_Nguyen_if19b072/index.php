@@ -64,7 +64,7 @@ if (!isset($_SESSION['cart'])) {
                     <?php
                     $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
                     $Werbung = $images[array_rand($images)];
-                    echo"<img src=\"$Werbung\" class=\"d-block mx-auto rounded\" alt=\"Unsere Werbung\"></img>";
+                    echo"<img src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Unsere Werbung\"></img>";
                     ?>
 
                 </div>
