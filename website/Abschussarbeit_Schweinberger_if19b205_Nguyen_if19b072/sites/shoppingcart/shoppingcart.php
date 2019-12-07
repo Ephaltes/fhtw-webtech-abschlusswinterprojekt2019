@@ -15,7 +15,7 @@ $link .= $_SERVER['REQUEST_URI'];
 
 <li class="nav-item active">
     <div id="shoppingcart" class="nav-collapse cart-collapse">
-        <ul class="nav pull-right">
+        <ul class="nav">
             <li class="dropdown open <?php
             if (!empty($_SESSION['keepopen']) && $_SESSION['keepopen'] == "true") {// php needed to keep dropdown open onklick/remove/add
                 echo "show";
