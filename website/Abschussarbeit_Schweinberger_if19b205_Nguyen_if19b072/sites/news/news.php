@@ -29,13 +29,15 @@ if ($xml = simplexml_load_file("data/news/" . $_GET["news"])) {
                     <img  src="<?php echo $xml->thumbnail; ?>" class="img-fluid rounded mx-auto d-block">
                     <?php
                 }
-                /*else
-                {?>
-                    <img class="img-fluid rounded mx-auto d-block" src="img/960x720.png" >
-                <?php } */
+                /* else
+                  {?>
+                  <img class="img-fluid rounded mx-auto d-block" src="img/960x720.png" >
+                  <?php } */
                 ?>
                 <hr>
-                <?php echo $content ?>
+                <div style="min-height:250px;">
+                    <?php echo $content ?>
+                </div>
             </div>
         </div>
     </div>
