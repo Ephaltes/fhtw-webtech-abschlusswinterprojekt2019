@@ -28,11 +28,11 @@ require_once("Entities/UserEntity.php");
                 }
             }
 
-            if (empty($user)) {
+         /*   if (empty($user)) {
                 ?>
                 <li class="nav-item active"><span class="nav-link lead text-light">anonym</span></li>
                 <?php
-            }
+            } */
 
             if (empty($user)) {
                 ?>
