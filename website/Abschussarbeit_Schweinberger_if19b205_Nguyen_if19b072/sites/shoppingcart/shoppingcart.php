@@ -71,8 +71,9 @@ $link .= $_SERVER['REQUEST_URI'];
                 ?>" style="right: 0; left: auto;">
                     <!-- php needed to keep dropdown open onklick/remove/add-->
                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
-                        <li class="nav-header">Your Shoppingcart</li>
-                        <table class="table">
+                        <li class="nav-header"><h5 class="text-center"><i class="fas fa-shopping-cart"></i>Warenkorb</h5></li>
+                    
+                        <table class="table table-sm">
                             <thead>
                             <th class="col-scope">Bild</th>
                             <th class="col-scope">Anzahl</th>
@@ -119,6 +120,7 @@ $link .= $_SERVER['REQUEST_URI'];
                                     echo "<h3>sadly your basket is empty :(</h3>";
                                 }
                                 echo"</table>";
+                               
                                 echo "<li><p>Total: $gesamtpreis €</p></li>";
 
                                 if ($gesamtpreis != 0) {
