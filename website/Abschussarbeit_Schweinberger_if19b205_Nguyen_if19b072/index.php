@@ -14,7 +14,6 @@ if (isset($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
 }
 //check usermodel for cookiemonster and logincheck.php for call of function
 
-
 if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
@@ -63,7 +62,7 @@ if (!isset($_SESSION['cart'])) {
                     <?php
                     $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
                     $Werbung = $images[array_rand($images)];
-                    echo"<img src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Unsere Werbung\"></img>";
+                    echo"<img src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\"></img>";
                     ?>
 
                 </div>
