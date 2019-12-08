@@ -41,36 +41,58 @@
         <div class="carousel-inner">
             <div class="carousel-item active text-center">
                 <img class="carousel-image img-fluid" src="img/Teammitglied1.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block ">
-                        <span class="text-white bg-carousel">Das bin ich, Lukas , mit meiner Bananne </span>
+                <div class="carousel-caption d-none">
+                    Das bin ich, Lukas , mit meiner Bananne
                 </div>
             </div>
             <div class="carousel-item text-center">
-            <img class="carousel-image img-fluid" src="img/Teammitglied2.jpg" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block text-white">
-                <span class="text-white bg-carousel">Mein Auto </span>
+                <img class="carousel-image img-fluid" src="img/Teammitglied2.jpg" alt="Second slide">
+                <div class="carousel-caption d-none text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Augue neque gravida in fermentum et sollicitudin ac orci. Amet risus nullam
+                    eget felis eget nunc. Ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum. Varius
+                    quam quisque id diam vel quam elementum pulvinar. Volutpat consequat mauris nunc congue nisi vitae
+                    suscipit tellus. Amet risus nullam eget felis. Diam ut venenatis tellus in metus vulputate eu. Hac
+                    habitasse platea dictumst vestibulum rhoncus est. Nec sagittis aliquam malesuada bibendum arcu vitae
+                    elementum curabitur. Tellus pellentesque eu tincidunt tortor. Pellentesque eu tincidunt tortor
+                    aliquam. Hendrerit gravida rutrum quisque non tellus orci. Aliquam nulla facilisi cras fermentum
+                    odio eu feugiat pretium nibh. Facilisis gravida neque convallis a cras semper. Amet facilisis magna
+                    etiam tempor orci eu lobortis elementum nibh. Molestie nunc non blandit massa enim. Amet justo donec
+                    enim diam vulputate. Potenti nullam ac tortor vitae purus faucibus.
+                </div>
+            </div>
+            <div class="carousel-item text-center">
+                <img class="carousel-image img-fluid" src="img/Teammitglied1.jpg" alt="Third slide">
+                <div class="carousel-caption d-none text-white">
+                    Me number 2
+                </div>
             </div>
         </div>
-        <div class="carousel-item text-center">
-        <img class="carousel-image img-fluid" src="img/Teammitglied1.jpg" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block text-white">
-            <span class="text-white bg-carousel">Me number 2</span>
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-</div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-</a>
-</div>
+    <div class="new-caption-area text-center mt-3 mt-lg-5">
+
+    </div>
+
 </div>
 
 <script>
     $('.carousel').carousel({
-        interval: 5000
-    })
+        interval: 1000 * 5
+    });
+    var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
+    $('.new-caption-area').html(caption.html());
+
+    $(".carousel").on('slide.bs.carousel', function (e) {
+        var caption = $('div.carousel-item:nth-child(' + ($(e.relatedTarget).index() + 1) + ') .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+    });
+
 </script>
