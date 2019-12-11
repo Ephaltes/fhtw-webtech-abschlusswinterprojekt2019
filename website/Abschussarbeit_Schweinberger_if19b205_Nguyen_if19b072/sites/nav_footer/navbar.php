@@ -2,7 +2,7 @@
 require_once("Entities/UserEntity.php");
 ?>
 
-<nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
+<nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top">
     <a href="/">
         <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;">
     </a>

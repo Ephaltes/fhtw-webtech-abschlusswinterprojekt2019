@@ -25,6 +25,6 @@ if (!empty($_POST['username'])&&!empty($_POST['password'])) {
     }
 }
 
-return header("Location: /login.html");
+return header("Location: /login.php");
 
 

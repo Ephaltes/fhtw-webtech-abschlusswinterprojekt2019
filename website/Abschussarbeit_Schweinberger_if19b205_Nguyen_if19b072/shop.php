@@ -17,7 +17,7 @@ if (!empty($_SESSION["user"])) {
 ?>
 <?php include('sites/shoppingcartedit/shoppingcartadd.php') // needed to add items to cart initally ?>
 <!doctype html>
-<html lang="en">
+<html lang="de">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">

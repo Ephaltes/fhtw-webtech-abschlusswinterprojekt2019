@@ -29,7 +29,7 @@ $link .= $_SERVER['REQUEST_URI'];
                    } else {
                        echo "false";
                    }
-                   ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
+                   ?>" style=""> <!-- php needed to keep dropdown open onklick/remove/add-->
                     <i class="fas fa-shopping-basket">
                         <!-- see https://fontawesome.com/icons?d=gallery&q=shopping -->
                         <span class="badge badge-light text-dark"> 
