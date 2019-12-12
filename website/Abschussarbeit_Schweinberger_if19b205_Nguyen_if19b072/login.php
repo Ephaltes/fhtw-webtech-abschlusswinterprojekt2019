@@ -16,7 +16,8 @@ if(!empty($_SESSION["user"])){
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>index.php!</title>
 </head>

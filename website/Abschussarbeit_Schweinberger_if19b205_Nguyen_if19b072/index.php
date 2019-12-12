@@ -30,7 +30,7 @@ if (!isset($_SESSION['cart'])) {
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/index-stylesheet.css" type="text/css">
+        <!-- <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="icon" href="img/748989-200.png">
         <?php require_once("sites/lib_include/fontawesome.php"); ?>
