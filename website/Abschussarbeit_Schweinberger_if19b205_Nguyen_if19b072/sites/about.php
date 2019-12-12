@@ -32,15 +32,15 @@
 </div>
 
 <div class="container mt-5 mb-5 ">
-    <div id="carouselExampleIndicators" class="carousel slide bg-dark" data-ride="carousel">
+    <div id="carouselwithindicator" class="carousel slide bg-dark" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselwithindicator" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselwithindicator" data-slide-to="1"></li>
+            <li data-target="#carouselwithindicator" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active text-center">
-                <img class="carousel-image img-fluid" src="img/Teammitglied1.jpg" alt="First slide">
+                <img class="carousel-image" src="img/Teammitglied1.jpg" alt="First slide">
                 <div class="carousel-caption d-none">
                     Das bin ich, Lukas , mit meiner Bananne
                 </div>
@@ -68,11 +68,11 @@
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselwithindicator" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselwithindicator" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>

@@ -6,7 +6,9 @@ use Model\UserModel;
 
 $model = new UserModel();
 
-session_start();
+session_start([
+    'cookie_lifetime' => 86400, //1 Tag
+]);
 if (isset($_COOKIE['USERHASH'])) {
     if ($model->validcookie($_COOKIE['USERHASH'])) {
         $_SESSION["user"] = $model->GetUserObject();

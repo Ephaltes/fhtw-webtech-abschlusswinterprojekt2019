@@ -33,7 +33,6 @@ if (!empty($_GET["edit"])) {
             <div class="col-lg-6 col-md-8 col-12">
                 <div class="row">
                     <h1 class="col">News erstellen</h1>
-
                 </div>
 
                 <div class="form-group row">
@@ -49,23 +48,22 @@ if (!empty($_GET["edit"])) {
 
                         <div class="input-group">
                             <div class="custom-file ">
-                                <input type="file" name="thumbnail" class="custom-file-input  " accept="image/*"
-                                       id="thumbnail">
+                                <input type="file" name="thumbnail" class="custom-file-input " accept="image/*"
+                                       id="thumbnail" multiple>
                                 <label id="thumbnail_label" class="custom-file-label form-check-label overflow-hidden"
                                        for="thumbnail">  <?php if (!empty($xml->thumbnail)) echo "Derzeitiges TitelBild";
                                     else echo "Bitte Titelbild auswählen"; ?>
                                 </label>
                             </div>
-
                             <div id="btn_remove_image" class="input-group-append cursor-pointer">
                                 <span class="input-group-text">Delete</span>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
+
                 <div class="form-group row">
+                    <!--
                     <div class="col-6">
                         <?php if (!empty($xml->thumbnail)) { ?>
 
@@ -74,12 +72,31 @@ if (!empty($_GET["edit"])) {
                         <?php } else { ?>
                             <img src="" id="preview" class="img-fluid d-none img-thumbnail ">
                             <?php
-                        }
-                        ?>
+                    }
+                    ?>
+                    </div>   -->
+
+                    <div class="col-12">
+                        <div id="carouselwithindicator" class="carousel slide bg-dark" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                            </ol>
+                            <div class="carousel-inner">
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselwithindicator" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselwithindicator" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="row">
@@ -90,9 +107,10 @@ if (!empty($_GET["edit"])) {
             </div>
         </div>
 
-        <div class="row mt-2">
-            <div class="col-lg-12">
-                <input type="button" id="btn_submit" class="btn btn-primary" value=" <?php if (!empty($filename)) echo "Änderungen speichern"; else echo "News erstellen"; ?>">
+        <div class="row">
+            <div class="col">
+                <input type="button" id="btn_submit" class="btn btn-primary"
+                       value=" <?php if (!empty($filename)) echo "Änderungen speichern"; else echo "News erstellen"; ?>">
             </div>
             <input type="hidden" name="edit_filename" class="invisible"
                    value="<?php if (!empty($filename)) echo $filename; ?>">
@@ -147,8 +165,6 @@ if (!empty($_GET["edit"])) {
     });
 
 
-
-
     // Add the following code if you want the name of the file appear on select
     $(".custom-file-input").on("change", function () {
         var fileName = $(this).val().split("\\").pop();
@@ -157,25 +173,13 @@ if (!empty($_GET["edit"])) {
 
 
     $('input[type="file"]').change(function (e) {
-        var reader = new FileReader();
-        console.log(this.files);
 
-        reader.onload = function (e) {
-            // get loaded data and render thumbnail.
-            document.getElementById("preview").src = e.target.result;
-            $("#preview").addClass("d-block");
-            $("#preview").removeClass("d-none");
+        imagesPreviewToCarousel(this);
 
-        };
+        $('.carousel-item').first().addClass('active');
+        $('.carousel-indicators > li').first().addClass('active');
+        $('.carousel').carousel("pause");
 
-
-        // read the image file as a data URL.
-        if (this.files.length > 0)
-            reader.readAsDataURL(this.files[0]);
-        else {
-            $("#preview").addClass("d-none");
-            $("#preview").removeClass("d-block");
-        }
     });
 
     $("#btn_remove_image").click(function () {
@@ -184,7 +188,7 @@ if (!empty($_GET["edit"])) {
         $("#thumbnail_original").val("");
         $("#preview").addClass("d-none");
         $("#preview").removeClass("d-block");
-        $("#preview").attr("src","");
+        $("#preview").attr("src", "");
     });
 
 
@@ -204,7 +208,6 @@ if (!empty($_GET["edit"])) {
         }
 
 
-
     });
 
     $(document).ready(function () {
@@ -212,6 +215,51 @@ if (!empty($_GET["edit"])) {
             height: 200
         });
     });
+
+
+    var imagesPreviewToCarousel = function (input) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            let j = 0;
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function (event) {
+
+                    let imageElement = $("<img>", {
+                        class: "carousel-image",
+                        src: event.target.result,
+                        alt: "uploaded image " + j
+                    });
+
+                    $("#carousel-divElement-" + j).append(imageElement);
+                    j++;
+                    //$($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                let listElement = $("<li>", {
+                    'data-target': "#carouselwithindicator",
+                    'data-slide-to': i,
+                    id: "carousel-listElement-" + i
+                });
+
+                let divElement = $("<div>", {
+                    class: "carousel-item text-center",
+                    id: "carousel-divElement-" + i
+                });
+
+                $(".carousel-indicators").append(listElement);
+                $(".carousel-inner").append(divElement);
+
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
 
 </script>
 
