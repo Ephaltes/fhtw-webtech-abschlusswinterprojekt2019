@@ -68,6 +68,8 @@ if (!isset($_SESSION['cart'])) {
                 </div>
             </section>
         </header>
+
+        <main>
         <?php
         if (!empty($_GET['viewme'])) {
             switch ($_GET['viewme']) {
@@ -94,10 +96,10 @@ if (!isset($_SESSION['cart'])) {
                 include("sites/news/news.php");
         }
         ?>
+        </main>
 
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
-
 
     </body>
 </html>

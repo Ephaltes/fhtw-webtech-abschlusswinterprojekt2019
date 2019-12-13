@@ -20,9 +20,16 @@ $files = scan_dir("data/news/");
 
 ?>
 <div class="container-fluid">
+    <div class="h1 text-center">
+        News
+    </div>
 <div class="row">
 
 <?php
+$j = 0;
+
+if($files != false)
+{
 foreach ($files as $file) {
     $xml = simplexml_load_file("data/news/" . $file);
     $link = $file;
@@ -31,14 +38,57 @@ foreach ($files as $file) {
     $diff = date_diff(new DateTime("now"),$dateobject);
     //echo var_dump($diff);
 
+    $images = scan_dir("img/" . $file);
+
     ?>
 
     <div class="col-lg-4 col-md-6 col-12">
     <div class="card p-1 m-1">
         <a href="index.php?news=<?php echo $link; ?>" class="text-dark text-decoration-none">
-            <?php if(!empty($xml->thumbnail))
+            <?php if($images != false)
             {?>
-                <img class="card-img-top" src="<?php echo $xml->thumbnail ?>" alt="Card image cap">
+                <div class="card-img-top">
+                <div id="carouselwithindicator_<?php echo $j?>" class="carousel slide bg-dark" data-ride="carousel">
+                    <ol class="carousel-indicators">
+
+                        <?php
+                        $i=0;
+                        foreach($images as $image)
+                            { ?>
+                                <li data-target="#carouselwithindicator_<?php echo $j?>" data-slide-to="<?php $i ?>" <?php if($i==0) echo "class='active'"; ?> ></li>
+                            <?php
+                                $i++;
+                            }
+                        ?>
+
+                    </ol>
+                    <div class="carousel-inner">
+
+                        <?php
+                        $i=0;
+                        foreach($images as $image)
+                        { ?>
+                            <div class="carousel-item <?php if($i==0) echo "active"; ?> text-center">
+                                <img class="carousel-image" src="img/<?php echo $file . "/" . $image; ?>" alt="<?php echo $xml->title . "Bild_" . $i ; ?>">
+                            </div>
+                            <?php
+                            $i++;
+                        }
+                        ?>
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselwithindicator_<?php echo $j?>" role="button"
+                       data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselwithindicator_<?php echo $j?>" role="button"
+                       data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                </div>
                 <?php
             }
             else
@@ -99,6 +149,20 @@ foreach ($files as $file) {
     </div>
     </div>
 
-<?php } ?>
+<?php
+$j++;
+} }?>
 </div>
 </div>
+
+<script>
+    $( document ).ready(function() {
+
+        setTimeout(function(){
+            $(".carousel").carousel("pause");
+            console.log("ready");
+        }, 2000);
+
+    });
+
+</script>

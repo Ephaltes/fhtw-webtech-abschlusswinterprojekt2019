@@ -2,6 +2,22 @@
 
 require_once("Entities/UserEntity.php");
 
+function scan_dir($dir)
+{
+    $ignored = array('.', '..', '.svn', '.htaccess','ids');
+
+    $files = array();
+    foreach (scandir($dir) as $file) {
+        if (in_array($file, $ignored)) continue;
+        $files[$file] = filemtime($dir . '/' . $file);
+    }
+
+    arsort($files);
+    $files = array_keys($files);
+
+    return ($files) ? $files : false;
+}
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -14,12 +30,13 @@ if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
 
+$thumbnails = false;
 if (!empty($_GET["edit"])) {
-    $filename = base64_decode($_GET["edit"]);
+    $filename = ($_GET["edit"]);
     $xml = simplexml_load_file("data/news/" . $filename);
+
+    $thumbnails = scan_dir("img/$filename/");
 }
-
-
 ?>
 
 <head>
@@ -48,10 +65,10 @@ if (!empty($_GET["edit"])) {
 
                         <div class="input-group">
                             <div class="custom-file ">
-                                <input type="file" name="thumbnail[]" class="custom-file-input " accept="image/*"
+                                <input type="file" class="custom-file-input " accept="image/*"
                                        id="thumbnail" multiple>
                                 <label id="thumbnail_label" class="custom-file-label form-check-label overflow-hidden"
-                                       for="thumbnail">  <?php if (!empty($xml->thumbnail)) echo "Derzeitiges TitelBild";
+                                       for="thumbnail">  <?php if ($thumbnails !=false) echo "Derzeitiges TitelBild";
                                     else echo "Bitte Titelbild auswählen"; ?>
                                 </label>
                             </div>
@@ -63,24 +80,55 @@ if (!empty($_GET["edit"])) {
                 </div>
 
                 <div class="form-group row">
-                    <!--
-                    <div class="col-6">
-                        <?php if (!empty($xml->thumbnail)) { ?>
-
-                            <img src="<?php echo $xml->thumbnail ?>" id="preview"
-                                 class="img-fluid d-block img-thumbnail ">
-                        <?php } else { ?>
-                            <img src="" id="preview" class="img-fluid d-none img-thumbnail ">
-                            <?php
-                    }
-                    ?>
-                    </div>   -->
 
                     <div class="col-12">
                         <div id="carouselwithindicator" class="carousel slide bg-dark" data-ride="carousel">
                             <ol class="carousel-indicators">
+                                <?php
+                                if($thumbnails != false)
+                                {
+                                    $i=0;
+                                    foreach($thumbnails as $img) {
+                                        ?>
+                                        <li data-target="#carouselwithindicator" data-slide-to="<?php echo $i; ?>" <?php if($i==0) echo "class='active'"; ?>
+                                            id = "carousel-listElement-<?php echo $i; ?>"
+                                        ></li>
+                                        <?php
+                                        $i++;
+                                    }
+                                }
+
+                                ?>
+
+
+
                             </ol>
                             <div class="carousel-inner">
+
+                                <?php
+                                if($thumbnails != false)
+                                {
+                                    $i=0;
+                                    foreach($thumbnails as $img) {
+                                        $data = file_get_contents("img/$filename/$img");
+                                        $data64 = base64_encode($data);
+                                        $mimetype = mime_content_type("img/$filename/$img");
+                                        $base64encoded = "data:$mimetype;base64,$data64";
+                                        ?>
+                                        <div class="carousel-item <?php if($i==0) echo "active"; ?> text-center" id="carousel-divElement-<?php echo $i; ?>">
+                                            <img class="carousel-image" src="<?php echo $base64encoded ?>" alt="uploaded image <?php echo $i; ?>">
+                                            <div class="carousel-caption d-none">
+                                                <?php echo $i; ?>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                        $i++;
+                                    }
+                                }
+
+                                ?>
+
 
                             </div>
                             <a class="carousel-control-prev" href="#carouselwithindicator" role="button"
@@ -114,9 +162,28 @@ if (!empty($_GET["edit"])) {
             </div>
             <input type="hidden" name="edit_filename" class="invisible"
                    value="<?php if (!empty($filename)) echo $filename; ?>">
-            <input id="thumbnail_original" type="hidden" name="original_thumbnail" class="invisible"
-                   value="<?php if (!empty($xml->thumbnail)) echo $xml->thumbnail; ?>">
         </div>
+    </div>
+
+    <div id="ImageToUpload">
+<?php
+    if($thumbnails != false)
+    {
+        $i=0;
+        foreach($thumbnails as $img) {
+            $data = file_get_contents("img/$filename/$img");
+            $data64 = base64_encode($data);
+            $mimetype = mime_content_type("img/$filename/$img");
+            $base64encoded = "data:$mimetype;base64,$data64";
+            ?>
+            <input type="hidden" name="thumbnail[<?php echo $i; ?>]"
+                   id="thumbnail[<?php echo $i; ?>]"  value="<?php echo $base64encoded ?>">
+            <?php
+            $i++;
+        }
+    }
+
+    ?>
     </div>
 </form>
 
@@ -183,25 +250,26 @@ if (!empty($_GET["edit"])) {
         $('.carousel-item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
 
-        var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
-        $('.new-caption-area').html(caption.html());
-
         $('.carousel').carousel("pause");
+
 
 
     });
 
+    var oldid=null;
     $("#btn_remove_image").click(function () {
-       /* $("#thumbnail").val("");
-        $("#thumbnail_label").text("Bitte Titelbild auswählen");
-        $("#thumbnail_original").val("");
-        $("#preview").addClass("d-none");
-        $("#preview").removeClass("d-block");
-        $("#preview").attr("src", ""); */
 
-       let id =  $('.new-caption-area').html();
+
+       let id =  $('.new-caption-area').html().trim();
+       if(!id)
+            return;
+
+       oldid=id;
+
         $("#carousel-listElement-" + id).remove();
-       $("#carousel-divElement-" + id).remove();
+        $("#carousel-divElement-" + id).remove();
+        $("#thumbnail\\["+id+"\\]").remove();
+        console.log("removed");
 
         $('.carousel-item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
@@ -209,7 +277,16 @@ if (!empty($_GET["edit"])) {
         var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
         $('.new-caption-area').html(caption.html());
 
-        console.log( $("#thumbnail")[0].files );
+        id =  $('.new-caption-area').html().trim();
+
+        if(oldid===id)
+        {
+            console.log("deleteall");
+            $("#thumbnail").val("");
+            $("#thumbnail_label").text("");
+            $('.new-caption-area').text("");
+        }
+
 
     });
 
@@ -225,6 +302,7 @@ if (!empty($_GET["edit"])) {
 
         if ($('#formid').valid()) {
             setTimeout(function () {
+                $("#thumbnail").attr("disabled", true);
                 $("#formid").submit();
             }, 100);
         }
@@ -236,6 +314,9 @@ if (!empty($_GET["edit"])) {
         $('#summernote').summernote({
             height: 200
         });
+
+        var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
+        $('.new-caption-area').html(caption.html());
     });
 
 
@@ -244,35 +325,64 @@ if (!empty($_GET["edit"])) {
         if (input.files) {
             var filesAmount = input.files.length;
 
-
+            let j=$(".carousel-indicators").children().length;
+            console.log(j);
             for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                let k=i+j;
+
+                reader.onload = function (event) {
+
+                    let imageElement = $("<img>", {
+                        class: "carousel-image",
+                        src: event.target.result,
+                        alt: "uploaded image " + j
+                    });
+
+                    let captionElement = $("<div>", {
+                        class: "carousel-caption d-none",
+                        html:  j
+                    });
+
+                    let hiddenElement = $("<input>", {
+                        type: "hidden",
+                        name: "thumbnail[" + j +"]",
+                        id:"thumbnail[" + j +"]",
+                        value: event.target.result
+                    });
+
+                    $("#carousel-divElement-" + j).append(imageElement);
+                    $("#carousel-divElement-" + j).append(captionElement);
+                    $("#ImageToUpload").append(hiddenElement);
+                    console.log("onload inside function");
+
+                    if(j==0)
+                    {
+                        var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
+                        $('.new-caption-area').html(caption.html());
+                    }
+
+                    j++;
+                    //$($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
 
                 let listElement = $("<li>", {
                     'data-target': "#carouselwithindicator",
-                    'data-slide-to': i,
-                    id: "carousel-listElement-" + i
+                    'data-slide-to': k,
+                    id: "carousel-listElement-" + k
                 });
 
                 let divElement = $("<div>", {
                     class: "carousel-item text-center",
-                    id: "carousel-divElement-" + i
+                    id: "carousel-divElement-" + k
                 });
 
-                let imageElement = $("<img>", {
-                    class: "carousel-image",
-                    src: URL.createObjectURL(input.files[i]),
-                    alt: "uploaded image " + i
-                });
 
-                let captionElement = $("<div>", {
-                    class: "carousel-caption d-none",
-                    html:  i
-                });
 
                 $(".carousel-indicators").append(listElement);
                 $(".carousel-inner").append(divElement);
-                $("#carousel-divElement-" + i).append(imageElement);
-                $("#carousel-divElement-" + i).append(captionElement);
+
+                reader.readAsDataURL(input.files[i]);
             }
         }
 

@@ -48,7 +48,7 @@ $files = scan_dir("data/news/");
             foreach ($files as $file) {
                 $xml = simplexml_load_file("data/news/" . $file);
 
-                $link = base64_encode($file);
+                $link = ($file);
                 $format = "d_m_y_G_i_s";
                 $dateobject = DateTime::createFromFormat($format, $xml->date);
                 $diff = date_diff(new DateTime("now"), $dateobject);
