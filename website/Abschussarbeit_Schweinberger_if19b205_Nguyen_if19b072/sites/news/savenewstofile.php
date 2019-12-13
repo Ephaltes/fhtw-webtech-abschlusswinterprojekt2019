@@ -11,12 +11,15 @@ $base64=null;
         $base64 = $_POST["thumbnail_original"];
     }
 
+
+    var_dump( sizeof($_FILES["thumbnail"]["size"]));
+    return;
+
     if (!empty($_FILES['thumbnail']["size"])) {
         $file_tmp = $_FILES['thumbnail']['tmp_name'];
         $type = $_FILES['thumbnail']['type'];//pathinfo($file_tmp, PATHINFO_EXTENSION);
         $data = file_get_contents($file_tmp);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-        //echo var_dump($_FILES["thumbnail"]);
     }
 
     if(!empty($_POST["edit_filename"]))
@@ -54,11 +57,12 @@ $base64=null;
 
     array_push($json_id,$newid);
 
+
     $dom = new DOMDocument();
     $dom->encoding = "utf-8";
     $dom->formatOutput = true;
 
-    $title_replaced = str_replace(" ", "", $_POST["title"]);
+    //$title_replaced = str_replace(" ", "", $_POST["title"]);
 
     $xml_name = base64_encode($newid);
     if(!empty($_POST["edit_filename"]))

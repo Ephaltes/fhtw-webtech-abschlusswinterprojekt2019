@@ -48,7 +48,7 @@ if (!empty($_GET["edit"])) {
 
                         <div class="input-group">
                             <div class="custom-file ">
-                                <input type="file" name="thumbnail" class="custom-file-input " accept="image/*"
+                                <input type="file" name="thumbnail[]" class="custom-file-input " accept="image/*"
                                        id="thumbnail" multiple>
                                 <label id="thumbnail_label" class="custom-file-label form-check-label overflow-hidden"
                                        for="thumbnail">  <?php if (!empty($xml->thumbnail)) echo "Derzeitiges TitelBild";
@@ -120,6 +120,9 @@ if (!empty($_GET["edit"])) {
     </div>
 </form>
 
+<div class="new-caption-area d-none">
+
+</div>
 
 <script src="vendor/summernote/summernote-bs4.js"></script>
 
@@ -174,21 +177,40 @@ if (!empty($_GET["edit"])) {
 
     $('input[type="file"]').change(function (e) {
 
+        emptyCarousel();
         imagesPreviewToCarousel(this);
 
         $('.carousel-item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
+
+        var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+
         $('.carousel').carousel("pause");
+
 
     });
 
     $("#btn_remove_image").click(function () {
-        $("#thumbnail").val("");
+       /* $("#thumbnail").val("");
         $("#thumbnail_label").text("Bitte Titelbild auswählen");
         $("#thumbnail_original").val("");
         $("#preview").addClass("d-none");
         $("#preview").removeClass("d-block");
-        $("#preview").attr("src", "");
+        $("#preview").attr("src", ""); */
+
+       let id =  $('.new-caption-area').html();
+        $("#carousel-listElement-" + id).remove();
+       $("#carousel-divElement-" + id).remove();
+
+        $('.carousel-item').first().addClass('active');
+        $('.carousel-indicators > li').first().addClass('active');
+
+        var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+
+        console.log( $("#thumbnail")[0].files );
+
     });
 
 
@@ -222,22 +244,8 @@ if (!empty($_GET["edit"])) {
         if (input.files) {
             var filesAmount = input.files.length;
 
-            let j = 0;
+
             for (i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
-
-                reader.onload = function (event) {
-
-                    let imageElement = $("<img>", {
-                        class: "carousel-image",
-                        src: event.target.result,
-                        alt: "uploaded image " + j
-                    });
-
-                    $("#carousel-divElement-" + j).append(imageElement);
-                    j++;
-                    //$($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                }
 
                 let listElement = $("<li>", {
                     'data-target': "#carouselwithindicator",
@@ -250,16 +258,37 @@ if (!empty($_GET["edit"])) {
                     id: "carousel-divElement-" + i
                 });
 
+                let imageElement = $("<img>", {
+                    class: "carousel-image",
+                    src: URL.createObjectURL(input.files[i]),
+                    alt: "uploaded image " + i
+                });
+
+                let captionElement = $("<div>", {
+                    class: "carousel-caption d-none",
+                    html:  i
+                });
+
                 $(".carousel-indicators").append(listElement);
                 $(".carousel-inner").append(divElement);
-
-
-                reader.readAsDataURL(input.files[i]);
+                $("#carousel-divElement-" + i).append(imageElement);
+                $("#carousel-divElement-" + i).append(captionElement);
             }
         }
 
     };
 
+    var emptyCarousel = function(){
+        $(".carousel-indicators").empty();
+        $(".carousel-inner").empty();
+    };
 
+    var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
+    $('.new-caption-area').html(caption.html());
+
+    $(".carousel").on('slide.bs.carousel', function (e) {
+        var caption = $('div.carousel-item:nth-child(' + ($(e.relatedTarget).index() + 1) + ') .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+    });
 </script>
 
