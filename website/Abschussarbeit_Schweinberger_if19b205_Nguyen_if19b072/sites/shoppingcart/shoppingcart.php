@@ -30,38 +30,10 @@ $link .= $_SERVER['REQUEST_URI'];
                        echo "false";
                    }
                    ?>" style=""> <!-- php needed to keep dropdown open onklick/remove/add-->
-                    <i class="fas fa-shopping-basket">
-                        <!-- see https://fontawesome.com/icons?d=gallery&q=shopping -->
-                        <span class="badge badge-light text-dark"> 
-                            <?php
-                            $all = 0; //show quanity in navbar
-                            $gesamtpreis = 0;
-                            if (!empty($_SESSION['cart'])) {
-                                foreach ($_SESSION['cart'] as $key) {
-                                    $anzahl = $key['quantity'];
-                                    $all = $all + $anzahl;
-                                    $item = $key['item'];
 
-                                    //json read needed here no clue why ????? will say not a object if somewhere else
-                                    $shop = file_get_contents("data/shop/json_datein/produkte.json"); //gets a string
-                                    if ($shop === false) {
-                                        // deal with error...
-                                    } else {
-                                        // var_dump($read);
-                                        $shop = json_decode($shop); //decodes string to array
-                                    }
-                                    foreach ($shop as $data) {
-                                        if ($data->id == $item) {
-                                            $gesamtpreis += ($data->preis) * $anzahl;
-                                        }
-                                    }
-                                }
-                            }
-                            echo "<span class=\"border-right border-dark\">$all </span>";
-                            echo "<span class=\"ml-1\">$gesamtpreis €</span>";
-                            ?>
-                        </span>
-                    </i>
+                    <?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?>
+
+
                 </a>
 
                 <ul class="dropdown-menu position-absolute p_basket border-dark p-2 <?php
@@ -72,7 +44,7 @@ $link .= $_SERVER['REQUEST_URI'];
                     <!-- php needed to keep dropdown open onklick/remove/add-->
                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
                         <li class="nav-header"><h5 class="text-center"><i class="fas fa-shopping-cart"></i>Warenkorb</h5></li>
-                    
+
                         <table class="table table-sm">
                             <thead>
                             <th class="col-scope">Bild</th>
@@ -120,7 +92,7 @@ $link .= $_SERVER['REQUEST_URI'];
                                     echo "<h3>sadly your basket is empty :(</h3>";
                                 }
                                 echo"</table>";
-                               
+
                                 echo "<li><p>Total: $gesamtpreis €</p></li>";
 
                                 if ($gesamtpreis != 0) {

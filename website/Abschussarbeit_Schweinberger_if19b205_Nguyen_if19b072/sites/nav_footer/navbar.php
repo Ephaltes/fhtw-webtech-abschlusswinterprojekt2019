@@ -1,7 +1,19 @@
 ﻿<?php
 require_once("Entities/UserEntity.php");
 ?>
+<?php
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+    $link = "https";
+} else {
+    $link = "http";
+}
+$link .= "://";
+$link .= $_SERVER['HTTP_HOST'];
+$link .= $_SERVER['REQUEST_URI'];
 
+// Print the link 
+//echo $link;
+?>
 <nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top">
     <a href="/">
         <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid " style="height:50px;">
@@ -22,17 +34,30 @@ require_once("Entities/UserEntity.php");
                 <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php">Shop</a></li>
                 <?php
                 if ($user->usertype == "user") {
-                    include('sites/shoppingcart/shoppingcart.php');
+                    if (!empty($_SESSION['cart'])) {
+                        $checksum = 0;
+                        foreach ($_SESSION['cart'] as $value) {
+                            $checksum++;
+                        }
+                        if ($checksum <= 4) {
+                            include('sites/shoppingcart/shoppingcart.php');
+                        } else {
+                            ?>
+                            <li><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light"> <?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li>
+
+                            <?php
+                        }
+                    }
                 } else {
                     include('sites/shoppingcart/adminshoppingcart.php');
                 }
             }
 
-         /*   if (empty($user)) {
-                ?>
-                <li class="nav-item active"><span class="nav-link lead text-light">anonym</span></li>
-                <?php
-            } */
+            /*   if (empty($user)) {
+              ?>
+              <li class="nav-item active"><span class="nav-link lead text-light">anonym</span></li>
+              <?php
+              } */
 
             if (empty($user)) {
                 ?>
@@ -63,4 +88,4 @@ require_once("Entities/UserEntity.php");
         </ul>
     </div>
 </nav>
-<?php $_SESSION['keepopen']="false"; ?>  <!-- keepopen to show dropdown onklick reset  -->
+<?php $_SESSION['keepopen'] = "false"; ?>  <!-- keepopen to show dropdown onklick reset  -->
