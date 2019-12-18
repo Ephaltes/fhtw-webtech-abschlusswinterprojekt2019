@@ -6,7 +6,7 @@
                                 foreach ($_SESSION['cart'] as $value) {
                                     $checksum++;
                                 }
-                                if ($checksum <= 4) {
+                                if ($checksum <= 3) {
                                     ?><li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcart.php');?></li><?php
                                 } else {
                                     ?>

@@ -42,7 +42,7 @@
                                         // deal with error...
                                     } else {
                                         // var_dump($read);
-                                        $read = json_decode($read); //decodes string to array
+                                        $read = json_decode($read, false, 512, JSON_UNESCAPED_UNICODE);
                                     }
                                     foreach ($read as $data) {
                                         if ($data->id == $item) {

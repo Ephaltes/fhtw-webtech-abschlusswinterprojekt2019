@@ -10,7 +10,7 @@
                 // deal with error...
             } else {
                 // var_dump($read);
-                $shop = json_decode($shop); //decodes string to array
+                $shop = json_decode($shop, false, 512, JSON_UNESCAPED_UNICODE); //decodes string to array
                 //echo " <br>";
                 //echo "<br>";
                 //var_dump($data);
