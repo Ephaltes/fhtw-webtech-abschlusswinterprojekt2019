@@ -22,7 +22,7 @@
 
                 </a>
 
-                <ul class="dropdown-menu position-absolute p_basket border-dark p-2 <?php
+                <ul class="dropdown-menu position-absolute p_basket border-dark p-3 <?php
                 if (!empty($_SESSION['keepopen']) && $_SESSION['keepopen'] == "true") {
                     echo "show";
                 }
@@ -82,7 +82,7 @@
                                 echo "<li><p>Total: $gesamtpreis €</p></li>";
 
                                 if ($gesamtpreis != 0) {
-                                    echo "<li><a href=\"shop.php?viewme=checkout\">I wanna buy it daddy</a></li>";
+                                    echo "<li><a href=\"shop.php?viewme=checkout\" class=\"btn-primary btn-lg\">Kaufen</a></li>";
                                 } else {
                                     echo "<li><a href=\"shop.php\">Lets go shopping <3 </a></li>";
                                 }
