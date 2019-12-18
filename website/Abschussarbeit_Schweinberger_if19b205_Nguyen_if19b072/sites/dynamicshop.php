@@ -14,24 +14,24 @@
                 //echo " <br>";
                 //echo "<br>";
                 //var_dump($data);
-                foreach ($shop as $data) {
-                    echo "<div class = \"card col-xs-4 mb-2 mt-2\" style = \"\">\n";
-                    echo "     <div class=\"\">";
-                    echo "        <img class = \"card-img-top m-2 d-block mx-auto img-fluid\" src = \"data/shop/bilder/$data->bild\" style=\"width:50%;\"alt = \"$data->bild\">\n";
-                    echo "        <div class = \"card-body\">\n";
-                    echo "          <h5 class = \"card-title\">$data->titel</h5>\n";
-                    echo "          <p class = \"card-text\">$data->beschreibung</p>\n";
-                    echo "          <p>Price: <em>$data->preis €</em></p>\n";
-                    if ($user->usertype == "user") {
-                        echo "          <button type=\"submit\" name=\"id\" value=\"$data->id\"class=\"btn btn-primary\">add to cart</button>\n";
-                    }
-                    if ($user->usertype == "admin"){
-                        echo "          <button type=\"submit\" name=\"id\" value=\" \"class=\"btn btn-primary  \" disabled>Admin-accounts cant buy</button>\n";
-                    }
-                    echo "        </div>\n";
-                    echo "      </div>";
-                    echo "</div>";
-                }
+                foreach ($shop as $data) { ?>
+                    <div class = "card col-xs-4 mb-2 mt-2" style = "">
+                   <div class="">
+                    <img class = "card-img-top m-2 d-block mx-auto img-fluid" src = "data/shop/bilder/<?php echo $data->bild; ?>" style="width:50%;"alt="<?php echo $data->bild; ?>">
+                   <div class = "card-body">
+                    <h5 class = "card-title"><?php echo  $data->titel;?></h5>
+                    <p class = "card-text"><?php echo $data->beschreibung ;?></p>
+                    <p>Price: <em><?php echo $data->preis; ?> €</em></p>
+                 <?php   if ($user->usertype == "user") { ?>
+                        <button type="submit" name="id" value="<?php echo $data->id; ?>" class="btn btn-primary">add to cart</button>
+                 <?php    }
+                    if ($user->usertype == "admin"){ ?>
+                        <button type="submit" name="id" value="" class="btn btn-primary" disabled>Admin-accounts cant buy</button>
+                 <?php   } ?>
+                   </div>
+                    </div>
+                   </div>
+                <?php }
             }
             ?>
 
