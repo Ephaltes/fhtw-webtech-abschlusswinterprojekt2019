@@ -58,13 +58,12 @@ if (!isset($_SESSION['cart'])) {
             <?php include('sites/nav_footer/navbar.php'); ?>
 
             <section id="ads">
-                <div class="p-3">
+                <div class="d-xs-none d-md-block p-3">
                     <?php
                     $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
                     $Werbung = $images[array_rand($images)];
                     echo"<img src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\"></img>";
                     ?>
-
                 </div>
             </section>
         </header>
