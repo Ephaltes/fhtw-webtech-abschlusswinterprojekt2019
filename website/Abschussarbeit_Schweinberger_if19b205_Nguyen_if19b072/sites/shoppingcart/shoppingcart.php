@@ -1,17 +1,3 @@
-<?php
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-    $link = "https";
-} else {
-    $link = "http";
-}
-$link .= "://";
-$link .= $_SERVER['HTTP_HOST'];
-$link .= $_SERVER['REQUEST_URI'];
-
-// Print the link 
-//echo $link;
-?>
-
 
 <li class="nav-item active">
     <div id="shoppingcart" class="nav-collapse cart-collapse">

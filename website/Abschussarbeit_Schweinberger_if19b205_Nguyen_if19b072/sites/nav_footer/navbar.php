@@ -32,38 +32,18 @@ $link .= $_SERVER['REQUEST_URI'];
             <?php if (!empty($user->usertype)) {
                 ?>
                 <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php">Shop</a></li>
+                <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li>
+                <li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li>
+                   
                 <?php
-                if ($user->usertype == "user") {
-                    if (!empty($_SESSION['cart'])) {
-                        $checksum = 0;
-                        foreach ($_SESSION['cart'] as $value) {
-                            $checksum++;
-                        }
-                        if ($checksum <= 4) {
-                            include('sites/shoppingcart/shoppingcart.php');
-                        } else {
-                            ?>
-                            <li><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light"> <?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li>
-
-                            <?php
-                        }
-                    }
-                } else {
-                    include('sites/shoppingcart/adminshoppingcart.php');
                 }
-            }
-
-            /*   if (empty($user)) {
-              ?>
-              <li class="nav-item active"><span class="nav-link lead text-light">anonym</span></li>
-              <?php
-              } */
-
-            if (empty($user)) {
-                ?>
+                if (empty($user)) {
+                    ?>
                 <li class="nav-item active"><a class="nav-link lead text-light" href="login.php">Login</a></li>
                 <?php
             }
+            
+           
             if (!empty($user)) {
                 ?>
                 <li class="dropdown">

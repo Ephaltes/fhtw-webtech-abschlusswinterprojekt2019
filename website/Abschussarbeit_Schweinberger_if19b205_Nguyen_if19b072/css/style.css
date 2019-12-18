@@ -67,3 +67,7 @@ main {
 }
 .dropdown-menu.p_basket {
 }
+#navbarul1{
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
