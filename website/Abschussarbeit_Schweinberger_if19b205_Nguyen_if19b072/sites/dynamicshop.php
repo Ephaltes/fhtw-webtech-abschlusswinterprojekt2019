@@ -1,6 +1,6 @@
 
 <form action="shop.php" method="POST">
-    <div class="container-fluid pt-3 mb-5">
+    <div class="container-fluid pt-3 mb-5 mt-2">
         <h1 class="">FH-Technikum Merch-Shop <3</h1>
         <div class="card-columns">
 
@@ -34,8 +34,6 @@
                 <?php }
             }
             ?>
-
-
         </div>
     </div>
 </form>

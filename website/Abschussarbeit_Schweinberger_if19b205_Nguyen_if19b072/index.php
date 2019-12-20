@@ -100,12 +100,18 @@ if (!isset($_SESSION['cart'])) {
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
         <script>
-            $(document).ready(function(){
-            if (window.canRunAds === undefined){
-            // adblocker detected, show fallback
-            alert("Please dont use Adblock");
-            }
+            $(document).ready(function () {
+                if (window.canRunAds === undefined) {
+                    // adblocker detected, show fallback
+                    alert("Please dont use Adblock");
+                }
             });
         </script>
+        <?php
+        if (!empty($_SESSION['Einkaufdank'])) {
+            echo"<script>alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");</script>";
+            unset($_SESSION['Einkaufdank']);
+        }
+        ?>
     </body>
 </html>
