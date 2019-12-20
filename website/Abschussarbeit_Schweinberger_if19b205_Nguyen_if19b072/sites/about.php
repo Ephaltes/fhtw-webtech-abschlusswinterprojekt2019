@@ -14,7 +14,7 @@
 <div class="container mt-2 mt-lg-5">
     <div class="embed-responsive-16by9 embed-responsive">
         <video class="" controls>
-            <source src="img/samplevideo.mp4" type="video/mp4">
+            <source src="https://youtu.be/jinbCZGWR8w" type="video/mp4"> <!-- auf IFRAME umbauen -->
             Your browser does not support the video tag.
         </video>
     </div>
