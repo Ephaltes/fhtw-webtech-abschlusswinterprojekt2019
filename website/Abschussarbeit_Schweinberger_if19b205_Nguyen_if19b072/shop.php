@@ -14,8 +14,11 @@ if (!empty($_SESSION["user"])) {
 } else {
     header('Location: /');
 }
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+}
 ?>
-<?php include('sites/shoppingcartedit/shoppingcartadd.php') // needed to add items to cart initally  ?>
+<?php include('sites/shoppingcartedit/shoppingcartadd.php') // needed to add items to cart initally   ?>
 <!doctype html>
 <html lang="de">
     <head>
@@ -28,8 +31,8 @@ if (!empty($_SESSION["user"])) {
         <!--  <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <?php require_once("sites/lib_include/fontawesome.php"); ?>
-        
-        
+
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -40,8 +43,8 @@ if (!empty($_SESSION["user"])) {
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         <script src="js/ads.js"></script>
-        
-        
+
+
         <title>index.php!</title>
     </head>
     <body style="padding-top:40px;">
@@ -62,4 +65,14 @@ if (!empty($_SESSION["user"])) {
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
     </body>
+    <script>
+        $(document).ready(function () {
+            $("#checkoutform").submit(function (event) {
+                if (confirm("Kauf Kostenpflichtig abschließen?")) {
+                } else {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 </html>

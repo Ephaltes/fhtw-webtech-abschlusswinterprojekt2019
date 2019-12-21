@@ -2,12 +2,12 @@
 require_once("Entities/UserEntity.php");
 ?>
 <?php
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') { // get link of website needed for shoppingcart actions
     $link = "https";
 } else {
     $link = "http";
 }
-$link .= "://";
+$link .= "://"; 
 $link .= $_SERVER['HTTP_HOST'];
 $link .= $_SERVER['REQUEST_URI'];
 
@@ -32,8 +32,8 @@ $link .= $_SERVER['REQUEST_URI'];
             <?php if (!empty($user->usertype)) {
                 ?>
                 <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php">Shop</a></li>
-                <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li>
-                <li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li>
+                <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
                    
                 <?php
                 }

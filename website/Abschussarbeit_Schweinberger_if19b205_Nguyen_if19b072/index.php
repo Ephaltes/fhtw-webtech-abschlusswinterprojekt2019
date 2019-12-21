@@ -109,7 +109,7 @@ if (!isset($_SESSION['cart'])) {
         </script>
         <?php
         if (!empty($_SESSION['Einkaufdank'])) {
-            echo"<script>alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");</script>";
+            echo"<script>$(document).ready(function () {alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";
             unset($_SESSION['Einkaufdank']);
         }
         ?>

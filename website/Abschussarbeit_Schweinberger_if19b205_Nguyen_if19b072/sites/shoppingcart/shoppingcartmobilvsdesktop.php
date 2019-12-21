@@ -1,4 +1,4 @@
-<ul id="navbarul1" class="d-none d-md-block">
+<ul id="navbarul1" class="d-none d-md-block"><!-- in desktop show shopping cart if the amount of unique items is smaller or 3-->
                         <?php
                         if ($user->usertype == "user") {
                             if (!empty($_SESSION['cart'])) {
@@ -6,7 +6,7 @@
                                 foreach ($_SESSION['cart'] as $value) {
                                     $checksum++;
                                 }
-                                if ($checksum <= 3) {
+                                if ($checksum <= 3) { //cart limiter
                                     ?><li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcart.php');?></li><?php
                                 } else {
                                     ?>

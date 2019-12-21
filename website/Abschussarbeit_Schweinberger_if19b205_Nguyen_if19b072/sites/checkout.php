@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="data/shop/buy_requests/checkout_bought_writeinfile.php" role="form" class="form" method="POST" id="myForm">
+                <form action="data/shop/buy_requests/checkout_bought_writeinfile.php" role="form" class="form" method="POST" id="checkoutform">
                     <div class="row py-5 p-4 bg-white rounded ">
                         <div class="col-lg-6">
                             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
@@ -120,13 +120,4 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $("#myForm").submit(function (event) {
-            if (confirm("Kauf Kostenpflichtig abschließen?")) {
-            } else {
-                event.preventDefault();
-            }
-        });
-    });
-</script>
+
