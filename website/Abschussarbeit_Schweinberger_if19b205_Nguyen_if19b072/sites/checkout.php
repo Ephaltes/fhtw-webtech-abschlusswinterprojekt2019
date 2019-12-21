@@ -1,9 +1,9 @@
 <?php unset($_SESSION['TOTALPREIS']); // needed later on or on refresh wont show new price   ?> 
-<div class="px-4 px-lg-0 bg-white">
+<div class="px-4 pt-2 px-lg-0 bg-white">
     <div class="container text-dark py-5 text-center">
         <h1 class="display-4"><i class="fas fa-shopping-cart"></i>Warenkorb</h1>
     </div>
-    <div class="pb-5">
+    <div class="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 p-4 bg-white mb-2">
@@ -22,7 +22,7 @@
                                         <div class="py-2 ">ANZAHL</div>
                                     </th>
                                     <th scope="col" class="border-0 ">
-                                        <div class="py-2 ">EDIT</div>
+                                        <div class="py-2 ">BEARBEITEN</div>
                                     </th>
                                 </tr>
                             </thead>
@@ -47,15 +47,15 @@
                                         foreach ($read as $data) {
                                             if ($data->id == $item) {
                                                 echo "<tr scope=\"row rounded-pill\" class=\"border\">";
-                                                echo "<td scope=\"row\" class=\"ml-2\"><div class=\"d-flex flex-wrap flex-column\"><img src=\"data/shop/bilder/$data->bild\" class=\"mr-2 float-left img-fluid\" style=\"width:75px;\"><div class=\"flex-column\"><h4 class=\"\">$data->titel</h4><small><i>$data->beschreibung</i></small></div></td>";
+                                                echo "<td scope=\"row\" class=\"ml-2\"><div class=\"d-flex flex-wrap flex-column\"><img src=\"data/shop/bilder/$data->bild\" class=\"mr-2 float-left img-fluid checkoutimg\" ><div class=\"flex-md-column flex-xs-row\"><h4 class=\"\">$data->titel</h4><small><i>$data->beschreibung</i></small></div></td>";
                                                 echo "<td scope=\"row\" class = \"ml-2\">$anzahl</td>";
                                                 echo "<td scope=\"row`\" class=\"ml--2\">$data->preis&#x20AC</td>";
                                                 $gesamtpreis += ($data->preis) * $anzahl;
                                                 $item = $data->id;
 
-                                                echo "<td><span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x&dontkeepopen=true\"><small><i class=\"fas fa-trash-alt\"></i></small></a></span>";
-                                                echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u&dontkeepopen=true\"><small><i class=\"fas fa-plus\"></i></small></a></span>";
-                                                echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d&dontkeepopen=true\"><small><i  class=\"fas fa-minus\"></i></small></a></span></td>";
+                                                echo "<td><span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x&dontkeepopen=true\"><small><button class=\"btn p-0 btn text-danger\"><i class=\"fas fa-trash-alt\"></i></button></small></a></span>";
+                                                echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u&dontkeepopen=true\"><small><button class=\"btn ml-2 p-0 btn\"><i class=\"fas fa-plus\"></i></button></small></a></span>";
+                                                echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d&dontkeepopen=true\"><small><button class=\"btn ml-2 p-0 btn\"><i  class=\"fas fa-minus\"></i></button></small></a></span></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -68,7 +68,7 @@
                         <?php if (empty($_SESSION['cart']) && $user->usertype == 'user') { ?>
                             <div class="pt-3 text-center ">
                                 <p class="lead">Der Warenkorb ist Leer, besuch doch unseren Shop!<p>
-                                    <a class="btn-primary btn-lg" href="shop.php">Shop!</a>
+                                    <a class="btn-primary btn-lg" href="shop.php">Shop</a>
                             </div>
                         <?php } if (empty($_SESSION['cart']) && $user->usertype == 'admin') { ?>
                                 <div class="pt-3 text-center ">

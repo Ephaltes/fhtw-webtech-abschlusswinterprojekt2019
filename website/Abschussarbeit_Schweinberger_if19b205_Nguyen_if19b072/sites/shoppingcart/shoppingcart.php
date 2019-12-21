@@ -59,7 +59,7 @@
                                         foreach ($data as $data) {
                                             if ($data->id == $item) {
                                                 echo "<tr scope=\"row\" class=\"border\">";
-                                                echo "<td scope=\"row\" class=\"ml-2\"><img src=\"data/shop/bilder/$data->bild\" class=\"img-fluid\" style=\"width:25px;\">";
+                                                echo "<td scope=\"row\" class=\"ml-2\"><img src=\"data/shop/bilder/$data->bild\" class=\"img-fluid shoppingcartimg\" >";
                                                 echo "<td scope=\"row\" class = \"ml-2\">$anzahl</td>";
                                                 echo "<td scope=\"row\" class=\"ml--2\">$data->titel</td>";
                                                 echo "<td scope=\"row`\" class=\"ml--2\">$data->preis&#x20AC</td>";
