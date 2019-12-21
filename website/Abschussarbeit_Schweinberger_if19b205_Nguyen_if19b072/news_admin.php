@@ -40,7 +40,7 @@ if (!empty($_SESSION["user"])) {
     <title>News Verwaltung</title>
 
 </head>
-<body style="padding-top:40px;">
+<body>
 <header>
     <?php include('sites/nav_footer/navbar.php'); ?>
 </header>

@@ -52,7 +52,7 @@ if (!isset($_SESSION['cart'])) {
 
         <title>1nicer shop</title>
     </head>
-    <body style="padding-top:40px;">
+    <body>
         <header>
 
             <?php include('sites/nav_footer/navbar.php'); ?>

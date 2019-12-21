@@ -2,7 +2,7 @@
     <div class="container py-2">
         <h1 class = "adsimple-221108837">Datenschutzerklärung</h1>
         <h2 class = "adsimple-221108837">Datenschutz</h2>
-        <p>Wir haben diese Datenschutzerklärung (Fassung 04.12.2019-221108837) verfasst, um Ihnen gemäß der Vorgaben der Datenschutz-Grundverordnung (EU) 2016/679 und dem <a class = "adsimple-221108837" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank" rel = "noopener nofollow" class = "external">Datenschutzgesetz (DSG)</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</p>
+        <p>Wir haben diese Datenschutzerklärung (Fassung 04.12.2019-221108837) verfasst, um Ihnen gemäß der Vorgaben der Datenschutz-Grundverordnung (EU) 2016/679 und dem <a class = "adsimple-221108837" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank"  class = "external">Datenschutzgesetz (DSG)</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</p>
         <p>Leider liegt es in der Natur der Sache, dass diese Erklärungen sehr technisch klingen. Wir haben uns bei der Erstellung jedoch bemüht die wichtigsten Dinge so einfach und klar wie möglich zu beschreiben.</p>
         <h2 class = "adsimple-221108837">Automatische Datenspeicherung</h2>
         <p>Wenn Sie heutzutage Webseiten besuchen, werden gewisse Informationen automatisch erstellt und gespeichert, so auch auf dieser Webseite.</p>
@@ -22,7 +22,7 @@
         <p>Wir nutzen Ihre persönlichen Daten somit nur für die Kommunikation mit jenen Besuchern, die Kontakt ausdrücklich wünschen und für die Abwicklung der auf dieser Webseite angebotenen Dienstleistungen und Produkte. Wir geben Ihre persönlichen Daten ohne Zustimmung nicht weiter, können jedoch nicht ausschließen, dass diese Daten beim Vorliegen von rechtswidrigem Verhalten eingesehen werden.</p>
         <p>Wenn Sie uns persönliche Daten per E-Mail schicken – somit abseits dieser Webseite – können wir keine sichere Übertragung und den Schutz Ihrer Daten garantieren. Wir empfehlen Ihnen, vertrauliche Daten niemals unverschlüsselt per E-Mail zu übermitteln.</p>
         <h2 class = "adsimple-221108837">Rechte laut Datenschutzgrundverordnung</h2>
-        <p>Ihnen stehen laut den Bestimmungen der DSGVO und des österreichischen <a class = "adsimple-221108837" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank" rel = "noopener nofollow" class = "external">Datenschutzgesetzes (DSG)</a> grundsätzlich die folgende Rechte zu:</p>
+        <p>Ihnen stehen laut den Bestimmungen der DSGVO und des österreichischen <a class = "adsimple-221108837" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank" class= "external">Datenschutzgesetzes (DSG)</a> grundsätzlich die folgende Rechte zu:</p>
         <ul class = "adsimple-221108837">
             <li class = "adsimple-221108837">Recht auf Berichtigung (Artikel 16 DSGVO)</li>
             <li class = "adsimple-221108837">Recht auf Löschung („Recht auf Vergessenwerden“) (Artikel 17 DSGVO)</li>
@@ -93,7 +93,7 @@
         <p>Falls Sie grundsätzlich keine Cookies haben wollen, können Sie Ihren Browser so einrichten, dass er Sie immer informiert, wenn ein Cookie gesetzt werden soll. So können Sie bei jedem einzelnen Cookie entscheiden, ob Sie das Cookie erlauben oder nicht. Die Vorgangsweise ist je nach Browser verschieden. Am besten Sie suchen die Anleitung in Google mit dem Suchbegriff “Cookies löschen Chrome” oder „Cookies deaktivieren Chrome“ im Falle eines Chrome Browsers.</p>
         <h3 class = "adsimple-221108837">Wie sieht es mit meinem Datenschutz aus?</h3>
         <p>Seit 2009 gibt es die sogenannten „Cookie-Richtlinien“. Darin ist festgehalten, dass das Speichern von Cookies eine Einwilligung des von Ihnen verlangt. Innerhalb der EU-Länder gibt es allerdings noch sehr unterschiedliche Reaktionen auf diese Richtlinien. In Österreich erfolgte aber die Umsetzung dieser Richtlinie in § 96 Abs. 3 des Telekommunikationsgesetzes (TKG).</p>
-        <p>Wenn Sie mehr über Cookies wissen möchten und vor technischen Dokumentationen nicht zurückscheuen, empfehlen wir <a class = "adsimple-221108837" href = "https://tools.ietf.org/html/rfc6265" target = "_blank" rel = "nofollow noopener" class = "external">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der Internet Engineering Task Force (IETF) namens „HTTP State Management Mechanism“.</p>
+        <p>Wenn Sie mehr über Cookies wissen möchten und vor technischen Dokumentationen nicht zurückscheuen, empfehlen wir <a class = "adsimple-221108837" href = "https://tools.ietf.org/html/rfc6265" target = "_blank" class = "external">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der Internet Engineering Task Force (IETF) namens „HTTP State Management Mechanism“.</p>
         <h2 class = "adsimple-221108837">Newsletter Datenschutzerklärung</h2>
         <p>
             <span class = "adsimple-221108837" style = "font-weight: 400;">Wenn Sie sich für unseren Newsletter eintragen übermitteln Sie die oben genannten persönlichen Daten und geben uns das Recht Sie per E-Mail zu kontaktieren. Die im Rahmen der Anmeldung zum Newsletter gespeicherten Daten nutzen wir ausschließlich für unseren Newsletter und geben diese nicht weiter.</span>
@@ -101,7 +101,7 @@
         <p>
             <span class = "adsimple-221108837" style = "font-weight: 400;">Sollten Sie sich vom Newsletter abmelden – Sie finden den Link dafür in jedem Newsletter ganz unten – dann löschen wir alle Daten die mit der Anmeldung zum Newsletter gespeichert wurden.</span>
         </p>
-        <p style = "margin-top:15px;">Quelle: Erstellt mit dem <a title = "Datenschutz Generator von firmenwebseiten.at" href = "https://www.firmenwebseiten.at/datenschutz-generator/" target = "_blank" rel = "follow" style = "text-decoration:none;">Datenschutz Generator von firmenwebseiten.at</a> in Kooperation mit <a href = "https://www.aboutbusiness.at" target = "_blank" rel = "follow" title = "" style = "text-decoration:none;">aboutbusiness.at</a>
+        <p style = "margin-top:15px;">Quelle: Erstellt mit dem <a title = "Datenschutz Generator von firmenwebseiten.at" href = "https://www.firmenwebseiten.at/datenschutz-generator/" target = "_blank"  style = "text-decoration:none;">Datenschutz Generator von firmenwebseiten.at</a> in Kooperation mit <a href = "https://www.aboutbusiness.at" target = "_blank" rel = "follow" title = "" style = "text-decoration:none;">aboutbusiness.at</a>
         </p>
     </div>
 </section>

@@ -71,3 +71,22 @@ main {
     list-style-type: none;
     padding-inline-start: 0px;
 }
+body{
+    padding-top:40px;
+}
+.shopimg{
+    width:50%;
+}
+.checkoutimg{
+    width:75px;
+}
+#navbardropdown{
+     right: 0; 
+     left: auto;
+}
+.shoppingcartimg{
+    width:25px;
+}
+#brand{
+    height:50px;
+}

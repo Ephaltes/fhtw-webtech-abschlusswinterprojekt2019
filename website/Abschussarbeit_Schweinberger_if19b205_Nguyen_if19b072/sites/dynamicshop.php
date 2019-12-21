@@ -17,7 +17,7 @@
                 foreach ($shop as $data) { ?>
                     <div class = "card col-xs-4 mb-2 mt-2" style = "">
                    <div class="">
-                    <img class = "card-img-top m-2 d-block mx-auto img-fluid" src = "data/shop/bilder/<?php echo $data->bild; ?>" style="width:50%;"alt="<?php echo $data->bild; ?>">
+                    <img class = "card-img-top m-2 d-block mx-auto img-fluid shopimg" src = "data/shop/bilder/<?php echo $data->bild; ?>" alt="<?php echo $data->bild; ?>">
                    <div class = "card-body">
                     <h5 class = "card-title"><?php echo  $data->titel;?></h5>
                     <p class = "card-text"><?php echo $data->beschreibung ;?></p>

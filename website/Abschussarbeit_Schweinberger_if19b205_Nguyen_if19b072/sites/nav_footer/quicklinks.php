@@ -1,5 +1,5 @@
 <section id="quicklinks" class="mt-2">
-                <div id="" class="bg-dark pb-1 "> <!-- center this !!!edit-->
+                <div id="quicklinksdiv" class="bg-dark pb-1 "> <!-- center this !!!edit-->
                     <ul class="d-flex justify-content-center flex-wrap flex-xs-row pt-2">
                         <li class="p-3"><a class=" text-light" href="">randomNews1</a></li>
                         <li class="p-3"><a class=" text-light" href="">randomNews1</a></li>

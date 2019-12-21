@@ -15,18 +15,18 @@
                    } else {
                        echo "false";
                    }
-                   ?>" style=""> <!-- php needed to keep dropdown open onklick/remove/add-->
+                   ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
 
                     <?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?>
 
 
                 </a>
 
-                <ul class="dropdown-menu position-absolute p_basket border-dark p-3 <?php
+                <ul id="navbardropdown" class="dropdown-menu position-absolute p_basket border-dark p-3 <?php
                 if (!empty($_SESSION['keepopen']) && $_SESSION['keepopen'] == "true") {
                     echo "show";
                 }
-                ?>" style="right: 0; left: auto;">
+                ?>">
                     <!-- php needed to keep dropdown open onklick/remove/add-->
                     <form class=""> <!-- form need to keep open onklick, otherwise javascript needed -->
                         <li class="nav-header"><h5 class="text-center"><i class="fas fa-shopping-cart"></i>Warenkorb</h5></li>
