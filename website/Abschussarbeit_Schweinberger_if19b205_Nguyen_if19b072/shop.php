@@ -58,7 +58,7 @@ if (!isset($_SESSION['cart'])) {
             if (!empty($_GET['viewme']) && $_GET['viewme'] == "checkout") {
                 include('sites/checkout.php');
             } else {
-                include('sites/dynamicshop.php');
+                include('sites/shopitem.php');
             }
             ?>
         </main>
