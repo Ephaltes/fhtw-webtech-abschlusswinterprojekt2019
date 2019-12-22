@@ -103,7 +103,7 @@ if (!isset($_SESSION['cart'])) {
             $(document).ready(function () {
                 if (window.canRunAds === undefined) {
                     // adblocker detected, show fallback
-                    alert("Please dont use Adblock");
+                    //alert("Please dont use Adblock");
                 }
             });
         </script>

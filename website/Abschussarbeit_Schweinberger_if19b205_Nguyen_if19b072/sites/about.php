@@ -13,10 +13,9 @@
 
 <div class="container mt-2 mt-lg-5">
     <div class="embed-responsive-16by9 embed-responsive">
-        <video class="" controls>
-            <source src="https://youtu.be/jinbCZGWR8w" type="video/mp4"> <!-- auf IFRAME umbauen -->
-            Your browser does not support the video tag.
-        </video>
+        <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/jinbCZGWR8w"
+                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
     </div>
 </div>
 

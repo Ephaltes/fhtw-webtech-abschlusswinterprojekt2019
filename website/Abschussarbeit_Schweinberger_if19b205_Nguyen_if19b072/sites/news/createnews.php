@@ -1,22 +1,13 @@
 <?php
 
-require_once("Entities/UserEntity.php");
+$root = $_SERVER['DOCUMENT_ROOT'];
+$helper = "/helpers/directoryhelper.php";
+$userentity = "/Entities/UserEntity.php";
 
-function scan_dir($dir)
-{
-    $ignored = array('.', '..', '.svn', '.htaccess','ids');
+require_once($root . $userentity);
+require_once($root . $helper);
 
-    $files = array();
-    foreach (scandir($dir) as $file) {
-        if (in_array($file, $ignored)) continue;
-        $files[$file] = filemtime($dir . '/' . $file);
-    }
-
-    arsort($files);
-    $files = array_keys($files);
-
-    return ($files) ? $files : false;
-}
+use Helpers\DirectoryHelper;
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -35,7 +26,7 @@ if (!empty($_GET["edit"])) {
     $filename = ($_GET["edit"]);
     $xml = simplexml_load_file("data/news/" . $filename);
 
-    $thumbnails = scan_dir("img/$filename/");
+    $thumbnails = DirectoryHelper::scan_dir("img/$filename/");
 }
 ?>
 

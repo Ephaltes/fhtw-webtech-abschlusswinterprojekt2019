@@ -1,22 +1,15 @@
 <?php
 
-function scan_dir($dir)
-{
-    $ignored = array('.', '..', '.svn', '.htaccess','ids');
+$root = $_SERVER['DOCUMENT_ROOT'];
+$helper = "/helpers/directoryhelper.php";
 
-    $files = array();
-    foreach (scandir($dir) as $file) {
-        if (in_array($file, $ignored)) continue;
-        $files[$file] = filemtime($dir . '/' . $file);
-    }
+require_once($root . $helper);
 
-    arsort($files);
-    $files = array_keys($files);
+use Helpers\DirectoryHelper;
 
-    return ($files) ? $files : false;
-}
+$newspath = "/data/news/";
 
-$files = scan_dir("data/news/");
+$files = DirectoryHelper::scan_dir($root . $newspath);
 
 ?>
 <div class="container-fluid">
@@ -38,7 +31,7 @@ foreach ($files as $file) {
     $diff = date_diff(new DateTime("now"),$dateobject);
     //echo var_dump($diff);
 
-    $images = scan_dir("img/" . $file);
+    $images = DirectoryHelper::scan_dir("img/" . $file);
 
     ?>
 
