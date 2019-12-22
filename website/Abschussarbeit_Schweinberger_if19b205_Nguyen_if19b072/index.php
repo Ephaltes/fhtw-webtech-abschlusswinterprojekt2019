@@ -47,7 +47,7 @@ if (!isset($_SESSION['cart'])) {
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script src="js/ads.js"></script>
+        <script src="js/site.js"></script>
 
 
         <title>1nicer shop</title>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['cart'])) {
             $(document).ready(function () {
                 if (window.canRunAds === undefined) {
                     // adblocker detected, show fallback
-                    //alert("Please dont use Adblock");
+                    alert("Please dont use Adblock");
                 }
             });
         </script>
