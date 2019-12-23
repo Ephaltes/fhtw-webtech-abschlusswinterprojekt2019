@@ -17,13 +17,13 @@ $files = DirectoryHelper::scan_dir($path)
 <section id="quicklinks" class="mt-2">
     <div id="quicklinksdiv" class="bg-dark pb-1 "> <!-- center this !!!edit-->
         <div class="row py-3 mx-0">
-            <div class="offset-lg-4half offset-4 col-12 col-lg-auto"><a id="random_news_a" class="text-light" href="#" tabindex="90">zufällige News</a></div>
+            <div class="offset-lg-4half offset-4 col-8 col-lg-auto"><a id="random_news_a" class="text-light" href="#" tabindex="90">zufällige News</a></div>
            <!-- <li class="p-3"><a class=" text-light" href="">randomNews1</a></li> -->
-            <div class="col-12 offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" href="https://cis.technikum-wien.at/cis/index.php" tabindex="91">CIS</a></div>
-            <div class="col-12 offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" href="https://www.technikum-wien.at/" tabindex="92">FHTW</a></div>
-            <div class="col-12  offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" href="https://moodle.technikum-wien.at/" tabindex="93">Moodle</a></div>
-            <div class="col-12 offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" href="">!!!edit</a></div>
-            <div class="col-12 offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" href="">!!!edit</a></div>
+            <div class="col-8 offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" href="https://cis.technikum-wien.at/cis/index.php" tabindex="91">CIS</a></div>
+            <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" href="https://www.technikum-wien.at/" tabindex="92">FHTW</a></div>
+            <div class="col-8  offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" href="https://moodle.technikum-wien.at/" tabindex="93">Moodle</a></div>
+            <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" href="">!!!edit</a></div>
+            <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" href="">!!!edit</a></div>
             <?php
             if ($files != false)
             {
