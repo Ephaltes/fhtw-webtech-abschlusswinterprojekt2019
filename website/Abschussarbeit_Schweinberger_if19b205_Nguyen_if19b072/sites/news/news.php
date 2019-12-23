@@ -89,7 +89,7 @@ $images = DirectoryHelper::scan_dir("img/" . $_GET["news"]);
 
 
                 <hr>
-                <div style="min-height:50vh;">
+                <div>
                     <?php echo $content ?>
                 </div>
             </div>
