@@ -50,7 +50,7 @@ if (!isset($_SESSION['cart'])) {
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         <script src="js/site.js"></script>
-
+        <script src="js/ads.js"></script>
 
         <title>FHTW Shop&News</title>
     </head>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['cart'])) {
             $(document).ready(function () {
                 if (window.canRunAds === undefined) {
                     // adblocker detected, show fallback
-                    alert("Please dont use Adblock");
+                    consol.log("Please dont use Adblock");
                 }
             });
         </script>

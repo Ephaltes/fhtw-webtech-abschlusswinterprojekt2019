@@ -67,9 +67,9 @@
                                                 $item = $data->id;
 
 
-                                                echo "<td><span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x\"><small><i class=\"fas fa-trash-alt\"></i></small></a></span>";
-                                                echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u\"><small><i class=\"fas fa-plus\"></i></small></a></span>"; //u = up increase + cant be trasnfered with get
-                                                echo "<span class = \"ml-2\"><a class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d\"><small><i class=\"fas fa-minus\"></i></small></a></span></td>"; //d = down decrease by 1 cant be transfered with get
+                                                echo "<td><span class = \"ml-2\"><a tabindex=\"\" class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=x\"><small><i aria-hidden=\"true\" title=\"Aus dem Warenkorb löschen\" class=\" text-danger fas fa-trash-alt\"></i></small><span class=\"d-none\">Aus dem Warenkorb löschen</span></a></span>";
+                                                echo "<span class = \"ml-2\"><a tabindex=\"4\" class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=u\"><small><i aria-hidden=\"true\" title=\"Ware um 1 erhöhen\" class=\" text-dark fas fa-plus\"></i></small><span class=\"d-none\">Ware um 1 erhöhren</span></a></span>"; //u = up increase + cant be trasnfered with get
+                                                echo "<span class = \"ml-2\"><a tabindex=\"4\" class = \"removefromcart\" href =\"sites/shoppingcartedit/editcart.php?item=$item&site=$link&action=d\"><small><i aria-hidden=\"true\" title=\"Ware um 1 verringern\" class=\" text-dark fas fa-minus\"></i></small><span class=\"d-none\">Ware um 1 verringern</span></a></span></td>"; //d = down decrease by 1 cant be transfered with get
                                                 echo "</tr>";
                                             }
                                         }

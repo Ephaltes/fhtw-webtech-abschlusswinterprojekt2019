@@ -33,8 +33,7 @@ $link .= $_SERVER['REQUEST_URI'];
                 ?>
                 <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php" tabindex="3">Shop</a></li>
                 <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light" tabindex="4"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
-                <li class="d-none d-md-block" tabindex="4"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
-                   
+                <li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
                 <?php
                 }
                 if (empty($user)) {
