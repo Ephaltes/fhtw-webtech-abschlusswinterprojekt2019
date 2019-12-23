@@ -27,7 +27,9 @@ if (!isset($_SESSION['cart'])) {
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta name="description" content="Projektwebseite für die FH-Technikum">
+        <meta name="keywords" content="FH,Technikum,wien,projekt,abschluss">
+        <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <!-- <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
@@ -50,7 +52,7 @@ if (!isset($_SESSION['cart'])) {
         <script src="js/site.js"></script>
 
 
-        <title>1nicer shop</title>
+        <title>FHTW Shop&News</title>
     </head>
     <body>
         <header>
@@ -97,8 +99,11 @@ if (!isset($_SESSION['cart'])) {
             ?>
         </main>
 
+        <quickandfooter class="container-fluid p-0 m-0">
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
+        </quickandfooter>
+
         <script>
             $(document).ready(function () {
                 if (window.canRunAds === undefined) {

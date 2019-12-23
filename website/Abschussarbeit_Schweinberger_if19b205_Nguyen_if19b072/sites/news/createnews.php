@@ -138,11 +138,11 @@ if (!empty($_GET["edit"])) {
             </div>
         </div>
 
-        <div class="row">
+        <div class="row form-group">
             <div class="col">
+                <textarea id="content_raw" name="content_raw" class="invisible"></textarea>
                 <textarea id="summernote"
                           name="content"><?php if (!empty($xml->content)) echo $xml->content; ?></textarea>
-                <textarea id="content_raw" name="content_raw" class="invisible"></textarea>
             </div>
         </div>
 
@@ -216,11 +216,17 @@ if (!empty($_GET["edit"])) {
             'title': {
                 required: true,
                 pattern: "((?![<>]).)+"
+            },
+            'content_raw': {
+                required: true
             }
         },
         messages: {
             'title': {
                 required: 'Titel fehlt'
+            },
+            'content_raw': {
+                required: 'Text fehlt'
             }
         }
     });

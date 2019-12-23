@@ -11,6 +11,10 @@ a .card-img-top {
 }
 */
 
+*:not(.table-responsive,.table){
+    word-break: break-word;
+}
+
 .cursor-pointer{
     cursor: pointer !important;
 }
@@ -26,6 +30,8 @@ a .card-img-top {
     max-height: 50vw;
     object-fit: contain;
 }
+
+
 
 @media (min-width: 768px) {
     /* md */
@@ -57,6 +63,11 @@ a .card-img-top {
         max-height: 30vw;
         object-fit: contain;
     }
+
+    .offset-lg-4half {
+        margin-left: 37.5%;
+    }
+
 }
 
 .bg-carousel{
@@ -75,7 +86,7 @@ footer ul, footer li{
     max-height:300px;
 }
 main {
-    min-height:65vh;
+    min-height:68vh;
 }
 .dropdown-menu.p_basket {
 }

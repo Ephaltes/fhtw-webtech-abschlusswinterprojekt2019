@@ -19,7 +19,7 @@ if(!empty($_SESSION["user"])){
     <!-- <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>index.php!</title>
+    <title>FHTW Shop&News</title>
 </head>
 <body>
 <div class="container">

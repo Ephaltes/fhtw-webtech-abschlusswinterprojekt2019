@@ -1,6 +1,6 @@
 <section id ="Datenschutz">
     <div class="container py-2">
-        <h1 class = "">Datenschutzerklärung</h1>
+        <h1 class = "text-break">Datenschutzerklärung</h1>
         <h2 class = "">Datenschutz</h2>
         <p>Wir haben diese Datenschutzerklärung (Fassung 04.12.2019-221108837) verfasst, um Ihnen gemäß der Vorgaben der Datenschutz-Grundverordnung (EU) 2016/679 und dem <a class = "" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank"  class = "external">Datenschutzgesetz (DSG)</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</p>
         <p>Leider liegt es in der Natur der Sache, dass diese Erklärungen sehr technisch klingen. Wir haben uns bei der Erstellung jedoch bemüht die wichtigsten Dinge so einfach und klar wie möglich zu beschreiben.</p>
@@ -21,7 +21,7 @@
         <p>Persönliche Daten, die Sie uns auf dieser Website elektronisch übermitteln, wie zum Beispiel Name, E-Mail-Adresse, Adresse oder andere persönlichen Angaben im Rahmen der Übermittlung eines Formulars oder Kommentaren im Blog, werden von uns gemeinsam mit dem Zeitpunkt und der IP-Adresse nur zum jeweils angegebenen Zweck verwendet, sicher verwahrt und nicht an Dritte weitergegeben.</p>
         <p>Wir nutzen Ihre persönlichen Daten somit nur für die Kommunikation mit jenen Besuchern, die Kontakt ausdrücklich wünschen und für die Abwicklung der auf dieser Webseite angebotenen Dienstleistungen und Produkte. Wir geben Ihre persönlichen Daten ohne Zustimmung nicht weiter, können jedoch nicht ausschließen, dass diese Daten beim Vorliegen von rechtswidrigem Verhalten eingesehen werden.</p>
         <p>Wenn Sie uns persönliche Daten per E-Mail schicken – somit abseits dieser Webseite – können wir keine sichere Übertragung und den Schutz Ihrer Daten garantieren. Wir empfehlen Ihnen, vertrauliche Daten niemals unverschlüsselt per E-Mail zu übermitteln.</p>
-        <h2 class = "">Rechte laut Datenschutzgrundverordnung</h2>
+        <h2 class = "text-break">Rechte laut Datenschutzgrundverordnung</h2>
         <p>Ihnen stehen laut den Bestimmungen der DSGVO und des österreichischen <a class = "" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank" class= "external">Datenschutzgesetzes (DSG)</a> grundsätzlich die folgende Rechte zu:</p>
         <ul class = "">
             <li class = "">Recht auf Berichtigung (Artikel 16 DSGVO)</li>

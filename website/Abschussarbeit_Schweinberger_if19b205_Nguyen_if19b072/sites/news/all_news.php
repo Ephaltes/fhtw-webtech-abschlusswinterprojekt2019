@@ -9,7 +9,7 @@ use Helpers\DirectoryHelper;
 
 $newspath = "/data/news/";
 
-$files = DirectoryHelper::scan_dir($root . $newspath);
+$files = DirectoryHelper::scan_dir_for_news($root . $newspath);
 
 ?>
 <div class="container-fluid">

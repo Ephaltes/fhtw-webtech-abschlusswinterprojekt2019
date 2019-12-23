@@ -25,7 +25,9 @@ if (!isset($_SESSION['cart'])) {
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta name="description" content="Shop für die FH-Technikum">
+        <meta name="keywords" content="shop,merchandise,kaufen">
+        <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!--  <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
@@ -45,7 +47,7 @@ if (!isset($_SESSION['cart'])) {
         <script src="js/site.js"></script>
 
 
-        <title>index.php!</title>
+        <title>FHTW Shop&News</title>
     </head>
     <body>
         <header>
@@ -62,8 +64,11 @@ if (!isset($_SESSION['cart'])) {
             }
             ?>
         </main>
+
+        <quickandfooter class="container-fluid p-0 m-0">
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
+        </quickandfooter>
     </body>
     <script>
         $(document).ready(function () {

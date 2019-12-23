@@ -27,19 +27,19 @@ $link .= $_SERVER['REQUEST_URI'];
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
 
-            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php">News</a></li>
-            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php?viewme=About">About</a></li>
+            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php" tabindex="1">News</a></li>
+            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php?viewme=About" tabindex="2">About</a></li>
             <?php if (!empty($user->usertype)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php">Shop</a></li>
-                <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
-                <li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php" tabindex="3">Shop</a></li>
+                <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="dropdown-toggle nav-link lead text-light" tabindex="4"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li class="d-none d-md-block" tabindex="4"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
                    
                 <?php
                 }
                 if (empty($user)) {
                     ?>
-                <li class="nav-item active"><a class="nav-link lead text-light" href="login.php">Login</a></li>
+                <li class="nav-item active"><a class="nav-link lead text-light" href="login.php" tabindex="5">Login</a></li>
                 <?php
             }
             
@@ -48,16 +48,16 @@ $link .= $_SERVER['REQUEST_URI'];
                 ?>
                 <li class="dropdown">
                     <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" data-toggle="dropdown"
-                       aria-expanded="false">
+                       aria-expanded="false" tabindex="5">
                         <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
                         <!-- position-absolute entfernt -->
                         <?php if ($user->usertype == "admin") { ?>
-                            <a class="dropdown-item" href="news_admin.php"><i class="fas fa-newspaper"></i> News
+                            <a class="dropdown-item" href="news_admin.php" tabindex="6"><i class="fas fa-newspaper" ></i> News
                                 Verwaltung</a>
                         <?php } ?>
-                        <a class="dropdown-item" href="index.php?logout=true"><i class="fas fa-sign-out-alt"></i>
+                        <a class="dropdown-item" href="index.php?logout=true" tabindex="7"><i class="fas fa-sign-out-alt"></i>
                             Abmelden</a>
                     </div>
 
