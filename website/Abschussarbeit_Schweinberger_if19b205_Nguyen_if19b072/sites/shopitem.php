@@ -29,7 +29,7 @@
                     <p class = "card-text"><?php echo $data->beschreibung ;?></p>
                     <p>Price: <em><?php echo $data->preis; ?> €</em></p>
                  <?php   if ($user->usertype == "user") { ?>
-                        <button <?php echo"tabstop=\"$tabindex\"";?>type="submit" name="id" value="<?php echo $data->id; ?>" class="btn btn-primary">add to cart</button>
+                        <button <?php echo"tabindex=\"$tabindex\"";?>type="submit" name="id" value="<?php echo $data->id; ?>" class="btn btn-primary">add to cart</button>
                  <?php    }
                     if ($user->usertype == "admin"){ ?>
                         <button type="submit" name="id" value="" class="btn btn-primary" disabled>Admin-accounts cant buy</button>
