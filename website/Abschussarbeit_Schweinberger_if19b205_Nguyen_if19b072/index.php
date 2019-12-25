@@ -50,7 +50,6 @@ if (!isset($_SESSION['cart'])) {
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         <script src="js/site.js"></script>
-        <script src="js/ads.js"></script>
 
         <title>FHTW Shop&News</title>
     </head>
@@ -85,6 +84,9 @@ if (!isset($_SESSION['cart'])) {
                         break;
                     case "AGB":
                         include('sites/Legal_law/AGB.php');
+                        break;
+                    case "Kontakt":
+                        include("sites/contact.php");
                         break;
                     default:
                         echo"couldnt match a view";

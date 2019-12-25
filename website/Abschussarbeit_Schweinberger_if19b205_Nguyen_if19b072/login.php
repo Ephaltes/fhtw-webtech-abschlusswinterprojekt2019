@@ -72,11 +72,32 @@ if(!empty($_SESSION["user"])){
 <script src="vendor/jquery_validation/jquery.validate.js"></script>
 <script src="vendor/jquery_validation/additional-methods.js"></script>
 <script src="vendor/jquery_validation/localization/messages_de.js"></script>
+<script src="js/site.js"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"> </script>
 
 <script>
+
+    var rules = {
+        'username': {
+            required: true
+        },
+        'password': {
+            required: true
+        }
+    };
+
+    var messages = {
+        'username': {
+            required: 'Username ist nicht ausgefüllt'
+        },
+        'password': {
+            required: 'Password ist nicht ausgefüllt'
+        }
+    };
+
+    Validation.InitValidation("#formid",".form-group",rules,messages);
 
     $("#btn_login").click(function(e){
         e.preventDefault();
@@ -84,46 +105,6 @@ if(!empty($_SESSION["user"])){
         if ($('#formid').valid()) {
             $("#formid").submit();
             //document.getElementById("formid").reset();
-        }
-    });
-
-    $('#formid').validate({
-        errorClass: 'alert-danger form-control mt-2 help-block', // You can change the animation class for a different entrance animation - check animations page
-        errorElement: 'div',
-        errorPlacement: function (error, e) {
-            //e.parents('.form-group > div').append(error);
-            $(e).parents('.form-group').append(error);
-        },
-        highlight: function (e) {
-            //console.log("highlight");
-            $(e).closest('.form-control').removeClass('is-valid').addClass('is-invalid');
-            //$(e).closest('.help-block').remove();
-        },
-        unhighlight: function (e) {
-            //console.log("unhighlight");
-            $(e).closest('.form-control').removeClass('is-invalid'); //.addClass('is-valid');
-            //$(e).closest('.help-block').remove();
-        },
-        success: function (e) {
-            //console.log("success;");
-            //console.log($(e).closest('.form-control').removeClass('is-valid is-invalid'));
-            $(e).closest('.help-block').remove();
-        },
-        rules: {
-            'username': {
-                required: true
-            },
-            'password': {
-                required: true
-            }
-        },
-        messages: {
-            'username': {
-                required: 'Username ist nicht ausgefüllt'
-            },
-            'password': {
-                required: 'Password ist nicht ausgefüllt'
-            }
         }
     });
 
