@@ -22,7 +22,7 @@ $files = DirectoryHelper::scan_dir($path)
             <div class="col-8 offset-4 offset-lg-0 col-lg-auto"><a class=" text-light" target="_blank" href="https://cis.technikum-wien.at/cis/index.php" tabindex="91">CIS</a></div>
             <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" target="_blank" href="https://www.technikum-wien.at/" tabindex="92">FHTW</a></div>
             <div class="col-8  offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" target="_blank" href="https://moodle.technikum-wien.at/" tabindex="93">Moodle</a></div>
-            <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" target="_blank" href="" tabindex="94">Bedienungsanleitung</a></div>
+            <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" target="_blank" href="index.php?viewme=Anleitung" tabindex="94">Bedienungsanleitung</a></div>
             <div class="col-8 offset-4 offset-lg-0 col-lg-auto "><a class=" text-light" target="_blank" href="https://facebook.com" tabindex="95">Facebook</a></div>
             <?php
             if ($files != false)

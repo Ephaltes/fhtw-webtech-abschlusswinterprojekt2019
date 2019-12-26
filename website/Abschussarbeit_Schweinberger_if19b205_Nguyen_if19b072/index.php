@@ -88,6 +88,9 @@ if (!isset($_SESSION['cart'])) {
                     case "Kontakt":
                         include("sites/contact.php");
                         break;
+                    case "Anleitung":
+                        include("sites/Anleitung.php");
+                        break;
                     default:
                         echo"couldnt match a view";
                         break;
@@ -106,14 +109,6 @@ if (!isset($_SESSION['cart'])) {
         <?php include('sites/nav_footer/footer.php'); ?>
         </footer>
 
-        <script>
-            $(document).ready(function () {
-                if (window.canRunAds === undefined) {
-                    // adblocker detected, show fallback
-                    consol.log("Please dont use Adblock");
-                }
-            });
-        </script>
         <?php
         if (!empty($_SESSION['Einkaufdank'])) {
             echo"<script>$(document).ready(function () {confirm(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";
