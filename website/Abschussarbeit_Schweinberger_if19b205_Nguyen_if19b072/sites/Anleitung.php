@@ -1,6 +1,6 @@
 <section id="Anleitung">
     <div class="container-fluid">
-        <h1 class="text-center">Anleitung zum SHOP des FHTW</h1>
+        <h1 class="text-center">Anleitung zur besten Website der Welt</h1>
         <div class="mt-5 container">
             <section class="mt-3"><h2>Allgemeines</h2>
                 <p>Die Website ist über Tastatur erreichbar. 
