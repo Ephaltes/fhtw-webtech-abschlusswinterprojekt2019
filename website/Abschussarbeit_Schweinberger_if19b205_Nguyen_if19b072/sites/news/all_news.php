@@ -37,7 +37,7 @@ foreach ($files as $file) {
 
     <div class="col-lg-4 col-md-6 col-12">
     <div class="card p-1 m-1">
-        <a href="index.php?news=<?php echo $link; ?>" class="text-dark text-decoration-none">
+        <a tabindex="-1" href="index.php?news=<?php echo $link; ?>" class="stretched-link"></a>
             <?php if($images != false)
             {?>
                 <div class="card-img-top">
@@ -70,12 +70,12 @@ foreach ($files as $file) {
                         ?>
 
                     </div>
-                    <a class="carousel-control-prev" href="#carouselwithindicator_<?php echo $j?>" role="button"
+                    <a tabindex="-1" class="carousel-control-prev" href="#carouselwithindicator_<?php echo $j?>" role="button"
                        data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselwithindicator_<?php echo $j?>" role="button"
+                    <a tabindex="-1" class="carousel-control-next" href="#carouselwithindicator_<?php echo $j?>" role="button"
                        data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
@@ -138,7 +138,6 @@ foreach ($files as $file) {
 
                     ?></small></p>
         </div>
-        </a>
     </div>
     </div>
 

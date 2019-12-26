@@ -15,7 +15,7 @@ $link .= $_SERVER['REQUEST_URI'];
 //echo $link;
 ?>
 <nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top">
-    <a href="/">
+    <a href="/" tabindex="-1">
         <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid" id="brand" alt="brandlogo">
     </a>
     <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse"
