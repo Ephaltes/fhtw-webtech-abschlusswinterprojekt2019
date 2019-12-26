@@ -90,7 +90,7 @@ foreach ($files as $file) {
             <?php }
             ?>
         <div class="card-body">
-            <h5 class="card-title"><?php echo $xml->title ?></h5>
+            <a tabindex="25" class="text-dark" href="index.php?news=<?php echo $link; ?>"><h5 class="card-title"><?php echo $xml->title ?></h5></a>
             <p class="card-text"> <?php echo $xml->content_raw ?></p>
             <p class="card-text"><small class="text-muted"><?php
                     if($diff->y > 0)

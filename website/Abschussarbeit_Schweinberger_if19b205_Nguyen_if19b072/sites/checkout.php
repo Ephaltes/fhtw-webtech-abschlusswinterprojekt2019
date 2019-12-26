@@ -67,9 +67,9 @@
 
 
                                                     <td>
-                                                        <span class="ml-2"><a class="removefromcart" href="sites/shoppingcartedit/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><button class="btn ml-2 p-0"><small><i aria-hidden="true" title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></button></a></span>
-                                                        <span class="ml-2"><a class="removefromcart" href="sites/shoppingcartedit/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><button class="btn ml-2 p-0"><small><i aria-hidden="true" title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></button></a></span>
-                                                        <span class="ml-2"><a class="removefromcart" href="sites/shoppingcartedit/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><button class="btn ml-md-2 p-0"><small><i aria-hidden="true" title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shoppingcartedit/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><button class="btn ml-2 p-0"><small><i aria-hidden="true" title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shoppingcartedit/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><button class="btn ml-2 p-0"><small><i aria-hidden="true" title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shoppingcartedit/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><button class="btn ml-md-2 p-0"><small><i aria-hidden="true" title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></button></a></span>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -83,7 +83,7 @@
                         </table>
 <?php if (empty($_SESSION['cart']) && $user->usertype == 'user') { ?>
                             <div class="pt-3 text-center ">
-                                <p class="lead">Der Warenkorb ist Leer, besuch doch unseren Shop!
+                                <p class="lead" tabindex="26">Der Warenkorb ist Leer, besuch doch unseren Shop!
                                 <p>
                                     <a class="btn-primary btn-lg" href="shop.php">Shop</a>
                             </div>
@@ -93,7 +93,7 @@
                             <div class="pt-3 text-center ">
                                 <p class="lead">Der Einkauf ist auf Admin-Accounts nicht unterstützt!
                                 <p>
-                                    <a class="btn-primary btn-lg" href="shop.php">Zurück zum Shop</a>
+                                    <a class="btn-primary btn-lg" tabindex="26" href="shop.php">Zurück zum Shop</a>
                             </div>
 <?php } ?>
                     </div>
@@ -111,7 +111,7 @@
                                 <small class="font-italic mb-4">If you have some information for the seller you can
                                     leave
                                     them in the box below</small>
-                                <textarea name="feedback" cols="30" rows="2" class="form-control" <?php
+                                <textarea name="feedback" cols="30" tabindex="25" rows="2" class="form-control" <?php
                                 if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
                                     echo "disabled";
                                 }
@@ -138,7 +138,7 @@
                                                 ?>
                                         </strong></li>
                                 </ul>
-                                <button type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
+                                <button type="submit" tabindex="27" class="btn btn-primary rounded-pill py-2 btn-block"<?php
                                         if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
                                             echo "disabled";
                                         }

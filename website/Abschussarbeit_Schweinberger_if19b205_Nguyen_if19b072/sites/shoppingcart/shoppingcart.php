@@ -6,7 +6,7 @@
                 echo "show";
             }
             ?>">
-                <a href="#" data-toggle="dropdown"
+                <a href="#" data-toggle="dropdown" tabindex="4"
                    class="dropdown-toggle nav-link lead text-light"
                    aria-expanded="<?php
                    if (!empty($_SESSION['keepopen']) && $_SESSION['keepopen'] == "true") {
@@ -70,7 +70,7 @@
                                                 <td scope="row" class="ml--2"><?php echo $data->preis; ?>&#x20AC</td>
 
 
-                                                <td><span class="ml-2"><a tabindex="" class="removefromcart"
+                                                <td><span class="ml-2"><a tabindex="4" class="removefromcart"
                                                                           href="sites/shoppingcartedit/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=x"><small><i
                                                                         aria-hidden="true"
                                                                         title="Aus dem Warenkorb löschen"
@@ -99,9 +99,9 @@
                         <li><p>Total: <?php echo $gesamtpreis; ?> €</p></li>
 
                         <?php if ($gesamtpreis != 0) { ?>
-                            <li><a href="shop.php?viewme=checkout" class="btn-primary btn-lg">Kaufen</a></li>
+                            <li><a href="shop.php?viewme=checkout" tabindex="4" class="btn-primary btn-lg">Kaufen</a></li>
                         <?php } else { ?>
-                            <li><a href="shop.php">Lets go shopping <3 </a></li>
+                            <li><a href="shop.php" tabindex="4">Lets go shopping <3 </a></li>
                             <?php
                         }
                         }
