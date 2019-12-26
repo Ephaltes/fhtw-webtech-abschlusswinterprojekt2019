@@ -16,9 +16,9 @@ $files = DirectoryHelper::scan_dir($root . $newspath);
 
 <main class="container">
 
-    <a class="btn btn-primary float-right mb-2" href="news_admin.php?menu=create">News erstellen</a>
+    <a class="btn btn-primary float-right mb-2" tabindex="10" href="news_admin.php?menu=create">News erstellen</a>
     <div class="table-responsive">
-        <table class="table table-white border">
+        <table class="table table-white border" role="tablist">
             <thead>
             <tr>
                 <th class="col-lg-auto">
@@ -38,6 +38,7 @@ $files = DirectoryHelper::scan_dir($root . $newspath);
 
             <?php
             if($files==null) return;
+            $tabindex=11;
             foreach ($files as $file) {
                 $xml = simplexml_load_file("data/news/" . $file);
 
@@ -60,17 +61,17 @@ $files = DirectoryHelper::scan_dir($root . $newspath);
                     </td>
                     <td class="col-lg-auto">
 
-                        <a href="index.php?news=<?php echo $link ?>">
+                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" href="index.php?news=<?php echo $link ?>">
                             <i class="fas fa-eye text-dark"></i>
                         </a>
 
 
-                        <a href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1">
+                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1">
                             <i class="fas fa-edit text-dark"></i>
                         </a>
 
-                        <form method="POST" action="sites/news/deletenews.php" name="<?php echo $xml->title ?>" class="d-inline">
-                            <a class="ml-1 admin_action_delete"  href="#">
+                        <form role="form" method="POST" action="sites/news/deletenews.php" name="<?php echo $xml->title ?>" class="d-inline">
+                            <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" class="ml-1 admin_action_delete"  href="#">
                                 <i class="fas fa-trash text-dark"></i>
                                 <input type="hidden" name="file_name" class="invisible" value="<?php echo $file ?>">
                             </a>
@@ -79,7 +80,8 @@ $files = DirectoryHelper::scan_dir($root . $newspath);
                     </td>
                 </tr>
 
-            <?php } ?>
+            <?php
+            } ?>
         </table>
     </div>
 </main>

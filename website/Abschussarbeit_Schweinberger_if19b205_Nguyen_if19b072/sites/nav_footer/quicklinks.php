@@ -16,7 +16,7 @@ $files = DirectoryHelper::scan_dir($path)
         <div class="row py-3 mx-0 justify-content-center">
             <div class="col-12 text-center col-lg-auto"><a id="random_news_a" class="text-light" href="#" tabindex="90">zufällige News</a></div>
             <!-- <li class="p-3"><a class=" text-light" href="">randomNews1</a></li> -->
-            <div class="col-12 text-center col-lg-auto "><a class=" text-light" target="_blank" href="index.php?viewme=Anleitung" tabindex="91">Bedienungsanleitung</a></div>
+            <div class="col-12 text-center col-lg-auto "><a class=" text-light" target="_self" href="index.php?viewme=Anleitung" tabindex="91">Bedienungsanleitung</a></div>
             <div class="col-12 text-center col-lg-auto"><a class=" text-light" target="_blank" href="https://cis.technikum-wien.at/cis/index.php" tabindex="92">CIS</a></div>
             <div class="col-12 text-center col-lg-auto "><a class=" text-light" target="_blank" href="https://www.technikum-wien.at/" tabindex="93">FHTW</a></div>
             <div class="col-12 text-center col-lg-auto "><a class=" text-light" target="_blank" href="https://moodle.technikum-wien.at/" tabindex="94">Moodle</a></div>

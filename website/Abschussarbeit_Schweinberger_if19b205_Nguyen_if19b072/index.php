@@ -89,7 +89,7 @@ if (!isset($_SESSION['cart'])) {
                         include("sites/contact.php");
                         break;
                     case "Anleitung":
-                        include("sites/Anleitung.php");
+                        include("sites/anleitung.php");
                         break;
                     default:
                         ?>

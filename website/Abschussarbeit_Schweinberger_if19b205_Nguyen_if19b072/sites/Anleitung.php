@@ -3,7 +3,7 @@
         <h1 class="text-center">Anleitung zur besten Website der Welt</h1>
         <div class="mt-5 container">
             <section class="mt-3"><h2>Allgemeines</h2>
-                <p>Die Website ist über Tastatur erreichbar. News Karusell nur switchbar wenn Newsgeöffnet jedoch nicht über die News Übersichtseite.
+                <p>Die Website ist über Tastatur erreichbar. News Karusell nur switchbar wenn News geöffnet jedoch nicht über die News Übersichtseite.
                     Eingeloggte User haben zugriff auf unseren Shop.
                     Admins können aus Internen gründen, den shop sowie shoppingcart und checkout aufrufen jedoch nichts kaufen.
             </section>
@@ -22,7 +22,17 @@
                     <li>Durch klicken des <small><i aria-hidden="true" title="Ware um 1 verringern" class=" text-dark fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span> Wird die entsprechende Ware um 1 verringert</li>
                 </ul>    
             </section>
-            <section class="mt-3"><h2>News</h2></section>
+            <section class="mt-3"><h2>News</h2>
+            <p>
+                In der News übersicht, wird man durch ein klick auf das Bild zur jeweiligen News gebracht.
+                <br>
+                Der Admin kann über das DropDown Menü an seinem Namen in der Navbar zur News Verwaltung geleitet werden,
+                <br>
+                wo er dann eine Übersicht der News sieht, welche ihm die Möglichkeit gibt, diese zu bearbeiten , löschen
+                <br>
+                oder eine neue News zu erstellen. Beim erstellen wird dem Admin über eine Eingabemaske geholfen eingaben zu tätigen.
+            </p>
+            </section>
             <section class="mt-3"><h2>Shop</h2>
                 <p>
                     Legen sie Gegenstände in Ihren Warenkorb und klicken Sie anschließend im navbar auf den Warenkorb bzw im dortigen dropdown Menü auf Kaufen.

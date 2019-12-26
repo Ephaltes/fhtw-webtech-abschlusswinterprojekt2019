@@ -35,7 +35,7 @@ if (!empty($_GET["edit"])) {
 </head>
 
 
-<form method="POST" id="formid" action="/sites/news/savenewstofile.php" enctype="multipart/form-data">
+<form method="POST" id="formid" role="form" action="/sites/news/savenewstofile.php" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-8 col-12">
@@ -46,7 +46,7 @@ if (!empty($_GET["edit"])) {
                 <div class="form-group row">
                     <div class="col">
                         <label>Überschrift der News: </label>
-                        <input class="form-control" type="title"
+                        <input tabindex="10" class="form-control" type="title"
                                name="title" <?php if (!empty($xml->title)) echo "value='$xml->title'"; ?> >
                     </div>
                 </div>
@@ -56,14 +56,14 @@ if (!empty($_GET["edit"])) {
 
                         <div class="input-group">
                             <div class="custom-file ">
-                                <input type="file" class="custom-file-input " accept="image/*"
+                                <input tabindex="12" type="file" class="custom-file-input " accept="image/*"
                                        id="thumbnail" multiple>
                                 <label id="thumbnail_label" class="custom-file-label form-check-label overflow-hidden"
                                        for="thumbnail">  <?php if ($thumbnails !=false) echo "Derzeitiges TitelBild";
                                     else echo "Bitte Titelbild auswählen"; ?>
                                 </label>
                             </div>
-                            <div id="btn_remove_image" class="input-group-append cursor-pointer">
+                            <div tabindex="13" id="btn_remove_image" class="input-group-append cursor-pointer">
                                 <span class="input-group-text">Delete</span>
                             </div>
                         </div>
@@ -141,14 +141,14 @@ if (!empty($_GET["edit"])) {
         <div class="row form-group">
             <div class="col">
                 <textarea id="content_raw" name="content_raw" class="invisible"></textarea>
-                <textarea id="summernote"
+                <textarea tabindex="14" id="summernote"
                           name="content"><?php if (!empty($xml->content)) echo $xml->content; ?></textarea>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <input type="button" id="btn_submit" class="btn btn-primary"
+                <input tabindex="15" type="button" id="btn_submit" class="btn btn-primary"
                        value=" <?php if (!empty($filename)) echo "Änderungen speichern"; else echo "News erstellen"; ?>">
             </div>
             <input type="hidden" name="edit_filename" class="invisible"
