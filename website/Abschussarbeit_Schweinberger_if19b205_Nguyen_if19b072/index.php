@@ -92,7 +92,12 @@ if (!isset($_SESSION['cart'])) {
                         include("sites/Anleitung.php");
                         break;
                     default:
-                        echo"couldnt match a view";
+                        ?>
+                        <div class="text-center py-3">
+                            <h1 class="pb-2">Sorry, wir fanden keine passende View in unserer Datenbank!</h1>
+                            <a class="btn btn-primary" tabindex="25" href="index.php">Zurück zur News-Übersicht</a>
+                        </div>
+                        <?php
                         break;
                 }
             } else {
@@ -105,8 +110,8 @@ if (!isset($_SESSION['cart'])) {
         </main>
 
         <footer class="container-fluid p-0 m-0">
-        <?php include('sites/nav_footer/quicklinks.php'); ?>
-        <?php include('sites/nav_footer/footer.php'); ?>
+            <?php include('sites/nav_footer/quicklinks.php'); ?>
+            <?php include('sites/nav_footer/footer.php'); ?>
         </footer>
 
         <?php
