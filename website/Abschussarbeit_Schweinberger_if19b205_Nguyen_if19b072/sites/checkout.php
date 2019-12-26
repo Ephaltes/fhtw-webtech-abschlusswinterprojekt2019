@@ -83,9 +83,9 @@
                         </table>
 <?php if (empty($_SESSION['cart']) && $user->usertype == 'user') { ?>
                             <div class="pt-3 text-center ">
-                                <p class="lead" tabindex="26">Der Warenkorb ist Leer, besuch doch unseren Shop!
+                                <p class="lead">Der Warenkorb ist Leer, besuch doch unseren Shop!
                                 <p>
-                                    <a class="btn-primary btn-lg" href="shop.php">Shop</a>
+                                    <a class="btn-primary btn-lg" tabindex="26" href="shop.php">Shop</a>
                             </div>
                         <?php }
                         if (empty($_SESSION['cart']) && $user->usertype == 'admin') {
@@ -113,7 +113,10 @@
                                     them in the box below</small>
                                 <textarea name="feedback" cols="30" tabindex="25" rows="2" class="form-control" <?php
                                 if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
-                                    echo "disabled";
+                                    echo "disabled tabindex=\"-1\"";
+                                }
+                                else{
+                                    echo"tabindex=\"25\"";
                                 }
                                 ?>></textarea>
                             </div>
@@ -138,9 +141,12 @@
                                                 ?>
                                         </strong></li>
                                 </ul>
-                                <button type="submit" tabindex="27" class="btn btn-primary rounded-pill py-2 btn-block"<?php
+                                <button type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
                                         if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
-                                            echo "disabled";
+                                            echo "disabled tabindex=\"-1\"";
+                                        }
+                                        else{
+                                            echo"tabindex=\"27\"";
                                         }
                                         ?>>
                                     Bestellen

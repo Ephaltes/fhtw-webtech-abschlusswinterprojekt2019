@@ -101,10 +101,10 @@ if (!isset($_SESSION['cart'])) {
             ?>
         </main>
 
-        <quickandfooter class="container-fluid p-0 m-0">
+        <footer class="container-fluid p-0 m-0">
         <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
-        </quickandfooter>
+        </footer>
 
         <script>
             $(document).ready(function () {
@@ -116,7 +116,7 @@ if (!isset($_SESSION['cart'])) {
         </script>
         <?php
         if (!empty($_SESSION['Einkaufdank'])) {
-            echo"<script>$(document).ready(function () {alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";
+            echo"<script>$(document).ready(function () {confirm(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";
             unset($_SESSION['Einkaufdank']);
         }
         ?>
