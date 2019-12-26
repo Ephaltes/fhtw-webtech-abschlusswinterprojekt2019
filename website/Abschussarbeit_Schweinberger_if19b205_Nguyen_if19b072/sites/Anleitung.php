@@ -3,7 +3,7 @@
         <h1 class="text-center">Anleitung zur besten Website der Welt</h1>
         <div class="mt-5 container">
             <section class="mt-3"><h2>Allgemeines</h2>
-                <p>Die Website ist über Tastatur erreichbar. 
+                <p>Die Website ist über Tastatur erreichbar. News Karusell nur switchbar wenn Newsgeöffnet jedoch nicht über die News Übersichtseite.
                     Eingeloggte User haben zugriff auf unseren Shop.
                     Admins können aus Internen gründen, den shop sowie shoppingcart und checkout aufrufen jedoch nichts kaufen.
             </section>
