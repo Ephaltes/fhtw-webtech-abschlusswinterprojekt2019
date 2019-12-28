@@ -32,7 +32,6 @@ a .card-img-top {
 }
 
 
-
 @media (min-width: 768px) {
     /* md */
     .card-img-top .carousel-image{
@@ -47,6 +46,7 @@ a .card-img-top {
         max-height: 40vw;
         object-fit: contain;
     }
+
 }
 
 @media (min-width: 992px) {

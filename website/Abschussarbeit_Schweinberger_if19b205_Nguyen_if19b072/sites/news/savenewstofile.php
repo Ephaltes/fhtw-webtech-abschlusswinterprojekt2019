@@ -57,16 +57,17 @@ if (!empty($_POST)) {
         $time_node = $dom->createElement("date", $xml_original->date);
     $content_node = $dom->createElement("content");
     $content_node->appendChild($dom->createCDATASection($_POST["content"]));
-    $content_raw = $dom->createElement("content_raw", $_POST["content_raw"]);
+    $content_raw_node = $dom->createElement("content_raw", $_POST["content_raw"]);
     if (empty($_POST["edit_filename"]))
-    $content_raw = $dom->createElement("id", $newid);
+        $id_node = $dom->createElement("id", $newid);
     else
-        $content_raw = $dom->createElement("id", $xml_original->id);
+        $id_node = $dom->createElement("id", $xml_original->id);
 
     $root->appendChild($time_node);
     $root->appendChild($title_node);
     $root->appendChild($content_node);
-    $root->appendChild($content_raw);
+    $root->appendChild($content_raw_node);
+    $root->appendChild($id_node);
 
     $dom->appendChild($root);
 
