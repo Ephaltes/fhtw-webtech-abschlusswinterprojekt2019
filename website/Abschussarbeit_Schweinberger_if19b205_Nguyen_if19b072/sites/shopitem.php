@@ -3,8 +3,13 @@
     <div class="container-fluid pt-3 mb-5 mt-2">
         <div class="py-5 bg-white text-center">
         <h1 class="mb-3">FH-Technikum Merch-Shop &lt;3</h1>
-        <?php if(!empty($_SESSION['cart'])){?>
-        <a tabindex="25" href="shop.php?viewme=checkout" class="btn-primary btn-lg rounded">Kauf abschließen</a>
+        <?php if((!empty($_SESSION['cart'])) || $user->usertype == "admin" ){?>
+        <a tabindex="25" href="shop.php?viewme=checkout" class="btn-primary btn-lg rounded">
+           <?php if($user->usertype== "admin" ){ echo"Visit Checkout-page"; }
+                else{echo"Kauf abschließen";}?>
+        
+        
+        </a>
         <?php }?>
         </div> 
         <div class="card-columns mt-3">

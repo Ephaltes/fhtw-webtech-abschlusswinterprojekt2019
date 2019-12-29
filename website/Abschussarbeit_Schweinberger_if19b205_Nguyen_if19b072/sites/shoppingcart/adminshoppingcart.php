@@ -26,7 +26,7 @@
 
 <li class="dropdown ">
     <a href="#" class="nav-link dropdown-toggle text-light lead" id="adminbasket" data-toggle="dropdown"
-       aria-expanded="false">
+       aria-expanded="false" tabindex="4">
         <i class="fas fa-shopping-basket">
             <span class="badge badge-light text-dark">0</span>
         </i>
@@ -39,7 +39,7 @@
             Shoppingcart feature is not supported on admin accounts!
         </div>
         <div class="dropdown-item">
-            <a href="shop.php">
+            <a href="shop.php" class="btn btn-primary" tabindex="4">
                 Visit the shop anyways!
             </a>
         </div>

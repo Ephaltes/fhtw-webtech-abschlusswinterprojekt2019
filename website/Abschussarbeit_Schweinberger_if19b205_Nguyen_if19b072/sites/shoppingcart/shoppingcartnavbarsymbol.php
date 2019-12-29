@@ -1,3 +1,4 @@
+<!--creates the navbar symbol-->
 <i class="fas fa-shopping-basket">
                         <!-- see https://fontawesome.com/icons?d=gallery&q=shopping -->
                         <span class="badge badge-light text-dark"> 
