@@ -9,6 +9,20 @@ use Helpers\DirectoryHelper;
 $newspath = "/data/news/";
 
 $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
+
+function truncate($string,$length=50,$append="&hellip;") {
+    $string = trim($string);
+
+    if(strlen($string) > $length) {
+        $string = wordwrap($string, $length);
+        $string = explode("\n", $string, 2);
+        $string = $string[0] . $append;
+    }
+
+    return $string;
+}
+
+
 ?>
 <div class="container-fluid">
     <div class="h1 text-center">
@@ -82,12 +96,37 @@ $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
                                 <?php
                             } else {
                                 ?>
-                                <img class="card-img-top" src="img/960x720.png" alt="Card image cap">
+                                <div class="text-dark text-decoration-none">
+                                    <div class="card-img-top">
+                                        <div id="carouselwithindicator_<?php echo $j ?>" class="carousel slide bg-dark" data-ride="carousel">
+                                            <ol class="carousel-indicators"
+                                            <li data-target="#carouselwithindicator_<?php echo $j ?>" data-slide-to="0" class='active'></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                    <div class="carousel-item active text-center">
+                                                        <img class="carousel-image" src="img/960x720.png" alt="<?php echo $xml->title . "Bild"; ?>">
+                                                    </div>
+
+
+                                            </div>
+                                            <a tabindex="-1" class="carousel-control-prev" href="#carouselwithindicator_<?php echo $j ?>" role="button"
+                                               data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a tabindex="-1" class="carousel-control-next" href="#carouselwithindicator_<?php echo $j ?>" role="button"
+                                               data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
                             <?php }
                             ?>
                             <div class="card-body">
-                                <a tabindex="25" class="text-dark" href="index.php?news=<?php echo $link; ?>"><h5 class="card-title"><?php echo $xml->title ?></h5></a>
-                                <p class="card-text"> <?php echo $xml->content_raw ?></p>
+                                <a tabindex="25" class="text-dark" href="index.php?news=<?php echo $link; ?>"><h5 class="card-title"><?php echo truncate($xml->title) ?></h5></a>
+                                <p class="card-text"> <?php echo truncate($xml->content_raw); ?></p>
                                 <p class="card-text"><small class="text-muted"><?php
                                         if ($diff->y > 0) {
                                             if ($diff->m > 0) {
