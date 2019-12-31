@@ -1,11 +1,21 @@
 <?php
-
+//integrate UserEntity Class
 $root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
 $helper = "/helpers/directoryhelper.php";
+$validnews = "false";
 
+require_once($root . $dep_inj);
 require_once($root . $helper);
 
+use Model\UserModel;
 use Helpers\DirectoryHelper;
+
+if (!empty($_SESSION["user"])) {
+    if (UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}
 
 libxml_use_internal_errors(TRUE); // no errors on screen
 if ($xml = simplexml_load_file("data/news/" . $_GET["news"])) {
@@ -15,8 +25,6 @@ if ($xml = simplexml_load_file("data/news/" . $_GET["news"])) {
 
     list($day, $month, $year, $hour, $minute, $second) = explode("_", $xml->date);
     $validnews = "true";
-} else {
-    $validnews = "false";
 }
 
 $images = DirectoryHelper::scan_dir("img/" . $_GET["news"]);
@@ -58,7 +66,7 @@ $images = DirectoryHelper::scan_dir("img/" . $_GET["news"]);
                                 foreach($images as $image)
                                 { ?>
                                     <div class="carousel-item <?php if($i==0) echo "active"; ?> text-center">
-                                        <img class="carousel-image" src="img/<?php echo $_GET["news"] . "/" . $image; ?>" alt="<?php echo $xml->title . "Bild_" . $i ; ?>">
+                                        <img role="img" class="carousel-image" src="img/<?php echo $_GET["news"] . "/" . $image; ?>" alt="<?php echo $xml->title . "Bild_" . $i ; ?>">
                                     </div>
                                     <?php
                                     $i++;
@@ -81,7 +89,7 @@ $images = DirectoryHelper::scan_dir("img/" . $_GET["news"]);
                 }
                 else
                 {?>
-                    <img class="img-fluid" src="img/960x720.png" alt="Card image cap">
+                    <img role="img" class="img-fluid" src="img/960x720.png" alt="Card image cap">
                 <?php }
                 ?>
 
@@ -89,9 +97,9 @@ $images = DirectoryHelper::scan_dir("img/" . $_GET["news"]);
 
 
                 <hr>
-                <div>
+                <section role="main">
                     <?php echo $content ?>
-                </div>
+                </section>
             </div>
         </div>
     </div>

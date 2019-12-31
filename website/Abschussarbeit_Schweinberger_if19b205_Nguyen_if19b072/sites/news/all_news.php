@@ -1,4 +1,17 @@
 <?php
+//integrate UserEntity Class
+$root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
+require_once($root . $dep_inj);
+use Model\UserModel;
+
+if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}?>
+
+<?php
 $root = $_SERVER['DOCUMENT_ROOT'];
 $helper = "/helpers/directoryhelper.php";
 
@@ -10,6 +23,7 @@ $newspath = "/data/news/";
 
 $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
 
+//Display News heading and body with default 50chars hellip = ...
 function truncate($string,$length=50,$append="&hellip;") {
     $string = trim($string);
 
@@ -33,6 +47,7 @@ function truncate($string,$length=50,$append="&hellip;") {
         <?php
         $j = 0;
 
+        //if there are files
         if ($files != false) {
             foreach ($files as $file) {
                 $xml = simplexml_load_file("data/news/" . $file);
@@ -47,7 +62,7 @@ function truncate($string,$length=50,$append="&hellip;") {
 
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card p-1 m-1">
-                        <a tabindex="-1" href="index.php?news=<?php echo $link; ?>" class="stretched-link"></a>
+                        <a tabindex="-1" role="link" href="index.php?news=<?php echo $link; ?>" class="stretched-link"></a>
                         <?php if ($images != false) {
                             ?>
                             <div class="text-dark text-decoration-none">
@@ -128,6 +143,7 @@ function truncate($string,$length=50,$append="&hellip;") {
                                 <a tabindex="25" class="text-dark" href="index.php?news=<?php echo $link; ?>"><h5 class="card-title"><?php echo truncate($xml->title) ?></h5></a>
                                 <p class="card-text"> <?php echo truncate($xml->content_raw); ?></p>
                                 <p class="card-text"><small class="text-muted"><?php
+                                        //Write Time difference
                                         if ($diff->y > 0) {
                                             if ($diff->m > 0) {
                                                 echo "Erstellt vor $diff->y Jahren und $diff->m Monaten";

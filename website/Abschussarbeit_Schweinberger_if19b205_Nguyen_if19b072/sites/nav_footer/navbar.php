@@ -1,7 +1,16 @@
 ﻿<?php
-require_once("Entities/UserEntity.php");
-?>
-<?php
+//integrate UserEntity Class
+$root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
+require_once($root . $dep_inj);
+use Model\UserModel;
+
+if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}
+
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') { // get link of website needed for shoppingcart actions
     $link = "https";
 } else {
@@ -14,31 +23,31 @@ $link .= $_SERVER['REQUEST_URI'];
 // Print the link 
 //echo $link;
 ?>
-<nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top">
-    <a href="/" tabindex="-1">
+<nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top" role="navigation">
+    <a href="/" tabindex="-1" role="link">
         <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid" id="brand" alt="brandlogo">
     </a>
-    <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse"
+    <button class="navbar-toggler justify-content-end" role="burgermenu" type="button" data-toggle="collapse"
             data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
             aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="collapse navbar-collapse" id="navbarCollapse" >
         <ul class="navbar-nav d-flex flex-wrap align-content-end ml-auto">
 
-            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php" tabindex="1">News</a></li>
-            <li class="nav-item active"><a class="nav-link lead text-light" href="index.php?viewme=About" tabindex="2">About</a></li>
+            <li class="nav-item active"><a class="nav-link lead text-light" role="link" href="index.php" tabindex="1">News</a></li>
+            <li class="nav-item active"><a class="nav-link lead text-light" role="link" href="index.php?viewme=About" tabindex="2">About</a></li>
             <?php if (!empty($user->usertype)) {
                 ?>
-                <li class="nav-item active"><a class="nav-link lead text-light" href="shop.php" tabindex="3">Shop</a></li>
-                <li class="d-md-none d-xs-block"><a href="shop.php?viewme=checkout" class="nav-link lead text-light" tabindex="4"><?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
-                <li class="d-none d-md-block"><?php include('sites/shoppingcart/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li class="nav-item active"><a role="link" class="nav-link lead text-light" href="shop.php" tabindex="3">Shop</a></li>
+                <li class="d-md-none d-xs-block"><a role="link" href="shop.php?viewme=checkout" class="nav-link lead text-light" tabindex="4"><?php include('sites/shop/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li class="d-none d-md-block"><?php include('sites/shop/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
                 <?php
                 }
                 if (empty($user)) {
                     ?>
-                <li class="nav-item active"><a class="nav-link lead text-light" href="login.php" tabindex="5">Login</a></li>
+                <li class="nav-item active"><a role="link" class="nav-link lead text-light" href="login.php" tabindex="5">Login</a></li>
                 <?php
             }
             
@@ -46,17 +55,17 @@ $link .= $_SERVER['REQUEST_URI'];
             if (!empty($user)) {
                 ?>
                 <li class="dropdown">
-                    <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" data-toggle="dropdown"
+                    <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
                        aria-expanded="false" tabindex="5">
                         <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
                         <!-- position-absolute entfernt -->
                         <?php if ($user->usertype == "admin") { ?>
-                            <a class="dropdown-item" href="news_admin.php" tabindex="6"><i class="fas fa-newspaper" ></i> News
+                            <a role="link" class="dropdown-item" href="news_admin.php" tabindex="6"><i class="fas fa-newspaper" ></i> News
                                 Verwaltung</a>
                         <?php } ?>
-                        <a class="dropdown-item" href="index.php?logout=true" tabindex="7"><i class="fas fa-sign-out-alt"></i>
+                        <a role="link" class="dropdown-item" href="index.php?logout=true" tabindex="7"><i class="fas fa-sign-out-alt"></i>
                             Abmelden</a>
                     </div>
 

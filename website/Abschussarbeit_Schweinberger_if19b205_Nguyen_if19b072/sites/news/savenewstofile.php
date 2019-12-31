@@ -1,10 +1,21 @@
 <?php
+//integrate UserEntity Class
+$root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
+require_once($root . $dep_inj);
+use Model\UserModel;
+
+if (!empty($_SESSION["user"])) {
+    if (UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}
 
 const ROOTSAVEIMAGE = "../../img/";
 
 if (!empty($_POST)) {
 
-
+    //if it is edit and not create
     if (!empty($_POST["edit_filename"])) {
         $xml_original = simplexml_load_file("../../data/news/" . $_POST["edit_filename"]);
         $xml_name = $_POST["edit_filename"];
@@ -13,6 +24,7 @@ if (!empty($_POST)) {
     {
     $id_file = "../../data/news/ids";
 
+    //create id file if not exists
     if (!file_exists($id_file)) {
         $f = fopen($id_file, "a+");
         fclose($f);
@@ -38,10 +50,12 @@ if (!empty($_POST)) {
     $xml_name = base64_encode($newid);
     }
 
+    //create xml file
     $dom = new DOMDocument();
     $dom->encoding = "utf-8";
     $dom->formatOutput = true;
 
+    //delete all images and upload them again
     $dir = DeleteAndCreateFolder(ROOTSAVEIMAGE . $xml_name);
 
     foreach ($_POST["thumbnail"] as $x) {
@@ -104,7 +118,7 @@ function base64_to_file($base64_string, $output_file)
     // $data[ 1 ] == <actual base64 string>
     $data = explode(',', $base64_string);
 
-    // we could add validation here with ensuring count( $data ) > 1
+
     if ($data > 1) {
         // open the output file for writing
         $ifp = fopen($output_file, 'wb');

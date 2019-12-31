@@ -7,15 +7,15 @@
                                     $checksum++;
                                 }
                                 if ($checksum <= 3) { //cart limiter
-                                    ?><li class="d-none d-md-block"></a><?php include('sites/shoppingcart/shoppingcart.php');?></li><?php
+                                    ?><li class="d-none d-md-block"></a><?php include('sites/shop/shoppingcart.php');?></li><?php
                                 } else {
                                     ?>
-                                    <li class="d-none d-md-block"><a href="shop.php?viewme=checkout" tabindex="4" class=" nav-link lead text-light"> <?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?></a></li>
+                                    <li class="d-none d-md-block"><a href="shop.php?viewme=checkout" tabindex="4" class=" nav-link lead text-light"> <?php include('sites/shop/shoppingcartnavbarsymbol.php'); ?></a></li>
                                     <?php
                                 }
                             }
                         } else {
-                            include('sites/shoppingcart/adminshoppingcart.php');
+                            include('sites/shop/adminshoppingcart.php');
                         }
                         ?>
 </ul>

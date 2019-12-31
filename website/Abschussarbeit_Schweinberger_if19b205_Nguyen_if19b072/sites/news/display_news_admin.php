@@ -1,9 +1,20 @@
 <?php
-
+//integrate UserEntity Class
 $root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
 $helper = "/helpers/directoryhelper.php";
 
 require_once($root . $helper);
+require_once($root . $dep_inj);
+
+use Model\UserModel;
+
+if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}
+
 
 use Helpers\DirectoryHelper;
 
@@ -16,21 +27,21 @@ $files = DirectoryHelper::scan_dir($root . $newspath);
 
 <main class="container">
 
-    <a class="btn btn-primary float-right mb-2" tabindex="10" href="news_admin.php?menu=create">News erstellen</a>
+    <a class="btn btn-primary float-right mb-2" role="button" tabindex="10" href="news_admin.php?menu=create">News erstellen</a>
     <div class="table-responsive">
-        <table class="table table-white border" role="tablist">
+        <table class="table table-white border" role="table">
             <thead>
             <tr>
-                <th class="col-lg-auto">
+                <th role="columnheader" class="col-lg-auto">
                     Artikel
                 </th>
-                <th class="col-lg-auto">
+                <th role="columnheader" class="col-lg-auto">
                     Datum
                 </th>
-                <th class="col-lg-auto">
+                <th role="columnheader" class="col-lg-auto">
                     Zeit
                 </th>
-                <th class="col-lg-auto">
+                <th role="columnheader" class="col-lg-auto">
                     Aktionen
                 </th>
             </tr>
@@ -49,7 +60,7 @@ $files = DirectoryHelper::scan_dir($root . $newspath);
                 //echo var_dump();
 
                 ?>
-                <tr>
+                <tr role="row">
                     <td class="col-lg-auto">
                         <?php echo "$xml->title"; ?>
                     </td>

@@ -1,19 +1,28 @@
 <?php
+//integrate UserEntity Class
+$root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
+require_once($root . $dep_inj);
+use Model\UserModel;
 
-?>
+if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}?>
 
 <div class="container clearfix">
     <form id="formid" role="form">
     <div class="form-group" role="group">
         <label for="subject">Betreff: </label>
-        <input name="subject" id="subject" class="form-control" type="text" placeholder="Betreff"/>
+        <input name="subject" tabindex="10" role="textbox" id="subject" class="form-control" type="text" placeholder="Betreff"/>
     </div>
     <div class="form-group" role="group">
         <label for="body">Nachricht: </label>
-        <textarea id="body" class="form-control" name="body" rows="10"></textarea>
+        <textarea id="body" class="form-control" tabindex="11" role="textbox" name="body" rows="10"></textarea>
     </div>
         <div class="form-group">
-        <a id="btn_send" role="link" class="btn btn-primary float-right text-white">Senden</a>
+        <a id="btn_send" role="link" tabindex="13" class="btn btn-primary float-right text-white">Senden</a>
         </div>
     </form>
 </div>

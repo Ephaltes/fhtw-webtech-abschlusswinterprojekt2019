@@ -16,7 +16,7 @@
                    }
                    ?>"> <!-- php needed to keep dropdown open onklick/remove/add-->
 
-                    <?php include('sites/shoppingcart/shoppingcartnavbarsymbol.php'); ?>
+                    <?php include('sites/shop/shoppingcartnavbarsymbol.php'); ?>
 
 
                 </a>
@@ -71,18 +71,18 @@
 
 
                                                 <td><span class="ml-2"><a tabindex="4" class="removefromcart"
-                                                                          href="sites/shoppingcartedit/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=x"><small><i
+                                                                          href="sites/shop/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=x"><small><i
                                                                         aria-hidden="true"
                                                                         title="Aus dem Warenkorb löschen"
                                                                         class=" text-danger fas fa-trash-alt"></i></small><span
                                                                     class="d-none">Aus dem Warenkorb löschen</span></a></span>
                                                     <span class="ml-2"><a tabindex="4" class="removefromcart"
-                                                                          href="sites/shoppingcartedit/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=u"><small><i
+                                                                          href="sites/shop/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=u"><small><i
                                                                         aria-hidden="true" title="Ware um 1 erhöhen"
                                                                         class=" text-dark fas fa-plus"></i></small><span
                                                                     class="d-none">Ware um 1 erhöhren</span></a></span> <?php //u = up increase + cant be trasnfered with get ?>
                                                     <span class="ml-2"><a tabindex="4" class="removefromcart"
-                                                                          href="sites/shoppingcartedit/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=d"><small><i
+                                                                          href="sites/shop/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=d"><small><i
                                                                         aria-hidden="true" title="Ware um 1 verringern"
                                                                         class=" text-dark fas fa-minus"></i></small><span
                                                                     class="d-none">Ware um 1 verringern</span></a></span>

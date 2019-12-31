@@ -1,13 +1,15 @@
+
 <?php
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 $helper = "/helpers/directoryhelper.php";
-$userentity = "/Entities/UserEntity.php";
+$dep_inj = "/sites/dependency_include/include_user.php";
 
-require_once($root . $userentity);
+require_once($root . $dep_inj);
 require_once($root . $helper);
 
 use Helpers\DirectoryHelper;
+use Model\UserModel;
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -18,6 +20,8 @@ if (empty($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
 }
 
 if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
     $user = $_SESSION["user"];
 }
 
@@ -46,7 +50,7 @@ if (!empty($_GET["edit"])) {
                 <div class="form-group row">
                     <div class="col">
                         <label>Überschrift der News: </label>
-                        <input tabindex="10" class="form-control" type="title"
+                        <input tabindex="10" role="textbox" class="form-control" type="title"
                                name="title" <?php if (!empty($xml->title)) echo "value='$xml->title'"; ?> >
                     </div>
                 </div>
@@ -63,14 +67,14 @@ if (!empty($_GET["edit"])) {
                                     else echo "Bitte Titelbild auswählen"; ?>
                                 </label>
                             </div>
-                            <div tabindex="13" id="btn_remove_image" class="input-group-append cursor-pointer">
+                            <div role="button" tabindex="13" id="btn_remove_image" class="input-group-append cursor-pointer">
                                 <span class="input-group-text">Delete</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" role="rowgroup">
 
                     <div class="col-12">
                         <div id="carouselwithindicator" class="carousel slide bg-dark" data-ride="carousel">
@@ -81,7 +85,7 @@ if (!empty($_GET["edit"])) {
                                     $i=0;
                                     foreach($thumbnails as $img) {
                                         ?>
-                                        <li data-target="#carouselwithindicator" data-slide-to="<?php echo $i; ?>" <?php if($i==0) echo "class='active'"; ?>
+                                        <li  data-target="#carouselwithindicator" data-slide-to="<?php echo $i; ?>" <?php if($i==0) echo "class='active'"; ?>
                                             id = "carousel-listElement-<?php echo $i; ?>"
                                         ></li>
                                         <?php
@@ -107,7 +111,7 @@ if (!empty($_GET["edit"])) {
                                         $base64encoded = "data:$mimetype;base64,$data64";
                                         ?>
                                         <div class="carousel-item <?php if($i==0) echo "active"; ?> text-center" id="carousel-divElement-<?php echo $i; ?>">
-                                            <img class="carousel-image" src="<?php echo $base64encoded ?>" alt="uploaded image <?php echo $i; ?>">
+                                            <img class="carousel-image"  role="img" src="<?php echo $base64encoded ?>" alt="uploaded image <?php echo $i; ?>">
                                             <div class="carousel-caption d-none">
                                                 <?php echo $i; ?>
                                             </div>
@@ -138,17 +142,17 @@ if (!empty($_GET["edit"])) {
             </div>
         </div>
 
-        <div class="row form-group">
+        <div class="row form-group" role="rowgroup">
             <div class="col">
-                <textarea id="content_raw" name="content_raw" class="invisible"></textarea>
-                <textarea tabindex="14" id="summernote"
+                <textarea id="content_raw"  name="content_raw" class="invisible"></textarea>
+                <textarea role="textbox" tabindex="14" id="summernote"
                           name="content"><?php if (!empty($xml->content)) echo $xml->content; ?></textarea>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <input tabindex="15" type="button" id="btn_submit" class="btn btn-primary"
+                <input role="button" tabindex="15" type="button" id="btn_submit" class="btn btn-primary"
                        value=" <?php if (!empty($filename)) echo "Änderungen speichern"; else echo "News erstellen"; ?>">
             </div>
             <input type="hidden" name="edit_filename" class="invisible"
@@ -156,8 +160,9 @@ if (!empty($_GET["edit"])) {
         </div>
     </div>
 
-    <div id="ImageToUpload">
+    <div id="ImageToUpload" role="group">
 <?php
+    //for dynamic uplaod
     if($thumbnails != false)
     {
         $i=0;
@@ -212,13 +217,14 @@ if (!empty($_GET["edit"])) {
 
     Validation.InitValidation("#formid",".form-group > div",rules,messages);
 
-    // Add the following code if you want the name of the file appear on select
+    //Upload Filename split
     $(".custom-file-input").on("change", function () {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 
 
+    //if new files uploaded delete old carousell images and load new ones
     $('input[type="file"]').change(function (e) {
 
         emptyCarousel();
@@ -228,11 +234,10 @@ if (!empty($_GET["edit"])) {
         $('.carousel-indicators > li').first().addClass('active');
 
         $('.carousel').carousel("pause");
-
-
-
     });
 
+
+    //remove single uploaded image
     var oldid=null;
     $("#btn_remove_image").click(function () {
 
@@ -246,7 +251,6 @@ if (!empty($_GET["edit"])) {
         $("#carousel-listElement-" + id).remove();
         $("#carousel-divElement-" + id).remove();
         $("#thumbnail\\["+id+"\\]").remove();
-        console.log("removed");
 
         $('.carousel-item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
@@ -258,14 +262,12 @@ if (!empty($_GET["edit"])) {
 
         if(oldid===id)
         {
-            console.log("deleteall");
             $("#thumbnail").val("");
             $("#thumbnail_label").text("");
             $('.new-caption-area').text("");
         }
-
-
     });
+
 
 
     $("#btn_submit").click(function () {
@@ -279,6 +281,7 @@ if (!empty($_GET["edit"])) {
 
         if ($('#formid').valid()) {
             setTimeout(function () {
+                //time delayed submit so that js can clean xss
                 $("#thumbnail").attr("disabled", true);
                 $("#formid").submit();
             }, 100);
@@ -292,11 +295,12 @@ if (!empty($_GET["edit"])) {
             height: 200
         });
 
+        //select first of
         var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
         $('.new-caption-area').html(caption.html());
     });
 
-
+    //creating image preview
     var imagesPreviewToCarousel = function (input) {
 
         if (input.files) {
@@ -353,8 +357,6 @@ if (!empty($_GET["edit"])) {
                     class: "carousel-item text-center",
                     id: "carousel-divElement-" + k
                 });
-
-
 
                 $(".carousel-indicators").append(listElement);
                 $(".carousel-inner").append(divElement);

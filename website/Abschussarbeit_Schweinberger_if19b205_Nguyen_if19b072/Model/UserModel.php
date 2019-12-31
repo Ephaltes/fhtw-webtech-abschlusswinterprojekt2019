@@ -2,7 +2,10 @@
 
 namespace Model;
 
-include_once ("../Entities/UserEntity.php");
+
+$root = $_SERVER['DOCUMENT_ROOT'];
+$entity = "/Entities/UserEntity.php";
+require_once ($root . $entity);
 
 use Entities\UserEntity;
 
@@ -19,14 +22,7 @@ class UserModel {
         $this->xml = simplexml_load_file("../data/xml/user.xml") or die("Error: Cannot access database");
     }
 
-    public function IsUser($username) {
-        foreach ($this->xml->xpath('//user') as $user) {
-            if (trim($username) == trim($user->username))
-                return true;
-        }
-        return false;
-    }
-
+    //Check if user and password exists and return an object
     public function IsPassword($username, $password) {
         foreach ($this->xml->xpath('//user') as $user) {
             if ($username == trim($user->username) && $password == trim($user->password)) {
@@ -40,19 +36,19 @@ class UserModel {
         return false;
     }
 
-    public function cookiemonster($username) {
-        $hashme = $username;
-        $hashed = hash('sha256', "$hashme");
-        setcookie("USERHASH", "$hashed", time() + 60, '/');
-        return true;
+    //Hashes username and sets cookie
+    public function CreateUserHash($username) {
+        $hash = hash('sha256', $username);
+        setcookie("USERHASH", $hash, time() + 60, '/',null,false,true);
+        return ;
     }
     
-
-    public function validcookie($USERHASH) {
+    //Checks if cookie is valid
+    public function ValidateCookie($USERHASH) {
         foreach ($this->xml->xpath('//user') as $hashcheck) {
             $compare = strval($hashcheck->username);
             $hashme = preg_replace("/[^a-zA-Z]/", "", $compare);
-            $hashed = hash('sha256', "$hashme");
+            $hashed = hash('sha256', $hashme);
             if ($hashed == $USERHASH) {
                 $this->username = strval($hashcheck->username);
                 $this->firstname = strval($hashcheck->firstname);
@@ -64,6 +60,7 @@ class UserModel {
         return false;
     }
 
+    //Returns model as Entity class object
     public function GetUserObject() {
         $user = new UserEntity();
         $user->username = $this->username;
@@ -71,7 +68,26 @@ class UserModel {
         $user->firstname = $this->firstname;
         $user->lastname = $this->lastname;
 
+        $user->last_activity = time();
+
         return $user;
+    }
+
+    public static function IsSessionTimeOut()
+    {
+        $timeout = 60*1; // 1 min timeout
+        if(time() - $_SESSION["user"]->last_activity > $timeout)
+        {
+            session_unset();
+            session_destroy();
+            session_start();
+            return true;
+        }
+        else
+        {
+            $_SESSION["user"]->last_activity = time();
+            return false;
+        }
     }
 
 }

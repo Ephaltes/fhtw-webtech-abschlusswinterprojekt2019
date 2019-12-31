@@ -1,7 +1,7 @@
 <?php
 
-require_once("Entities/UserEntity.php");
-
+require_once("sites/dependency_include/include_user.php");
+use Model\UserModel;
 session_start();
 
 if (empty($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
@@ -9,6 +9,8 @@ if (empty($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
 }
 
 if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
     $user = $_SESSION["user"];
 }
 ?>
@@ -19,21 +21,23 @@ if (!empty($_SESSION["user"])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Administratorbereich für die News der Projektabgabge für die FH-Technikum">
+    <meta name="keywords" content="FH,Technikum,wien,projekt,abschluss,administrator,news,admin,news erstelle,create news">
+    <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
-    <?php require_once("sites/lib_include/fontawesome.php");?>
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/popper-utils.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
     <script src="js/bootstrap.js"></script>
 
 
@@ -50,23 +54,9 @@ if (!empty($_SESSION["user"])) {
     <div class="d-flex" id="wrapper">
 
 
-        <!-- Sidebar
-        <nav class="border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center list-group-item">Menü</div>
-            <div class="list-group list-group-flush">
-                <a href="news_admin.php" class="list-group-item list-group-item-action pl-3">News Verwaltung</a>
-                <a href="news_admin.php?menu=create" class="list-group-item list-group-item-action pl-3">News
-                    erstellen</a>
-                <a href="index.php" class="list-group-item list-group-item-action pl-3">Hauptseite</a>
-            </div>
-        </nav>
-        /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-         <!--   <nav class="navbar navbar-expand-lg navbar-light  ">
-                <button class="btn btn-lg" id="menu-toggle">&#9776;</button>
-            </nav> -->
             <div class="col-md-12 display-4 mt-3 text-center mb-5">News Verwaltung</div>
             <main class="container-fluid m-2 h-auto" id="body_partial">
                 <?php

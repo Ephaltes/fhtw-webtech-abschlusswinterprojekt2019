@@ -13,10 +13,12 @@ if(!empty($_SESSION["user"])){
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="description" content="Login für die Projektwebseite für die FH-Technikum">
+    <meta name="keywords" content="FH,Technikum,wien,projekt,abschluss,login">
+    <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
-    <!-- <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>FHTW Shop&News</title>
@@ -36,11 +38,11 @@ if(!empty($_SESSION["user"])){
                             <form class="form" role="form" action="sites/logincheck.php" id="formid" novalidate="" method="POST">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" autofocus name="username" id="username" >
+                                    <input type="text" role="textbox" class="form-control form-control-lg rounded-0" autofocus name="username" id="username" >
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="password" name="password" >
+                                    <input type="password" role="textbox" class="form-control form-control-lg rounded-0" id="password" name="password" >
                                 </div>
                                 <div>
                                     <label class="custom-control custom-checkbox">
@@ -49,7 +51,7 @@ if(!empty($_SESSION["user"])){
                                         <span class="custom-control-description small text-dark">Remember me on this computer</span>
                                     </label>
                                 </div>
-                                <button class="btn btn-primary btn-lg float-right" name="login" value="true" id="btn_login">Login</button>
+                                <button role="button" class="btn btn-primary btn-lg float-right" name="login" value="true" id="btn_login">Login</button>
                             </form>
                         </div>
                         <!--/card-block-->
@@ -72,10 +74,9 @@ if(!empty($_SESSION["user"])){
 <script src="vendor/jquery_validation/jquery.validate.js"></script>
 <script src="vendor/jquery_validation/additional-methods.js"></script>
 <script src="vendor/jquery_validation/localization/messages_de.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="js/site.js"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"> </script>
 
 <script>
 

@@ -4,6 +4,7 @@ namespace Helpers;
 
 class DirectoryHelper
 {
+    //scanning directory for objects
     static function scan_dir($dir)
     {
         $ignored = array('.', '..', '.svn', '.htaccess', 'ids');
@@ -20,6 +21,7 @@ class DirectoryHelper
         return ($files) ? $files : false;
     }
 
+    //scanning news directory and sorting by date created
     static function scan_dir_for_news($dir)
     {
         $ignored = array('.', '..', '.svn', '.htaccess', 'ids');

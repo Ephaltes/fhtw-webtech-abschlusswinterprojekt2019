@@ -1,6 +1,19 @@
+<?php
+//integrate UserEntity Class
+$root = $_SERVER['DOCUMENT_ROOT'];
+$dep_inj = "/sites/dependency_include/include_user.php";
+require_once($root . $dep_inj);
+use Model\UserModel;
+
+if (!empty($_SESSION["user"])) {
+    if(UserModel::IsSessionTimeOut())
+        header('location: /');
+    $user = $_SESSION["user"];
+}?>
+
 <section id ="AGB">
     <div class="container py-2">
-        <h1> Allgemeine Geschäftsbedingungen (AGB)</h1>
+        <h1 class="text-break"> Allgemeine Geschäftsbedingungen (AGB)</h1>
         <h3 class="mt-1">§ 1 Verwender</h3>
         Als Verwender dieser AGB gilt:
 
