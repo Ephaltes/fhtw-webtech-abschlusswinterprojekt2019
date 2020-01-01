@@ -73,18 +73,18 @@ $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
                     </td>
                     <td class="col-lg-auto">
 
-                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" href="index.php?news=<?php echo $link ?>">
-                            <i class="fas fa-eye text-dark"></i>
+                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="visit the news" href="index.php?news=<?php echo $link ?>">
+                            <i class="fas fa-eye text-dark" aria-hidden="true" titel="visit the news"></i>
                         </a>
 
 
-                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1">
-                            <i class="fas fa-edit text-dark"></i>
+                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="edit news" href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1">
+                            <i class="fas fa-edit text-dark" aria-hidden="true" titel="edit news"></i>
                         </a>
 
                         <form role="form" method="POST" action="sites/news/deletenews.php" name="<?php echo $xml->title ?>" class="d-inline">
-                            <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" class="ml-1 admin_action_delete"  href="#">
-                                <i class="fas fa-trash text-dark"></i>
+                            <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="remove news" class="ml-1 admin_action_delete"  href="#">
+                                <i class="fas fa-trash text-dark" aria-hidden="true" titel="remove news"></i>
                                 <input type="hidden" name="file_name" class="invisible" value="<?php echo $file ?>">
                             </a>
                         </form>

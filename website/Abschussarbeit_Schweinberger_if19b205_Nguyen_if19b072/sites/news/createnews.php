@@ -43,8 +43,8 @@ if (!empty($_GET["edit"])) {
 
                 <div class="form-group row">
                     <div class="col">
-                        <label>Überschrift der News: </label>
-                        <input tabindex="10" role="textbox" class="form-control" 
+                        <label for="ueberschrift">Überschrift der News: </label>
+                        <input tabindex="10" id="ueberschrift" role="textbox" class="form-control" 
                                name="title" <?php if (!empty($xml->title)) echo "value='$xml->title'"; ?> >
                     </div>
                 </div>
@@ -139,8 +139,8 @@ if (!empty($_GET["edit"])) {
 
         <div class="row form-group" role="rowgroup">
             <div class="col">
-                <textarea id="content_raw" name="content_raw" class="invisible"></textarea>
-                <textarea role="textbox" tabindex="14" id="summernote"
+                <textarea id="content_raw" aria-label="invisible raw content" name="content_raw" class="invisible"></textarea>
+                <textarea aria-label="visible content" role="textbox" tabindex="14" id="summernote"
                           name="content"><?php if (!empty($xml->content)) echo $xml->content; ?></textarea>
             </div>
         </div>
