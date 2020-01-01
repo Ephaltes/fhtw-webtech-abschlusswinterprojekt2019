@@ -1,14 +1,19 @@
 <?php
-session_start();
 //integrate UserEntity Class
 $root = $_SERVER['DOCUMENT_ROOT'];
 $dep_inj = "/sites/dependency_include/include_user.php";
 require_once($root . $dep_inj);
 use Model\UserModel;
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!empty($_SESSION["user"])) {
     if(UserModel::IsSessionTimeOut())
+    {
         header('location: /');
+    }
     $user = $_SESSION["user"];
 }
 

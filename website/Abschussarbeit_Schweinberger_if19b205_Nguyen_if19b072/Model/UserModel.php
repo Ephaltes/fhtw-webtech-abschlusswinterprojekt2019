@@ -5,6 +5,7 @@ namespace Model;
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 $entity = "/Entities/UserEntity.php";
+
 require_once ($root . $entity);
 
 use Entities\UserEntity;
@@ -19,7 +20,9 @@ class UserModel {
     protected $xml;
 
     public function __construct() {
-        $this->xml = simplexml_load_file("../data/xml/user.xml") or die("Error: Cannot access database");
+        $userxml = "/data/xml/user.xml";
+        $root = $_SERVER['DOCUMENT_ROOT'];
+         $this->xml = simplexml_load_file($root . $userxml) or die("Error: Cannot access database");
     }
 
     //Check if user and password exists and return an object
@@ -39,7 +42,8 @@ class UserModel {
     //Hashes username and sets cookie
     public function CreateUserHash($username) {
         $hash = hash('sha256', $username);
-        setcookie("USERHASH", $hash, time() + 60, '/',null,false,true);
+        $timeout = 60*60*12; // 12h
+        setcookie("USERHASH", $hash, time() + $timeout, '/',null,false,true);
         return ;
     }
     
@@ -73,21 +77,25 @@ class UserModel {
         return $user;
     }
 
-    public static function IsSessionTimeOut()
-    {
-        $timeout = 60*1; // 1 min timeout
-        if(time() - $_SESSION["user"]->last_activity > $timeout)
-        {
-            session_unset();
-            session_destroy();
-            session_start();
-            return true;
-        }
-        else
-        {
-            $_SESSION["user"]->last_activity = time();
-            return false;
-        }
-    }
+     public static function IsSessionTimeOut()
+   {
+       $timeout = 60*1; // 1 min timeout
+       $model = new UserModel();
+       if(time() - $_SESSION["user"]->last_activity > $timeout)
+       {
+
+           if( empty($_COOKIE['USERHASH']) || ! $model->ValidateCookie($_COOKIE['USERHASH']))
+           {
+               session_unset();
+               session_destroy();
+               session_start();
+               return true;
+           }
+
+
+       }
+           $_SESSION["user"]->last_activity = time();
+           return false;
+   }
 
 }

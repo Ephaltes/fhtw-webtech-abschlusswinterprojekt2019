@@ -9,6 +9,7 @@ require_once($root . $dep_inj);
 
 use Model\UserModel;
 
+
 if (!empty($_SESSION["user"])) {
     if(UserModel::IsSessionTimeOut())
         header('location: /');
@@ -20,7 +21,7 @@ use Helpers\DirectoryHelper;
 
 $newspath = "/data/news/";
 
-$files = DirectoryHelper::scan_dir($root . $newspath);
+$files = DirectoryHelper::scan_dir_for_news($root . $newspath);
 
 ?>
 

@@ -1,4 +1,3 @@
-
 <?php
 
 $root = $_SERVER['DOCUMENT_ROOT'];
@@ -20,7 +19,7 @@ if (empty($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
 }
 
 if (!empty($_SESSION["user"])) {
-    if(UserModel::IsSessionTimeOut())
+    if (UserModel::IsSessionTimeOut())
         header('location: /');
     $user = $_SESSION["user"];
 }
@@ -63,11 +62,12 @@ if (!empty($_GET["edit"])) {
                                 <input tabindex="12" type="file" class="custom-file-input " accept="image/*"
                                        id="thumbnail" multiple>
                                 <label id="thumbnail_label" class="custom-file-label form-check-label overflow-hidden"
-                                       for="thumbnail">  <?php if ($thumbnails !=false) echo "Derzeitiges TitelBild";
+                                       for="thumbnail">  <?php if ($thumbnails != false) echo "Derzeitiges TitelBild";
                                     else echo "Bitte Titelbild auswählen"; ?>
                                 </label>
                             </div>
-                            <div role="button" tabindex="13" id="btn_remove_image" class="input-group-append cursor-pointer">
+                            <div role="button" tabindex="13" id="btn_remove_image"
+                                 class="input-group-append cursor-pointer">
                                 <span class="input-group-text">Delete</span>
                             </div>
                         </div>
@@ -80,13 +80,13 @@ if (!empty($_GET["edit"])) {
                         <div id="carouselwithindicator" class="carousel slide bg-dark" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <?php
-                                if($thumbnails != false)
-                                {
-                                    $i=0;
-                                    foreach($thumbnails as $img) {
+                                if ($thumbnails != false) {
+                                    $i = 0;
+                                    foreach ($thumbnails as $img) {
                                         ?>
-                                        <li  data-target="#carouselwithindicator" data-slide-to="<?php echo $i; ?>" <?php if($i==0) echo "class='active'"; ?>
-                                            id = "carousel-listElement-<?php echo $i; ?>"
+                                        <li data-target="#carouselwithindicator"
+                                            data-slide-to="<?php echo $i; ?>" <?php if ($i == 0) echo "class='active'"; ?>
+                                            id="carousel-listElement-<?php echo $i; ?>"
                                         ></li>
                                         <?php
                                         $i++;
@@ -96,22 +96,22 @@ if (!empty($_GET["edit"])) {
                                 ?>
 
 
-
                             </ol>
                             <div class="carousel-inner">
 
                                 <?php
-                                if($thumbnails != false)
-                                {
-                                    $i=0;
-                                    foreach($thumbnails as $img) {
+                                if ($thumbnails != false) {
+                                    $i = 0;
+                                    foreach ($thumbnails as $img) {
                                         $data = file_get_contents("img/$filename/$img");
                                         $data64 = base64_encode($data);
                                         $mimetype = mime_content_type("img/$filename/$img");
                                         $base64encoded = "data:$mimetype;base64,$data64";
                                         ?>
-                                        <div class="carousel-item <?php if($i==0) echo "active"; ?> text-center" id="carousel-divElement-<?php echo $i; ?>">
-                                            <img class="carousel-image"  role="img" src="<?php echo $base64encoded ?>" alt="uploaded image <?php echo $i; ?>">
+                                        <div class="carousel-item <?php if ($i == 0) echo "active"; ?> text-center"
+                                             id="carousel-divElement-<?php echo $i; ?>">
+                                            <img class="carousel-image" role="img" src="<?php echo $base64encoded ?>"
+                                                 alt="uploaded image <?php echo $i; ?>">
                                             <div class="carousel-caption d-none">
                                                 <?php echo $i; ?>
                                             </div>
@@ -144,7 +144,7 @@ if (!empty($_GET["edit"])) {
 
         <div class="row form-group" role="rowgroup">
             <div class="col">
-                <textarea id="content_raw"  name="content_raw" class="invisible"></textarea>
+                <textarea id="content_raw" name="content_raw" class="invisible"></textarea>
                 <textarea role="textbox" tabindex="14" id="summernote"
                           name="content"><?php if (!empty($xml->content)) echo $xml->content; ?></textarea>
             </div>
@@ -161,25 +161,24 @@ if (!empty($_GET["edit"])) {
     </div>
 
     <div id="ImageToUpload" role="group">
-<?php
-    //for dynamic uplaod
-    if($thumbnails != false)
-    {
-        $i=0;
-        foreach($thumbnails as $img) {
-            $data = file_get_contents("img/$filename/$img");
-            $data64 = base64_encode($data);
-            $mimetype = mime_content_type("img/$filename/$img");
-            $base64encoded = "data:$mimetype;base64,$data64";
-            ?>
-            <input type="hidden" name="thumbnail[<?php echo $i; ?>]"
-                   id="thumbnail[<?php echo $i; ?>]"  value="<?php echo $base64encoded ?>">
-            <?php
-            $i++;
+        <?php
+        //for dynamic uplaod
+        if ($thumbnails != false) {
+            $i = 0;
+            foreach ($thumbnails as $img) {
+                $data = file_get_contents("img/$filename/$img");
+                $data64 = base64_encode($data);
+                $mimetype = mime_content_type("img/$filename/$img");
+                $base64encoded = "data:$mimetype;base64,$data64";
+                ?>
+                <input type="hidden" class="thumbnail_upload" name="thumbnail[<?php echo $i; ?>]"
+                       id="thumbnail[<?php echo $i; ?>]" value="<?php echo $base64encoded ?>">
+                <?php
+                $i++;
+            }
         }
-    }
 
-    ?>
+        ?>
     </div>
 </form>
 
@@ -196,17 +195,17 @@ if (!empty($_GET["edit"])) {
 
 <script>
 
-    var rules={
+    var rules = {
         'title': {
             required: true,
-                pattern: "((?![<>]).)+"
+            pattern: "((?![<>]).)+"
         },
         'content_raw': {
             required: true
         }
     };
 
-    var messages= {
+    var messages = {
         'title': {
             required: 'Titel fehlt'
         },
@@ -215,7 +214,7 @@ if (!empty($_GET["edit"])) {
         }
     };
 
-    Validation.InitValidation("#formid",".form-group > div",rules,messages);
+    Validation.InitValidation("#formid", ".form-group > div", rules, messages);
 
     //Upload Filename split
     $(".custom-file-input").on("change", function () {
@@ -238,19 +237,19 @@ if (!empty($_GET["edit"])) {
 
 
     //remove single uploaded image
-    var oldid=null;
+    var oldid = null;
     $("#btn_remove_image").click(function () {
 
 
-       let id =  $('.new-caption-area').html().trim();
-       if(!id)
+        let id = $('.new-caption-area').html().trim();
+        if (!id)
             return;
 
-       oldid=id;
+        oldid = id;
 
         $("#carousel-listElement-" + id).remove();
         $("#carousel-divElement-" + id).remove();
-        $("#thumbnail\\["+id+"\\]").remove();
+        $("#thumbnail\\[" + id + "\\]").remove();
 
         $('.carousel-item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
@@ -258,10 +257,9 @@ if (!empty($_GET["edit"])) {
         var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
         $('.new-caption-area').html(caption.html());
 
-        id =  $('.new-caption-area').html().trim();
+        id = $('.new-caption-area').html().trim();
 
-        if(oldid===id)
-        {
+        if (oldid === id) {
             $("#thumbnail").val("");
             $("#thumbnail_label").text("");
             $('.new-caption-area').text("");
@@ -269,12 +267,11 @@ if (!empty($_GET["edit"])) {
     });
 
 
-
     $("#btn_submit").click(function () {
 
         //xss säuberung
         var input = $("#summernote").summernote("code");
-        input = input.replace(/(\b)(on\S+)(\s*)=.*"|javascript|((<\s*)|(&lt;\s*))(\/*)script.*/ig, "");
+        input = input.replace(/(\b)(on\S+)(\s*)=|javascript|(<\s*)(\/*)script/ig, "");
         $("#summernote").summernote("code", input);
 
         $("#content_raw").val($($("#summernote").summernote("code")).text());
@@ -300,17 +297,53 @@ if (!empty($_GET["edit"])) {
         $('.new-caption-area').html(caption.html());
     });
 
+    var imagesInUploadToCarousel = function () {
+
+        $(".thumbnail_upload").each(function (i,obj) {
+            let listElement = $("<li>", {
+                'data-target': "#carouselwithindicator",
+                'data-slide-to': i,
+                id: "carousel-listElement-" + i
+            });
+
+            let divElement = $("<div>", {
+                class: "carousel-item text-center",
+                id: "carousel-divElement-" + i
+            });
+
+            let imageElement = $("<img>", {
+                class: "carousel-image",
+                src: obj.value,
+                alt: "uploaded image " + i
+            });
+
+            let captionElement = $("<div>", {
+                class: "carousel-caption d-none",
+                html: i
+            });
+
+            $(".carousel-indicators").append(listElement);
+            $(".carousel-inner").append(divElement);
+            $("#carousel-divElement-" + i).append(imageElement);
+            $("#carousel-divElement-" + i).append(captionElement);
+
+        });
+
+    };
+
     //creating image preview
     var imagesPreviewToCarousel = function (input) {
 
         if (input.files) {
             var filesAmount = input.files.length;
 
-            let j=$(".carousel-indicators").children().length;
+            imagesInUploadToCarousel();
+
+            let j = $(".carousel-indicators").children().length;
             console.log(j);
             for (i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
-                let k=i+j;
+                let k = i + j;
 
                 reader.onload = function (event) {
 
@@ -322,13 +355,13 @@ if (!empty($_GET["edit"])) {
 
                     let captionElement = $("<div>", {
                         class: "carousel-caption d-none",
-                        html:  j
+                        html: j
                     });
 
                     let hiddenElement = $("<input>", {
                         type: "hidden",
-                        name: "thumbnail[" + j +"]",
-                        id:"thumbnail[" + j +"]",
+                        name: "thumbnail[" + j + "]",
+                        id: "thumbnail[" + j + "]",
                         value: event.target.result
                     });
 
@@ -337,8 +370,7 @@ if (!empty($_GET["edit"])) {
                     $("#ImageToUpload").append(hiddenElement);
                     console.log("onload inside function");
 
-                    if(j==0)
-                    {
+                    if (j == 0) {
                         var caption = $('div.carousel-item:nth-child(1) .carousel-caption');
                         $('.new-caption-area').html(caption.html());
                     }
@@ -367,7 +399,7 @@ if (!empty($_GET["edit"])) {
 
     };
 
-    var emptyCarousel = function(){
+    var emptyCarousel = function () {
         $(".carousel-indicators").empty();
         $(".carousel-inner").empty();
     };
