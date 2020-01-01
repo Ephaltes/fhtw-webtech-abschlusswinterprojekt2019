@@ -15,7 +15,7 @@ if (!empty($_SESSION["user"])) {
     <div class="container py-2">
         <h1 class = "text-break">Datenschutzerklärung</h1>
         <h2 class = "">Datenschutz</h2>
-        <p>Wir haben diese Datenschutzerklärung (Fassung 04.12.2019-221108837) verfasst, um Ihnen gemäß der Vorgaben der Datenschutz-Grundverordnung (EU) 2016/679 und dem <a class = "" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank"  class = "external">Datenschutzgesetz (DSG)</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</p>
+        <p>Wir haben diese Datenschutzerklärung (Fassung 04.12.2019-221108837) verfasst, um Ihnen gemäß der Vorgaben der Datenschutz-Grundverordnung (EU) 2016/679 und dem <a rel="noreferrer"class = "" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank"  class = "external">Datenschutzgesetz (DSG)</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</p>
         <p>Leider liegt es in der Natur der Sache, dass diese Erklärungen sehr technisch klingen. Wir haben uns bei der Erstellung jedoch bemüht die wichtigsten Dinge so einfach und klar wie möglich zu beschreiben.</p>
         <h2 class = "">Automatische Datenspeicherung</h2>
         <p>Wenn Sie heutzutage Webseiten besuchen, werden gewisse Informationen automatisch erstellt und gespeichert, so auch auf dieser Webseite.</p>
@@ -35,7 +35,7 @@ if (!empty($_SESSION["user"])) {
         <p>Wir nutzen Ihre persönlichen Daten somit nur für die Kommunikation mit jenen Besuchern, die Kontakt ausdrücklich wünschen und für die Abwicklung der auf dieser Webseite angebotenen Dienstleistungen und Produkte. Wir geben Ihre persönlichen Daten ohne Zustimmung nicht weiter, können jedoch nicht ausschließen, dass diese Daten beim Vorliegen von rechtswidrigem Verhalten eingesehen werden.</p>
         <p>Wenn Sie uns persönliche Daten per E-Mail schicken – somit abseits dieser Webseite – können wir keine sichere Übertragung und den Schutz Ihrer Daten garantieren. Wir empfehlen Ihnen, vertrauliche Daten niemals unverschlüsselt per E-Mail zu übermitteln.</p>
         <h2 class = "text-break">Rechte laut Datenschutzgrundverordnung</h2>
-        <p>Ihnen stehen laut den Bestimmungen der DSGVO und des österreichischen <a class = "" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank" class= "external">Datenschutzgesetzes (DSG)</a> grundsätzlich die folgende Rechte zu:</p>
+        <p>Ihnen stehen laut den Bestimmungen der DSGVO und des österreichischen <a rel="noreferrer"class = "" href = "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597&tid=221108837" target = "_blank" class= "external">Datenschutzgesetzes (DSG)</a> grundsätzlich die folgende Rechte zu:</p>
         <ul class = "">
             <li class = "">Recht auf Berichtigung (Artikel 16 DSGVO)</li>
             <li class = "">Recht auf Löschung („Recht auf Vergessenwerden“) (Artikel 17 DSGVO)</li>
@@ -45,7 +45,7 @@ if (!empty($_SESSION["user"])) {
             <li class = "">Widerspruchsrecht (Artikel 21 DSGVO)</li>
             <li class = "">Recht, nicht einer ausschließlich auf einer automatisierten Verarbeitung — einschließlich Profiling — beruhenden Entscheidung unterworfen zu werden (Artikel 22 DSGVO)</li>
         </ul>
-        <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren, welche in Österreich die Datenschutzbehörde ist, deren Webseite Sie unter <a class = "" href = "https://www.dsb.gv.at/?tid=221108837" class = "external" rel = "nofollow">https://www.dsb.gv.at/</a> finden.</p>
+        <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren, welche in Österreich die Datenschutzbehörde ist, deren Webseite Sie unter <a rel="noreferrer"class = "" href = "https://www.dsb.gv.at/?tid=221108837" class = "external" rel = "nofollow">https://www.dsb.gv.at/</a> finden.</p>
         <h2 class = "">Auswertung des Besucherverhaltens</h2>
         <p>In der folgenden Datenschutzerklärung informieren wir Sie darüber, ob und wie wir Daten Ihres Besuchs dieser Website auswerten. Die Auswertung der gesammelten Daten erfolgt in der Regel anonym und wir können von Ihrem Verhalten auf dieser Website nicht auf Ihre Person schließen.</p>
         <p>Mehr über Möglichkeiten dieser Auswertung der Besuchsdaten zu widersprechen erfahren Sie in der folgenden Datenschutzerklärung.</p>
@@ -89,24 +89,24 @@ if (!empty($_SESSION["user"])) {
         <p>Wie und ob Sie Cookies verwenden wollen, entscheiden Sie selbst. Unabhängig von welchem Service oder welcher Webseite die Cookies stammen, haben Sie immer die Möglichkeit Cookies zu löschen, zu deaktivieren oder nur teilweise zuzulassen. Zum Beispiel können Sie Cookies von Drittanbietern blockieren, aber alle anderen Cookies zulassen.</p>
         <p>Wenn Sie feststellen möchten, welche Cookies in Ihrem Browser gespeichert wurden, wenn Sie Cookie-Einstellungen ändern oder löschen wollen, können Sie dies in Ihren Browser-Einstellungen finden:</p>
         <p>
-            <a class = "" href = "https://support.google.com/chrome/answer/95647?tid=221108837" class = "external" rel = "nofollow">Chrome: Cookies in Chrome löschen, aktivieren und verwalten</a>
+            <a rel="noreferrer"class = "" href = "https://support.google.com/chrome/answer/95647?tid=221108837" class = "external" rel = "nofollow">Chrome: Cookies in Chrome löschen, aktivieren und verwalten</a>
         </p>
         <p>
-            <a class = "" href = "https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=221108837" class = "external" rel = "nofollow">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
+            <a rel="noreferrer"class = "" href = "https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=221108837" class = "external" rel = "nofollow">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
         </p>
         <p>
-            <a class = "" href = "https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=221108837" class = "external" rel = "nofollow">Firefox: Cookies löschen, um Daten zu entfernen, die Websites auf Ihrem Computer abgelegt haben</a>
+            <a rel="noreferrer"class = "" href = "https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=221108837" class = "external" rel = "nofollow">Firefox: Cookies löschen, um Daten zu entfernen, die Websites auf Ihrem Computer abgelegt haben</a>
         </p>
         <p>
-            <a class = "" href = "https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=221108837" class = "external" rel = "nofollow">Internet Explorer: Löschen und Verwalten von Cookies</a>
+            <a rel="noreferrer"class = "" href = "https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=221108837" class = "external" rel = "nofollow">Internet Explorer: Löschen und Verwalten von Cookies</a>
         </p>
         <p>
-            <a class = "" href = "https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=221108837" class = "external" rel = "nofollow">Microsoft Edge: Löschen und Verwalten von Cookies</a>
+            <a rel="noreferrer"class = "" href = "https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=221108837" class = "external" rel = "nofollow">Microsoft Edge: Löschen und Verwalten von Cookies</a>
         </p>
         <p>Falls Sie grundsätzlich keine Cookies haben wollen, können Sie Ihren Browser so einrichten, dass er Sie immer informiert, wenn ein Cookie gesetzt werden soll. So können Sie bei jedem einzelnen Cookie entscheiden, ob Sie das Cookie erlauben oder nicht. Die Vorgangsweise ist je nach Browser verschieden. Am besten Sie suchen die Anleitung in Google mit dem Suchbegriff “Cookies löschen Chrome” oder „Cookies deaktivieren Chrome“ im Falle eines Chrome Browsers.</p>
         <h3 class = "">Wie sieht es mit meinem Datenschutz aus?</h3>
         <p>Seit 2009 gibt es die sogenannten „Cookie-Richtlinien“. Darin ist festgehalten, dass das Speichern von Cookies eine Einwilligung des von Ihnen verlangt. Innerhalb der EU-Länder gibt es allerdings noch sehr unterschiedliche Reaktionen auf diese Richtlinien. In Österreich erfolgte aber die Umsetzung dieser Richtlinie in § 96 Abs. 3 des Telekommunikationsgesetzes (TKG).</p>
-        <p>Wenn Sie mehr über Cookies wissen möchten und vor technischen Dokumentationen nicht zurückscheuen, empfehlen wir <a class = "" href = "https://tools.ietf.org/html/rfc6265" target = "_blank" class = "external">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der Internet Engineering Task Force (IETF) namens „HTTP State Management Mechanism“.</p>
+        <p>Wenn Sie mehr über Cookies wissen möchten und vor technischen Dokumentationen nicht zurückscheuen, empfehlen wir <a rel="noreferrer"class = "" href = "https://tools.ietf.org/html/rfc6265" target = "_blank" class = "external">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der Internet Engineering Task Force (IETF) namens „HTTP State Management Mechanism“.</p>
         <h2 class = "">Newsletter Datenschutzerklärung</h2>
         <p>
             <span class = "" style = "font-weight: 400;">Wenn Sie sich für unseren Newsletter eintragen übermitteln Sie die oben genannten persönlichen Daten und geben uns das Recht Sie per E-Mail zu kontaktieren. Die im Rahmen der Anmeldung zum Newsletter gespeicherten Daten nutzen wir ausschließlich für unseren Newsletter und geben diese nicht weiter.</span>
@@ -114,7 +114,7 @@ if (!empty($_SESSION["user"])) {
         <p>
             <span class = "" style = "font-weight: 400;">Sollten Sie sich vom Newsletter abmelden – Sie finden den Link dafür in jedem Newsletter ganz unten – dann löschen wir alle Daten die mit der Anmeldung zum Newsletter gespeichert wurden.</span>
         </p>
-        <p style = "margin-top:15px;">Quelle: Erstellt mit dem <a title = "Datenschutz Generator von firmenwebseiten.at" href = "https://www.firmenwebseiten.at/datenschutz-generator/" target = "_blank"  style = "text-decoration:none;">Datenschutz Generator von firmenwebseiten.at</a> in Kooperation mit <a href = "https://www.aboutbusiness.at" target = "_blank" rel = "follow" title = "" style = "text-decoration:none;">aboutbusiness.at</a>
+        <p style = "margin-top:15px;">Quelle: Erstellt mit dem <a rel="noreferrer"title = "Datenschutz Generator von firmenwebseiten.at" href = "https://www.firmenwebseiten.at/datenschutz-generator/" target = "_blank"  style = "text-decoration:none;">Datenschutz Generator von firmenwebseiten.at</a> in Kooperation mit <a rel="noreferrer"href = "https://www.aboutbusiness.at" target = "_blank" rel = "follow" title = "" style = "text-decoration:none;">aboutbusiness.at</a>
         </p>
     </div>
 </section>

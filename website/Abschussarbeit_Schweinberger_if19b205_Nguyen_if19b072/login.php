@@ -41,7 +41,7 @@ if(!empty($_SESSION["user"])){
                                     <input type="text" role="textbox" class="form-control form-control-lg rounded-0" autofocus name="username" id="username" >
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label for="password">Password</label>
                                     <input type="password" role="textbox" class="form-control form-control-lg rounded-0" id="password" name="password" >
                                 </div>
                                 <div>

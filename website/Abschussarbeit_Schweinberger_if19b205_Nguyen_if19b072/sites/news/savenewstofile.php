@@ -11,6 +11,10 @@ if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
 
+if($user->usertype!='admin'){
+    header('location: /');
+}
+
 const ROOTSAVEIMAGE = "../../img/";
 
 if (!empty($_POST)) {

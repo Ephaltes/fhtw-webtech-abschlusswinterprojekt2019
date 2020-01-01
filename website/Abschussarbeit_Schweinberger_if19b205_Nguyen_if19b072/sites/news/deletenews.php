@@ -54,9 +54,9 @@ if(!empty($user) && $user->usertype="admin")
         rmdir_recursive($img_dir);
     }
 
-
-    header("Location: ../../news_admin.php");
 }
+    header("Location: ../../news_admin.php");
+
 
 
 function rmdir_recursive($dir) {

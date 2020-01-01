@@ -16,6 +16,9 @@ if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
 
+if($user->usertype!='admin'){
+    header('location: /');
+}
 
 use Helpers\DirectoryHelper;
 
@@ -71,19 +74,19 @@ $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
                     <td class="col-lg-auto">
                         <?php echo date_format($dateobject, "G:i:s"); ?>
                     </td>
-                    <td class="col-lg-auto">
+                    <td class="col-lg-auto text-nowrap">
 
-                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="visit the news" href="index.php?news=<?php echo $link ?>">
+                        <a  role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="visit the news" class="p-2" href="index.php?news=<?php echo $link ?>">
                             <i class="fas fa-eye text-dark" aria-hidden="true" titel="visit the news"></i>
                         </a>
 
 
-                        <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="edit news" href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1">
+                        <a  role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="edit news" href="news_admin.php?edit=<?php echo $link; ?>" class="ml-1 p-2">
                             <i class="fas fa-edit text-dark" aria-hidden="true" titel="edit news"></i>
                         </a>
 
                         <form role="form" method="POST" action="sites/news/deletenews.php" name="<?php echo $xml->title ?>" class="d-inline">
-                            <a role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="remove news" class="ml-1 admin_action_delete"  href="#">
+                            <a  role="link" tabindex="<?php echo $tabindex; $tabindex++; ?>" aria-label="remove news" class="ml-1 admin_action_delete p-2"  href="#">
                                 <i class="fas fa-trash text-dark" aria-hidden="true" titel="remove news"></i>
                                 <input type="hidden" name="file_name" class="invisible" value="<?php echo $file ?>">
                             </a>

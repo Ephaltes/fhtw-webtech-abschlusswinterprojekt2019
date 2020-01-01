@@ -24,6 +24,10 @@ if (!empty($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
 
+if($user->usertype!='admin'){
+    header('location: /');
+}
+
 $thumbnails = false;
 if (!empty($_GET["edit"])) {
     $filename = ($_GET["edit"]);
@@ -69,10 +73,10 @@ if (!empty($_GET["edit"])) {
                     </div>
                 </div>
 
-                <div class="form-group row" role="rowgroup">
+                <div class="form-group row" >
 
                     <div class="col-12">
-                        <div id="carouselwithindicator" class="carousel slide bg-dark" data-ride="carousel">
+                        <div id="carouselwithindicator" role="contentinfo" class="carousel slide bg-dark" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <?php
                                 if ($thumbnails != false) {
@@ -92,7 +96,7 @@ if (!empty($_GET["edit"])) {
 
 
                             </ol>
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" >
 
                                 <?php
                                 if ($thumbnails != false) {
@@ -105,7 +109,7 @@ if (!empty($_GET["edit"])) {
                                         ?>
                                         <div class="carousel-item <?php if ($i == 0) echo "active"; ?> text-center"
                                              id="carousel-divElement-<?php echo $i; ?>">
-                                            <img class="carousel-image" role="img" src="<?php echo $base64encoded ?>"
+                                            <img  class="carousel-image" role="img" src="<?php echo $base64encoded ?>"
                                                  alt="uploaded image <?php echo $i; ?>">
                                             <div class="carousel-caption d-none">
                                                 <?php echo $i; ?>
@@ -137,8 +141,8 @@ if (!empty($_GET["edit"])) {
             </div>
         </div>
 
-        <div class="row form-group" role="rowgroup">
-            <div class="col">
+        <div class="row form-group" >
+            <div class="col" >
                 <textarea id="content_raw" aria-label="invisible raw content" name="content_raw" class="invisible"></textarea>
                 <textarea aria-label="visible content" role="textbox" tabindex="14" id="summernote"
                           name="content"><?php if (!empty($xml->content)) echo $xml->content; ?></textarea>
@@ -147,7 +151,7 @@ if (!empty($_GET["edit"])) {
 
         <div class="row">
             <div class="col">
-                <input role="button" tabindex="15" type="button" id="btn_submit" class="btn btn-primary"
+                <input role="button" aria-label="Button to create news" tabindex="15" type="button" id="btn_submit" class="btn btn-primary"
                        value=" <?php if (!empty($filename)) echo "Änderungen speichern"; else echo "News erstellen"; ?>">
             </div>
             <input type="hidden" name="edit_filename" class="invisible"

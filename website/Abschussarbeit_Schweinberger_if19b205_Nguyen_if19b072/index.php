@@ -39,7 +39,6 @@ if (!isset($_SESSION['cart'])) {
         <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
-        <!-- <link rel="stylesheet" href="css/MARKEDforDELETIONindex-stylesheet.css" type="text/css"> -->
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="icon" href="img/748989-200.png">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
