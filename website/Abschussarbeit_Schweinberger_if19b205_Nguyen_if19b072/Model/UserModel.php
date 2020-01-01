@@ -79,7 +79,7 @@ class UserModel {
 
      public static function IsSessionTimeOut()
    {
-       $timeout = 60*1; // 1 min timeout
+       $timeout = 60*5; // 5 min inactivity
        $model = new UserModel();
        if(time() - $_SESSION["user"]->last_activity > $timeout)
        {
