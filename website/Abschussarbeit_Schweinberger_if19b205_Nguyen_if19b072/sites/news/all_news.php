@@ -62,7 +62,7 @@ function truncate($string,$length=50,$append="&hellip;") {
 
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card p-1 m-1">
-                        <a tabindex="-1" role="link" href="index.php?news=<?php echo $link; ?>" class="stretched-link"></a>
+                        <a tabindex="-1" role="link" href="index.php?news=<?php echo $link; ?>" class="stretched-link" aria-label="link to News:<?php echo $link; ?>"></a>
                         <?php if ($images != false) {
                             ?>
                             <div class="text-dark text-decoration-none">
