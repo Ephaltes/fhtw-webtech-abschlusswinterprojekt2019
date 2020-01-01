@@ -33,11 +33,6 @@ if (!empty($_GET["edit"])) {
 }
 ?>
 
-<head>
-    <link rel="stylesheet" href="vendor/summernote/summernote-bs4.css">
-</head>
-
-
 <form method="POST" id="formid" role="form" action="/sites/news/savenewstofile.php" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
@@ -49,7 +44,7 @@ if (!empty($_GET["edit"])) {
                 <div class="form-group row">
                     <div class="col">
                         <label>Überschrift der News: </label>
-                        <input tabindex="10" role="textbox" class="form-control" type="title"
+                        <input tabindex="10" role="textbox" class="form-control" 
                                name="title" <?php if (!empty($xml->title)) echo "value='$xml->title'"; ?> >
                     </div>
                 </div>

@@ -7,7 +7,7 @@
                                     $checksum++;
                                 }
                                 if ($checksum <= 3) { //cart limiter
-                                    ?><li class="d-none d-md-block"></a><?php include('sites/shop/shoppingcart.php');?></li><?php
+                                    ?><li class="d-none d-md-block"><ul id="shoppingcart-ul"><?php include('sites/shop/shoppingcart.php');?></ul></li><?php
                                 } else {
                                     ?>
                                     <li class="d-none d-md-block"><a href="shop.php?viewme=checkout" tabindex="4" class=" nav-link lead text-light"> <?php include('sites/shop/shoppingcartnavbarsymbol.php'); ?></a></li>
@@ -18,4 +18,5 @@
                             include('sites/shop/adminshoppingcart.php');
                         }
                         ?>
+                             
 </ul>

@@ -27,7 +27,7 @@ $link .= $_SERVER['REQUEST_URI'];
     <a href="/" tabindex="-1" role="link">
         <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid" id="brand" alt="brandlogo">
     </a>
-    <button class="navbar-toggler justify-content-end" role="burgermenu" type="button" data-toggle="collapse"
+    <button class="navbar-toggler justify-content-end" role="button" type="button" data-toggle="collapse"
             data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
             aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

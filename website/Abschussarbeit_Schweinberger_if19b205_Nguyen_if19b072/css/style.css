@@ -70,7 +70,7 @@ a .card-img-top {
     background: rgba(0,0,0,0.5);
 }
 /* INDEX STYLESHEET CSS  */
-#quicklinks li, #quicklinks ul{
+#quicklinks li, #quicklinks ul,#shoppingcart-ul{
     list-style-type: none;
 }
 footer ul, footer li{
@@ -86,9 +86,10 @@ main {
 }
 .dropdown-menu.p_basket {
 }
-#navbarul1{
+#navbarul1,#shoppingcart-ul{
     list-style-type: none;
     padding-inline-start: 0px;
+    padding-left:0px;
 }
 body{
     padding-top:40px;

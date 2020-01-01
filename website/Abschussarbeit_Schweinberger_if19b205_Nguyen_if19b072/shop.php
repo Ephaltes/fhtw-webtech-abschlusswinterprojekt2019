@@ -1,6 +1,8 @@
 <?php
 require_once("sites/dependency_include/include_user.php");
+
 use Model\UserModel;
+
 session_start();
 
 if (!empty($_GET["logout"])) {
@@ -11,7 +13,7 @@ if (!empty($_GET["logout"])) {
 }
 
 if (!empty($_SESSION["user"])) {
-    if(UserModel::IsSessionTimeOut())
+    if (UserModel::IsSessionTimeOut())
         header('location: /');
     $user = $_SESSION["user"];
 }
@@ -20,7 +22,7 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
 ?>
-<?php include('sites/shop/shoppingcartadd.php') // needed to add items to cart initally   ?>
+<?php include('sites/shop/shoppingcartadd.php') // needed to add items to cart initally     ?>
 <!doctype html>
 <html lang="de">
     <head>
@@ -62,19 +64,20 @@ if (!isset($_SESSION['cart'])) {
             ?>
         </main>
 
-        <quickandfooter class="container-fluid p-0 m-0">
-        <?php include('sites/nav_footer/quicklinks.php'); ?>
-        <?php include('sites/nav_footer/footer.php'); ?>
-        </quickandfooter>
-    </body>
-    <script>
-        $(document).ready(function () {
-            $("#checkoutform").submit(function (event) {
-                if (confirm("Kauf Kostenpflichtig abschließen?")) {
-                } else {
-                    event.preventDefault();
-                }
+        <footer class="container-fluid p-0 m-0">
+            <?php include('sites/nav_footer/quicklinks.php'); ?>
+            <?php include('sites/nav_footer/footer.php'); ?>
+        </footer>
+        
+        <script>
+            $(document).ready(function () {
+                $("#checkoutform").submit(function (event) {
+                    if (confirm("Kauf Kostenpflichtig abschließen?")) {
+                    } else {
+                        event.preventDefault();
+                    }
+                });
             });
-        });
-    </script>
+        </script>
+    </body>
 </html>

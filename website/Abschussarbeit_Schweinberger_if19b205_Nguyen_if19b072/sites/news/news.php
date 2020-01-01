@@ -105,7 +105,7 @@ $images = DirectoryHelper::scan_dir("img/" . $_GET["news"]);
     </div>
 <?php } else { ?>
     <div class="container text-center">
-        <h1 class="mb-4"> Sadly we couldnt match any News to the Link you entered</h1>
+        <h1 class="mb-4">Wir konnten leider keine passenden News zu ihrem Link finden!</h1>
         <a class ="btn-primary btn-lg" href="index.php">Zurück zur Startseite<a>
                 </div>
             <?php } ?>

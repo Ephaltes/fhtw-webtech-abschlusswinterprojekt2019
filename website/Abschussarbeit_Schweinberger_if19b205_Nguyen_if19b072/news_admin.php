@@ -13,6 +13,9 @@ if (!empty($_SESSION["user"])) {
         header('location: /');
     $user = $_SESSION["user"];
 }
+if($user->usertype!='admin'){
+    header('location: /');
+}
 ?>
 
 <!doctype html>
@@ -24,7 +27,7 @@ if (!empty($_SESSION["user"])) {
     <meta name="description" content="Administratorbereich für die News der Projektabgabge für die FH-Technikum">
     <meta name="keywords" content="FH,Technikum,wien,projekt,abschluss,administrator,news,admin,news erstelle,create news">
     <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
-
+    <link rel="stylesheet" href="vendor/summernote/summernote-bs4.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
 

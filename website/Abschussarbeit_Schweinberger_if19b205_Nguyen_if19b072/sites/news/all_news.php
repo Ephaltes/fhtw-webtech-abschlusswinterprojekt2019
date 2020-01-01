@@ -114,7 +114,7 @@ function truncate($string,$length=50,$append="&hellip;") {
                                 <div class="text-dark text-decoration-none">
                                     <div class="card-img-top">
                                         <div id="carouselwithindicator_<?php echo $j ?>" class="carousel slide bg-dark" data-ride="carousel">
-                                            <ol class="carousel-indicators"
+                                            <ol class="carousel-indicators">
                                             <li data-target="#carouselwithindicator_<?php echo $j ?>" data-slide-to="0" class='active'></li>
                                             </ol>
                                             <div class="carousel-inner">

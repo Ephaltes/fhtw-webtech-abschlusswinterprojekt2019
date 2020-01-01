@@ -1,5 +1,5 @@
-<?php unset($_SESSION['TOTALPREIS']); // needed later on or on refresh wont show new price    ?>
-<div class="px-4 pt-2 px-lg-0 bg-white">
+<?php unset($_SESSION['TOTALPREIS']); // needed later on or on refresh wont show new price      ?>
+<section class="px-4 pt-2 px-lg-0 bg-white">
     <div class="container text-dark py-5 text-center">
         <h1 class="display-4"><i class="fas fa-shopping-cart"></i>Warenkorb</h1>
     </div>
@@ -53,7 +53,7 @@
                                                     <td scope="row" class="ml-2">
                                                         <div class="d-flex flex-wrap flex-column">
                                                             <img src="data/shop/bilder/<?php echo $data->bild ?>"
-                                                                 class="mr-2 float-left img-fluid checkoutimg">
+                                                                 class="mr-2 float-left img-fluid checkoutimg" alt="Bild von <?php $data->titel;?>">
                                                             <div class="flex-md-column flex-xs-row"><h4
                                                                     class=""><?php echo $data->titel ?>
                                                                 </h4>
@@ -72,7 +72,7 @@
                                                         <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><button class="btn ml-md-2 p-0"><small><i aria-hidden="true" title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></button></a></span>
                                                     </td>
                                                 </tr>
-                                            <?php
+                                                <?php
                                             }
                                         }
                                     }
@@ -81,13 +81,14 @@
                                 ?>
                             </tbody>
                         </table>
-<?php if (empty($_SESSION['cart']) && $user->usertype == 'user') { ?>
+                        <?php if (empty($_SESSION['cart']) && $user->usertype == 'user') { ?>
                             <div class="pt-3 text-center ">
                                 <p class="lead">Der Warenkorb ist Leer, besuch doch unseren Shop!
                                 <p>
                                     <a class="btn-primary btn-lg" tabindex="26" href="shop.php">Shop</a>
                             </div>
-                        <?php }
+                            <?php
+                        }
                         if (empty($_SESSION['cart']) && $user->usertype == 'admin') {
                             ?>
                             <div class="pt-3 text-center ">
@@ -95,7 +96,7 @@
                                 <p>
                                     <a class="btn-primary btn-lg" tabindex="26" href="shop.php">Zurück zum Shop</a>
                             </div>
-<?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
                 <form action="data/shop/buy_requests/checkout_bought_writeinfile.php" role="form" class="form mx-auto"
@@ -108,17 +109,18 @@
                                 seller
                             </div>
                             <div class="p-4">
-                                <small class="font-italic mb-4">If you have some information for the seller you can
+                                <label for="checkouttextarea"><small class="font-italic mb-4">If you have some information for the seller you can
                                     leave
                                     them in the box below</small>
-                                <textarea name="feedback" cols="30" tabindex="25" rows="2" class="form-control" <?php
-                                if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
-                                    echo "disabled tabindex=\"-1\"";
-                                }
-                                else{
-                                    echo"tabindex=\"25\"";
-                                }
-                                ?>></textarea>
+                                </label>
+                                <textarea name="feedback" cols="30"  id="checkouttextarea" rows="2" class="form-control" <?php
+                                    if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
+                                        echo " disabled tabindex=\"-1\"";
+                                    } else {
+                                        echo"tabindex=\"25\"";
+                                    }
+                                    ?>></textarea>
+                               
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -141,16 +143,15 @@
                                                 ?>
                                         </strong></li>
                                 </ul>
-                                <button type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
-                                        if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
-                                            echo "disabled tabindex=\"-1\"";
-                                        }
-                                        else{
-                                            echo"tabindex=\"27\"";
-                                        }
-                                        ?>>
-                                    Bestellen
-                                </button>
+                                <button aria-hidden="true" aria-titel="kostenpflichtig Kaufen" aria-label="kostenpflichtig Kaufen" type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
+                                               if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
+                                                   echo " disabled tabindex=\"-1\"";
+                                               } else {
+                                                   echo"tabindex=\"27\"";
+                                               }
+                                               ?>>
+                                        Bestellen
+                                    </button>
                             </div>
                         </div>
                     </div>
@@ -158,4 +159,4 @@
             </div>
         </div>
     </div>
-
+</section>

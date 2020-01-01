@@ -1,6 +1,6 @@
-<footer class="bg-dark text-white">
+<section id="footer" class="bg-dark text-white">
     <div class="container">
-        <div class="row" role="row">
+        <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-3 pt-2" id="footer1" role="group">
                 <h4 class="pl-0 mb-0 pb-2 font-weight-bold">Social Networks</h4>
                 <ul class="d-flex align-content-start flex-wrap flex-xs-row flex-md-column pl-0">
@@ -33,4 +33,4 @@
             </div>
         </div>
     </div>
-</footer>
+</section>

@@ -26,7 +26,7 @@ $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
 ?>
 
 
-<main class="container">
+<section class="container">
 
     <a class="btn btn-primary float-right mb-2" role="button" tabindex="10" href="news_admin.php?menu=create">News erstellen</a>
     <div class="table-responsive">
@@ -61,7 +61,7 @@ $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
                 //echo var_dump();
 
                 ?>
-                <tr role="row">
+                <tr>
                     <td class="col-lg-auto">
                         <?php echo "$xml->title"; ?>
                     </td>
@@ -96,7 +96,7 @@ $files = DirectoryHelper::scan_dir_for_news($root . $newspath);
             } ?>
         </table>
     </div>
-</main>
+</section>
 
 <script>
     $(document).on("click",".admin_action_delete",function(e){
