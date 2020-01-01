@@ -11,10 +11,6 @@ a .card-img-top {
 }
 */
 
-*:not(.table-responsive,.table){
-    word-break: break-word;
-}
-
 .cursor-pointer{
     cursor: pointer !important;
 }

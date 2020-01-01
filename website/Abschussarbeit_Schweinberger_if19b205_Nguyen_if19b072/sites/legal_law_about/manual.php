@@ -44,7 +44,9 @@ if (!empty($_SESSION["user"])) {
                 wo er dann eine Übersicht der News sieht, welche ihm die Möglichkeit gibt, diese zu bearbeiten , löschen
                 <br>
                 oder eine neue News zu erstellen. Beim erstellen wird dem Admin über eine Eingabemaske geholfen eingaben zu tätigen.
-            </p>
+                
+            <h3>Upload Bilder-Carousell-titelbild</h3>
+                Sollten Sie nur ein Bild hochladen wollen so ist dies einfach über den upload-button zu tun, wenn Sie mehrere Titelbilder in das Carousell hochladen wollen, so wählen sie beim Upload mehrere Bilder gleichzeitig aus.
             </section>
             <section class="mt-3"><h2>Shop</h2>
                 <p>
