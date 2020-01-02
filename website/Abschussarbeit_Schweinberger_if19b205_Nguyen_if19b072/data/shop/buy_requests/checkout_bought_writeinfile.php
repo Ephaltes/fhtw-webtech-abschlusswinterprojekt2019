@@ -10,6 +10,9 @@ if (!empty($_SESSION["user"])) {
         header('location: /');}
     $user = $_SESSION["user"];
 }
+else{
+    header('location: /');
+}
 
 
 

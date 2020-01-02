@@ -14,6 +14,7 @@ if (!empty($_GET["logout"])) {
     header('location: /');
 }
 
+
 //if Cookie is there but not logged in
 if (isset($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
     header('location: sites/logincheck.php');

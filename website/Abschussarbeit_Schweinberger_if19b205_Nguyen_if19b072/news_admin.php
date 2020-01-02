@@ -12,6 +12,8 @@ if (!empty($_SESSION["user"])) {
     if(UserModel::IsSessionTimeOut())
         header('location: /');
     $user = $_SESSION["user"];
+}else{
+    header('location: /');
 }
 if($user->usertype!='admin'){
     header('location: /');
