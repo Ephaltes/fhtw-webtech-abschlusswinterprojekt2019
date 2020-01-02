@@ -52,8 +52,8 @@
                                                 <tr class="border">
                                                     <td scope="row" class="ml-2">
                                                         <div class="d-flex flex-wrap flex-column">
-                                                            <img src="data/shop/bilder/<?php echo $data->bild ?>"
-                                                                 class="mr-2 float-left img-fluid checkoutimg" alt="Bild von <?php $data->titel;?>">
+                                                            <img src="data/shop/bilder/<?php echo $data->bild; ?>"
+                                                                 class="mr-2 float-left img-fluid checkoutimg" alt="Ware: <?php echo $data->titel;?>">
                                                             <div class="flex-md-column flex-xs-row"><h4
                                                                     class=""><?php echo $data->titel ?>
                                                                 </h4>
@@ -104,14 +104,10 @@
                       id="checkoutform">
                     <div class="row py-5 p-4 bg-white rounded text-center">
                         <div class="col-lg-6">
-                            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions
-                                for
-                                seller
+                            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">An den Webshopbetreiber
                             </div>
                             <div class="p-4">
-                                <label for="checkouttextarea"><small class="font-italic mb-4">If you have some information for the seller you can
-                                    leave
-                                    them in the box below</small>
+                                <label for="checkouttextarea"><small class="font-italic mb-4">Wenn  Sie eine Nachricht mit ihrem Einkauf an den Verkäufer senden wollen, benutzen Sie bitte das Textfeld unterhalb.</small>
                                 </label>
                                 <textarea name="feedback" cols="30"  id="checkouttextarea" rows="2" class="form-control" <?php
                                     if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
@@ -143,7 +139,7 @@
                                                 ?>
                                         </strong></li>
                                 </ul>
-                                <button aria-hidden="true" aria-titel="kostenpflichtig Kaufen" aria-label="kostenpflichtig Kaufen" type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
+                                <button aria-hidden="true" aria-label="kostenpflichtig Kaufen" type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
                                                if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
                                                    echo " disabled tabindex=\"-1\"";
                                                } else {

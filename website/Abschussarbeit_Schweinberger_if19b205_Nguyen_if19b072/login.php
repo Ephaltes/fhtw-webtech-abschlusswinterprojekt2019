@@ -3,6 +3,7 @@
 session_start();
 if(!empty($_SESSION["user"])){
     session_destroy();
+    session_start();
 }  
 ?>
 

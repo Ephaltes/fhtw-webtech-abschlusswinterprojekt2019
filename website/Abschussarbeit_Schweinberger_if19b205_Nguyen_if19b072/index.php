@@ -60,11 +60,11 @@ if (!isset($_SESSION['cart'])) {
             <?php include('sites/nav_footer/navbar.php'); ?>
 
             <section id="ads">
-                <div class="d-xs-none d-md-block p-3">
+                <div role="img" aria-label="Unsere Werbung" class="d-xs-none d-md-block p-3">
                     <?php
                     $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
                     $Werbung = $images[array_rand($images)];
-                    echo"<img src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\">";
+                    echo"<img  src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\">";
                     ?>
                 </div>
             </section>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['cart'])) {
                     default:
                         ?>
                         <div class="text-center py-3">
-                            <h1 class="pb-2">Sorry, wir fanden keine passende View in unserer Datenbank!</h1>
+                            <h1 class="pb-2">Sorry, wir fanden keine passende Unterwebseite in unserer Datenbank!</h1>
                             <a class="btn btn-primary" tabindex="25" href="index.php">Zurück zur News-Übersicht</a>
                         </div>
                         <?php
