@@ -1,7 +1,9 @@
 <?php
 //integrate UserEntity Class
 require_once("sites/dependency_include/include_user.php");
+
 use Model\UserModel;
+
 session_start();
 
 //If Logout is set delete everything
@@ -19,7 +21,7 @@ if (isset($_COOKIE['USERHASH']) && empty($_SESSION["user"])) {
 
 
 if (!empty($_SESSION["user"])) {
-    if(UserModel::IsSessionTimeOut())
+    if (UserModel::IsSessionTimeOut())
         header('location: /');
     $user = $_SESSION["user"];
 }
@@ -42,9 +44,9 @@ if (!isset($_SESSION['cart'])) {
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="icon" href="img/748989-200.png">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
-        
-        
-        
+
+
+
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.js"></script>
@@ -57,7 +59,7 @@ if (!isset($_SESSION['cart'])) {
     <body>
         <header>
 
-            <?php include('sites/nav_footer/navbar.php'); ?>
+<?php include('sites/nav_footer/navbar.php'); ?>
 
             <section id="ads">
                 <div role="img" aria-label="Unsere Werbung" class="d-xs-none d-md-block p-3">
@@ -111,14 +113,26 @@ if (!isset($_SESSION['cart'])) {
         </main>
 
         <footer class="container-fluid p-0 m-0">
-            <?php include('sites/nav_footer/quicklinks.php'); ?>
-            <?php include('sites/nav_footer/footer.php'); ?>
+<?php include('sites/nav_footer/quicklinks.php'); ?>
+        <?php include('sites/nav_footer/footer.php'); ?>
         </footer>
 
         <?php
         if (!empty($_SESSION['Einkaufdank'])) {
-            echo"<script>$(document).ready(function () {alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";
-            unset($_SESSION['Einkaufdank']);
+            switch ($_SESSION['Einkaufdank']) {
+                case "true":
+                    echo"<script>$(document).ready(function () {alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";
+                    unset($_SESSION['Einkaufdank']);
+                    break;
+
+                case "Fehler":
+                    echo"<script>$(document).ready(function () {alert(\"Etwas ist mit der Bestellung schiefgelaufen, bitte wiederholen sie den Vorgang\");});</script>";
+                    unset($_SESSION['Einkaufdank']);
+                    break;
+                default:
+                    unset($_SESSION['Einkaufdank']);
+                    break;
+            }
         }
         ?>
     </body>

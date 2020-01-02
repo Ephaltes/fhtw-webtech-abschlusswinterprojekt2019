@@ -1,12 +1,18 @@
 <?php
 // should simulate an actual buy offer coming in.
 require_once("../../../Entities/UserEntity.php");
+include_once ("../../../Model/UserModel.php");
+use Model\UserModel;
 session_start();
 if (!empty($_SESSION["user"])) {
+    if (UserModel::IsSessionTimeOut()){
+        $_SESSION['Einkaufdank'] = "Fehler";
+        header('location: /');}
     $user = $_SESSION["user"];
-} else {
-    header('location: /');
 }
+
+
+
 if (!empty($_SESSION['cart'])&& $user->usertype =='user') {
     $dir = "";
     $dir .= time();
@@ -39,6 +45,10 @@ if (!empty($_SESSION['cart'])&& $user->usertype =='user') {
     fclose($myfile);
     $_SESSION['Einkaufdank'] = "true";
     unset($_SESSION['cart']);
+    header('location: /');
 }
+else{
+$_SESSION['Einkaufdank'] = "Fehler";
 header('location: /');
+}
 ?>
