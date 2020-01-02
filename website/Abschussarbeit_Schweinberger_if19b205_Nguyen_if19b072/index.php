@@ -119,7 +119,7 @@ if (!isset($_SESSION['cart'])) {
         </footer>
 
         <?php
-        if (!empty($_SESSION['Einkaufdank'])) {
+        if (!empty($_SESSION['Einkaufdank'])) { //comes from data/shop/buyrequests and gives feedback about buy success
             switch ($_SESSION['Einkaufdank']) {
                 case "true":
                     echo"<script>$(document).ready(function () {alert(\"Vielen Dank! Ihre Bestellung wird schnellsmöglich bearbeitet <3\");});</script>";

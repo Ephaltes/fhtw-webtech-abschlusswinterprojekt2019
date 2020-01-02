@@ -1,4 +1,8 @@
-<ul id="navbarul1" class="d-none d-md-block"><!-- in desktop show shopping cart if the amount of unique items is smaller or 3-->
+<?php // counts items and either makes a direct link block or creates the dropdown shop.
+    // in desktop show shopping cart if the amount of unique items is smaller or 3, for mobil go to navbar id="mobilshopsymbol"
+?>
+
+<ul id="navbarul1" class="d-none d-md-block">
                         <?php
                         if ($user->usertype == "user") {
                             if (!empty($_SESSION['cart'])) {

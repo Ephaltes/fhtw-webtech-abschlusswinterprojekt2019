@@ -41,8 +41,8 @@ $link .= $_SERVER['REQUEST_URI'];
             <?php if (!empty($user->usertype)) {
                 ?>
                 <li class="nav-item active"><a role="link" class="nav-link lead text-light" href="shop.php" tabindex="3">Shop</a></li>
-                <li class="d-md-none d-xs-block"><a role="link" href="shop.php?viewme=checkout" class="nav-link lead text-light" tabindex="4"><?php include('sites/shop/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
-                <li class="d-none d-md-block"><?php include('sites/shop/shoppingcartmobilvsdesktop.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li id="mobileshopymbol" class="d-md-none d-xs-block"><a role="link" href="shop.php?viewme=checkout" class="nav-link lead text-light" tabindex="4"><?php include('sites/shop/shoppingcartnavbarsymbol.php'); ?></a></li><!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
+                <li id="desktopshopymbol" class="d-none d-md-block"><?php include('sites/shop/shoppingcartitemcount.php'); ?></li> <!-- creates 2 navbar shopping icons, displays 1 of them depending on width of screen, mobil instant directs to checkout, desktop shows cart -->
                 <?php
                 }
                 if (empty($user)) {

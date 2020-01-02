@@ -28,7 +28,7 @@
     <a href="#" class="nav-link dropdown-toggle text-light lead" id="adminbasket" data-toggle="dropdown"
        aria-expanded="false" tabindex="4">
         <i class="fas fa-shopping-basket">
-            <span class="badge badge-light text-dark">0</span>
+            <span aria-hidden="true" title="Empty link" class="badge badge-light text-dark">0</span>
         </i>
     </a>
     <div class="dropdown-menu p_basket dropdown-menu-right position-absolute" aria-labelledby="adminbasket">
