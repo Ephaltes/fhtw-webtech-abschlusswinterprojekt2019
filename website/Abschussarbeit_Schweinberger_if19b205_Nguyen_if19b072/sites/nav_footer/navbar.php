@@ -23,7 +23,7 @@ $link .= $_SERVER['REQUEST_URI'];
 // Print the link 
 //echo $link;
 ?>
-<nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top" role="navigation">
+<nav class="navbar navbar-dark navbar-expand-md bg-dark rounded-bottom fixed-top header-graphic" role="navigation">
     <a href="/" tabindex="-1" role="link">
         <img src="img/342_logo_big_FH_only.png" class="pl-5 img-fluid" id="brand" alt="brandlogo">
     </a>
