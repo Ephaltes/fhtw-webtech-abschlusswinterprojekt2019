@@ -75,22 +75,21 @@
 
                                                             <td><span class="ml-2"><a tabindex="4" class="removefromcart"
                                                                                       href="sites/shop/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=x"><small><i
-                                                                                aria-hidden="true"
                                                                                 title="Aus dem Warenkorb löschen"
                                                                                 class=" text-danger fas fa-trash-alt"></i></small><span
                                                                             class="d-none">Aus dem Warenkorb löschen</span></a></span>
                                                                 <span class="ml-2"><a tabindex="4" class="removefromcart"
                                                                                       href="sites/shop/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=u"><small><i
-                                                                                aria-hidden="true" title="Ware um 1 erhöhen"
+                                                                                title="Ware um 1 erhöhen"
                                                                                 class=" text-dark fas fa-plus"></i></small><span
-                                                                            class="d-none">Ware um 1 erhöhren</span></a></span> <?php //u = up increase + cant be trasnfered with get        ?>
+                                                                            class="d-none">Ware um 1 erhöhren</span></a></span> <?php //u = up increase + cant be trasnfered with get         ?>
                                                                 <span class="ml-2"><a tabindex="4" class="removefromcart"
                                                                                       href="sites/shop/editcart.php?item=<?php echo $item; ?>&site=<?php echo $link; ?>&action=d"><small><i
-                                                                                aria-hidden="true" title="Ware um 1 verringern"
+                                                                                title="Ware um 1 verringern"
                                                                                 class=" text-dark fas fa-minus"></i></small><span
                                                                             class="d-none">Ware um 1 verringern</span></a></span>
 
-                                                            </td> <?php //d = down decrease by 1 cant be transfered with get        ?>
+                                                            </td> <?php //d = down decrease by 1 cant be transfered with get         ?>
                                                         </tr>
                                                         <?php
                                                     }

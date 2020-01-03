@@ -67,9 +67,9 @@
 
 
                                                     <td>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><button class="btn ml-2 p-0" aria-label="Button to Delete Item"><small><i aria-hidden="true" title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></button></a></span>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><button class="btn ml-2 p-0" aria-label="Button to add quantity"><small><i aria-hidden="true" title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></button></a></span>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><button class="btn ml-md-2 p-0" aria-label="Button to delete quantity"><small><i aria-hidden="true" title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><button class="btn ml-2 p-0" aria-label="Button to Delete Item"><small><i  title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><button class="btn ml-2 p-0" aria-label="Button to add quantity"><small><i  title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><button class="btn ml-md-2 p-0" aria-label="Button to delete quantity"><small><i  title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></button></a></span>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -139,7 +139,7 @@
                                                 ?>
                                         </strong></li>
                                 </ul>
-                                <button aria-hidden="true" aria-label="kostenpflichtig Kaufen" type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
+                                <button aria-label="Kauf Kostenpflichtig abschließen" title="Kauf Kostenpflichtig abschließen" type="submit" class="btn btn-primary rounded-pill py-2 btn-block"<?php
                                                if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
                                                    echo " disabled tabindex=\"-1\"";
                                                } else {

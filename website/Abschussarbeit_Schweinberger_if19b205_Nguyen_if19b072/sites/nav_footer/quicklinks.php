@@ -23,7 +23,7 @@ $files = DirectoryHelper::scan_dir($path)
             <div class="col-12 text-center mb-2 p-2 col-lg-auto "><a class=" text-light" target="_blank" role="link" rel="noreferrer" href="https://www.technikum-wien.at/" tabindex="93">FHTW</a></div>
             <div class="col-12 text-center  mb-2 p-2 col-lg-auto "><a class=" text-light" target="_blank" role="link" rel="noreferrer" href="https://moodle.technikum-wien.at/" tabindex="94">Moodle</a></div>
 
-            <div class="col-12  text-center p-2 col-lg-auto "><a class=" text-light" target="_blank" role="link" rel="noreferrer" href="https://facebook.com" tabindex="95">Facebook</a></div>
+            <div class="col-12  text-center p-2 col-lg-auto "><a class=" text-light" target="_blank" role="link" rel="noreferrer" href="https://www.facebook.com/fhtechnikumwien/" tabindex="95">Facebook</a></div>
 <?php
 if ($files != false) {
     foreach ($files as $file) {

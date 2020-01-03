@@ -30,9 +30,9 @@ if (!empty($_SESSION["user"])) {
                 </ol>
                 <h3>Shoppingcart</h3>
                 <ul>
-                    <li>Durch klicken der <small><i aria-hidden="true" title="Entferne Ware" class=" text-danger fas fa-trash-alt"></i></small><span class="d-none">Entferne Ware</span> Wird die entsprechende Ware aus dem Warenkorb gelöscht</li>
-                    <li>Durch klicken des <small><i aria-hidden="true" title="Ware um 1 erhöhen" class=" text-dark fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span> Wird die entsprechende Ware um 1 erhöht</li>
-                    <li>Durch klicken des <small><i aria-hidden="true" title="Ware um 1 verringern" class=" text-dark fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span> Wird die entsprechende Ware um 1 verringert</li>
+                    <li>Durch klicken der <small><i  title="Entferne Ware" class=" text-danger fas fa-trash-alt"></i></small><span class="d-none">Entferne Ware</span> Wird die entsprechende Ware aus dem Warenkorb gelöscht</li>
+                    <li>Durch klicken des <small><i  title="Ware um 1 erhöhen" class=" text-dark fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span> Wird die entsprechende Ware um 1 erhöht</li>
+                    <li>Durch klicken des <small><i  title="Ware um 1 verringern" class=" text-dark fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span> Wird die entsprechende Ware um 1 verringert</li>
                 </ul>    
             </section>
             <section class="mt-3"><h2>News</h2>

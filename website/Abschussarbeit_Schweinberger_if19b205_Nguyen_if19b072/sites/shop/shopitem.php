@@ -4,7 +4,7 @@
         <div class="py-5 bg-white text-center">
         <h1 class="mb-3">FH-Technikum Merch-Shop &lt;3</h1>
         <?php if((!empty($_SESSION['cart'])) || $user->usertype == "admin" ){?>
-        <a aria-hidden="true" titel=Checkout-page" tabindex="25" href="shop.php?viewme=checkout" class="btn-primary btn-lg rounded">
+        <a  titel=Checkout-page" tabindex="25" href="shop.php?viewme=checkout" class="btn-primary btn-lg rounded">
            <?php if($user->usertype== "admin" ){ echo"Visit Checkout-page"; }
                 else{echo"Kauf abschließen";}?>
         
@@ -34,7 +34,7 @@
                     <p class = "card-text"><?php echo $data->beschreibung ;?></p>
                     <p>Price: <em><?php echo $data->preis; ?> €</em></p>
                  <?php   if ($user->usertype == "user") { ?>
-                        <button tabindex="<?php echo $tabindex;?>" aria-hidden="true" title="Füge <?php echo $data->titel;?> zum Warenkorb hinzu" type="submit" name="id" value="<?php echo $data->id; ?>" class="btn btn-primary">add to cart</button>
+                        <button tabindex="<?php echo $tabindex;?>"  title="Füge <?php echo $data->titel;?> zum Warenkorb hinzu" type="submit" name="id" value="<?php echo $data->id; ?>" class="btn btn-primary">add to cart</button>
                  <?php    }
                     if ($user->usertype == "admin"){ ?>
                         <button type="submit" name="id" value="" class="btn btn-primary" disabled>Admin-accounts cant buy</button>
