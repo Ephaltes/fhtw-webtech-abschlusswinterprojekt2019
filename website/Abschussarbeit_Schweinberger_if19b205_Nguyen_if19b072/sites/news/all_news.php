@@ -39,9 +39,9 @@ function truncate($string,$length=50,$append="&hellip;") {
 
 ?>
 <div class="container-fluid">
-    <div class="h1 text-center">
+    <h1 class="text-center">
         News
-    </div>
+    </h1>
     <div class="row">
 
         <?php
