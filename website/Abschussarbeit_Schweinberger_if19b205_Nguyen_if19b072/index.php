@@ -33,13 +33,16 @@ if (!isset($_SESSION['cart'])) {
 if (!empty($_GET['colormode'])) {
     switch ($_GET['colormode']) {
         case"Default":
-            setcookie("colormode", "Default", time() + 50000000, '/');
-            break; //578 tage
+            setcookie("colormode", "Default", time() + 50000000, '/');//578 tage
+            header('location: index.php');
+            break; 
         case"Contrast":
             setcookie("colormode", "Contrast", time() + 50000000, '/');
+            header('location: index.php');
             break;
         case"Kompliment":
             setcookie("colormode", "Kompliment", time() + 50000000, '/');
+            header('location: index.php');
             break;
         default: break;
     }
@@ -71,12 +74,13 @@ if (!empty($_GET['colormode'])) {
                     echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'";
                     break;
                 case"Kompliment":
-                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'";
+                    echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'";
                     break;
                 default: break;
             }
-        }?>
-        <!--jQuery first, then Popper.js, then Bootstrap JS-->
+        }
+        ?>
+              <!--jQuery first, then Popper.js, then Bootstrap JS-->
         <script src = "js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/popper-utils.js"></script>
@@ -88,15 +92,15 @@ if (!empty($_GET['colormode'])) {
     <body>
         <header>
 
-                    <?php include('sites/nav_footer/navbar.php'); ?>
+<?php include('sites/nav_footer/navbar.php'); ?>
 
             <section id="ads">
                 <div role="img" aria-label="Unsere Werbung" class="d-xs-none d-md-block p-3">
-<?php
-$images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-$Werbung = $images[array_rand($images)];
-echo"<img  src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\">";
-?>
+                    <?php
+                    $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                    $Werbung = $images[array_rand($images)];
+                    echo"<img  src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\">";
+                    ?>
                 </div>
             </section>
         </header>
@@ -145,8 +149,8 @@ echo"<img  src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\
         </main>
 
         <footer class="container-fluid p-0 m-0">
-        <?php include('sites/nav_footer/quicklinks.php'); ?>
-        <?php include('sites/nav_footer/footer.php'); ?>
+            <?php include('sites/nav_footer/quicklinks.php'); ?>
+<?php include('sites/nav_footer/footer.php'); ?>
         </footer>
 
         <?php
