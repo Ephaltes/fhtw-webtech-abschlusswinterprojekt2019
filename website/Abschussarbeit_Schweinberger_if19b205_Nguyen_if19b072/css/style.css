@@ -70,7 +70,7 @@ a .card-img-top {
     background: rgba(0,0,0,0.5);
 }
 /* INDEX STYLESHEET CSS  */
-#quicklinks li, #quicklinks ul,#shoppingcart-ul{
+#quicklinks li, #quicklinks ul,#shoppingcart-ul, #colorul{
     list-style-type: none;
 }
 footer ul, footer li{

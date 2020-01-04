@@ -1,8 +1,8 @@
 <section class="container container-fluid">
 <h1 class="mt-3 text-center">Colorhelper-Page</h1>
-<p>Sollten Sie eine Alternatives Layout bezüglich der Farbwahl oder Kontrast benötigen, wählen Sie ein passendes Anhand der Beispiele unterhalb aus.<p>
+<p class="mt-4">Sollten Sie eine Alternatives Layout bezüglich der Farbwahl oder Kontrast bevorzugen, wählen Sie ein passendes Anhand der Beispiele unterhalb aus.<p>
     
-<ul id="colorhelperul">
+<ul id="colorul">
     <li class="pb-4 border-bottom border-dark"><h2>
         Low-contrast Farbmodus
         </h2>
