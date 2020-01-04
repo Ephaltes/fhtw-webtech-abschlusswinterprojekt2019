@@ -45,10 +45,10 @@ if (!isset($_SESSION['cart'])) {
                 case"Default":
                     break;
                 case"Contrast":
-                    echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'";
+                    echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'>";
                     break;
                 case"Kompliment":
-                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'";
+                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'>";
                     break;
                 default: break;
             }

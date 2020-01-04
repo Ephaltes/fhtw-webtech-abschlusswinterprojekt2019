@@ -48,7 +48,7 @@ $link .= $_SERVER['REQUEST_URI'];
                 if (empty($user)) {
                     ?>
                 <li class="dropdown">
-                    <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
+                    <a href="" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
                        aria-expanded="false" tabindex="5">
                         Login/settings
                     </a>
@@ -66,7 +66,7 @@ $link .= $_SERVER['REQUEST_URI'];
             if (!empty($user)) {
                 ?>
                 <li class="dropdown">
-                    <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
+                    <a href="" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
                        aria-expanded="false" tabindex="5">
                         <?php echo $user->firstname . $user->lastname; ?> <b class="caret"></b>
                     </a>

@@ -19,7 +19,7 @@
         Standard Farbmodus
         </h2>
         <p> Dieser Farbmodus behält die Standard-blau Version der Website, siehe Beispiel.</p>
-        <a href="index.php?colormode=Default" class="btn-primary btn">Standard Farbemodus</a>
+        <a href="index.php?colormode=Default" class="btn-ourdefault btn">Standard Farbemodus</a>
     </li>
 </ul>
 </section>
