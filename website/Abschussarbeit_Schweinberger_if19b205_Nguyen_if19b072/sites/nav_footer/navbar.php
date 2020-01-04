@@ -47,7 +47,18 @@ $link .= $_SERVER['REQUEST_URI'];
                 }
                 if (empty($user)) {
                     ?>
-                <li class="nav-item active"><a role="link" class="nav-link lead text-light" href="login.php" tabindex="5">Login</a></li>
+                <li class="dropdown">
+                    <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
+                       aria-expanded="false" tabindex="5">
+                        Login/settings</b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
+                        <!-- position-absolute entfernt -->
+                        <a role="link" class="dropdown-item" href="login.php" tabindex="5"><i tille="Login" class="fas fa-sign-in-alt"></i> Login</a>
+                        <a role="link" class="dropdown-item" href="index.php?viewme=Colorhelper" tabindex="7"><i title="Farbenhilfe" class="fas fa-palette"></i> Farbenhilfe</a>                     
+                    </div>
+
+                </li>
                 <?php
             }
             
@@ -62,10 +73,11 @@ $link .= $_SERVER['REQUEST_URI'];
                     <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
                         <!-- position-absolute entfernt -->
                         <?php if ($user->usertype == "admin") { ?>
-                            <a role="link" class="dropdown-item" href="news_admin.php" tabindex="6"><i class="fas fa-newspaper" ></i> News
+                            <a role="link" class="dropdown-item" href="news_admin.php" tabindex="6"><i title="link to news edit" class="fas fa-newspaper" ></i> News
                                 Verwaltung</a>
                         <?php } ?>
-                        <a role="link" class="dropdown-item" href="index.php?logout=true" tabindex="7"><i class="fas fa-sign-out-alt"></i>
+                        <a role="link" class="dropdown-item" href="index.php?viewme=Colorhelper" tabindex="7"><i title="Farbenhilfe" class="fas fa-palette"></i> Farbenhilfe</a>
+                        <a role="link" class="dropdown-item" href="index.php?logout=true" tabindex="8"><i title="Abmelden" class="fas fa-sign-out-alt"></i>
                             Abmelden</a>
                     </div>
 

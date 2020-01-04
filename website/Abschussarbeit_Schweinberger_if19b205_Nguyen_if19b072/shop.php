@@ -39,7 +39,20 @@ if (!isset($_SESSION['cart'])) {
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
-
+        <?php
+        if (isset($_COOKIE['colormode'])) { //needs to be past bootstrap
+            switch ($_COOKIE['colormode']) {
+                case"Default":
+                    break;
+                case"Contrast":
+                    echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'";
+                    break;
+                case"Kompliment":
+                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'";
+                    break;
+                default: break;
+            }
+        }?>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.4.1.min.js"></script>

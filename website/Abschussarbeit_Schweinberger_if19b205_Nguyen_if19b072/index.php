@@ -30,6 +30,20 @@ if (!empty($_SESSION["user"])) {
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
+if (!empty($_GET['colormode'])) {
+    switch ($_GET['colormode']) {
+        case"Default":
+            setcookie("colormode", "Default", time() + 50000000, '/');
+            break; //578 tage
+        case"Contrast":
+            setcookie("colormode", "Contrast", time() + 50000000, '/');
+            break;
+        case"Kompliment":
+            setcookie("colormode", "Kompliment", time() + 50000000, '/');
+            break;
+        default: break;
+    }
+}
 ?>
 <!doctype html>
 <html lang="de">
@@ -45,11 +59,25 @@ if (!isset($_SESSION['cart'])) {
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="icon" href="img/748989-200.png">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
-
-
-
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.4.1.min.js"></script>
+        <?php if (!empty($_GET['viewme']) && $_GET['viewme'] == "Colorhelper") { ?>
+            <link rel="stylesheet" href="css/examplecolors.css" type="text/css"
+        <?php } ?>
+        <?php
+        if (isset($_COOKIE['colormode'])) {
+            switch ($_COOKIE['colormode']) {
+                case"Default":
+                    break;
+                case"Contrast":
+                    echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'";
+                    break;
+                case"Kompliment":
+                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'";
+                    break;
+                default: break;
+            }
+        }?>
+        <!--jQuery first, then Popper.js, then Bootstrap JS-->
+        <script src = "js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/popper-utils.js"></script>
         <script src="js/bootstrap.js"></script>
@@ -60,15 +88,15 @@ if (!isset($_SESSION['cart'])) {
     <body>
         <header>
 
-<?php include('sites/nav_footer/navbar.php'); ?>
+                    <?php include('sites/nav_footer/navbar.php'); ?>
 
             <section id="ads">
                 <div role="img" aria-label="Unsere Werbung" class="d-xs-none d-md-block p-3">
-                    <?php
-                    $images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-                    $Werbung = $images[array_rand($images)];
-                    echo"<img  src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\">";
-                    ?>
+<?php
+$images = glob('data/advertisment/' . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+$Werbung = $images[array_rand($images)];
+echo"<img  src=\"$Werbung\" class=\"d-none d-sm-block img-fluid mx-auto rounded\" alt=\"Please disable adblock\">";
+?>
                 </div>
             </section>
         </header>
@@ -95,6 +123,9 @@ if (!isset($_SESSION['cart'])) {
                     case "Anleitung":
                         include("sites/legal_law_about/manual.php");
                         break;
+                    case "Colorhelper":
+                        include("sites/Colorhelper.php");
+                        break;
                     default:
                         ?>
                         <div class="text-center py-3">
@@ -114,7 +145,7 @@ if (!isset($_SESSION['cart'])) {
         </main>
 
         <footer class="container-fluid p-0 m-0">
-<?php include('sites/nav_footer/quicklinks.php'); ?>
+        <?php include('sites/nav_footer/quicklinks.php'); ?>
         <?php include('sites/nav_footer/footer.php'); ?>
         </footer>
 

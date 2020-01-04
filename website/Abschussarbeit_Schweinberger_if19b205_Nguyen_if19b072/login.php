@@ -19,7 +19,20 @@ if(!empty($_SESSION["user"])){
     <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-
+    <?php
+        if (isset($_COOKIE['colormode'])) { //needs to be past bootstrap
+            switch ($_COOKIE['colormode']) {
+                case"Default":
+                    break;
+                case"Contrast":
+                    echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'";
+                    break;
+                case"Kompliment":
+                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'";
+                    break;
+                default: break;
+            }
+        }?>
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>FHTW Shop&News</title>
