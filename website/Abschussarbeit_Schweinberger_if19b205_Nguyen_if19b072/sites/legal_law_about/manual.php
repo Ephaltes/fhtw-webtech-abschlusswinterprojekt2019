@@ -35,6 +35,12 @@ if (!empty($_SESSION["user"])) {
                     <li>Durch klicken des <small><i  title="Ware um 1 verringern" class=" text-dark fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span> Wird die entsprechende Ware um 1 verringert</li>
                 </ul>    
             </section>
+            <section class="mt-3">
+                <h2>Colorhelper/Farbmodus</h2>
+                <p> Unsere Website unterstützt alternative Farbmoduse. Sollten Sie nicht eingloggt sein, so finden sie unter login/settings eine Webpage zum Auswählen eines Passenden Farbmoduses, andernfalls im Dropdown-Menü ihres Namens. Dieser wird bei Ihnen als Cookie gespeichert und ist mindestens 1 Jahr gültig bis Sie ihn erneuern müssen.
+                    Sollten Sie ihre Cookies löschen, so müsste der Farbenmodus von Ihnen neu gesetzt werden. Wenn sie den Standard-Farbenmodus wieder wollen so können sie dies auch im gleichen Menü vornehmen.
+                    
+            </section>
             <section class="mt-3"><h2>News</h2>
             <p>
                 In der News übersicht, wird man durch ein klick auf das Bild zur jeweiligen News gebracht.
