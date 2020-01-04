@@ -50,11 +50,11 @@ $link .= $_SERVER['REQUEST_URI'];
                 <li class="dropdown">
                     <a href="/" class="nav-link lead dropdown-toggle text-light" id="adminmenu" role="link" data-toggle="dropdown"
                        aria-expanded="false" tabindex="5">
-                        Login/settings</b>
+                        Login/settings
                     </a>
                     <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="adminmenu">
                         <!-- position-absolute entfernt -->
-                        <a role="link" class="dropdown-item" href="login.php" tabindex="5"><i tille="Login" class="fas fa-sign-in-alt"></i> Login</a>
+                        <a role="link" class="dropdown-item" href="login.php" tabindex="5"><i title="Login" class="fas fa-sign-in-alt"></i> Login</a>
                         <a role="link" class="dropdown-item" href="index.php?viewme=Colorhelper" tabindex="7"><i title="Farbenhilfe" class="fas fa-palette"></i> Farbenhilfe</a>                     
                     </div>
 

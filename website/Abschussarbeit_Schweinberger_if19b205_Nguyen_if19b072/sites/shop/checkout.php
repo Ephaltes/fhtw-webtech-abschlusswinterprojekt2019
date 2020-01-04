@@ -50,7 +50,7 @@
                                                 $item = $data->id;
                                                 ?>
                                                 <tr class="border">
-                                                    <td scope="row" class="ml-2">
+                                                    <td class="ml-2">
                                                         <div class="d-flex flex-wrap flex-column">
                                                             <img src="data/shop/bilder/<?php echo $data->bild; ?>"
                                                                  class="mr-2 float-left img-fluid checkoutimg" alt="Ware: <?php echo $data->titel;?>">
@@ -61,15 +61,16 @@
                                                                     <i><?php echo $data->beschreibung ?></i>
                                                                 </small>
                                                             </div>
+                                                        </div>
                                                     </td>
-                                                    <td scope="row" class="ml-2"><?php echo $anzahl ?></td>
-                                                    <td scope="row" class="ml-2"><?php echo $data->preis ?>&#x20AC</td>
+                                                    <td class="ml-2"><?php echo $anzahl ?></td>
+                                                    <td class="ml-2"><?php echo $data->preis ?>&#x20AC;</td>
 
 
                                                     <td>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><button class="btn ml-2 p-0" aria-label="Button to Delete Item"><small><i  title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></button></a></span>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><button class="btn ml-2 p-0" aria-label="Button to add quantity"><small><i  title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></button></a></span>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><button class="btn ml-md-2 p-0" aria-label="Button to delete quantity"><small><i  title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></button></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><small><i  title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart text-dark" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><small><i  title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart text-dark" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><small><i  title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></a></span>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -134,7 +135,7 @@
                                             class="text-muted">Total</strong><strong>
                                                 <?php
                                                 if (!empty($_SESSION['TOTALPREIS'])) {
-                                                    echo "$_SESSION[TOTALPREIS]&#8364";
+                                                    echo "$_SESSION[TOTALPREIS]&#8364;";
                                                 }
                                                 ?>
                                         </strong></li>
@@ -143,7 +144,7 @@
                                                if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
                                                    echo " disabled tabindex=\"-1\"";
                                                } else {
-                                                   echo"tabindex=\"27\"";
+                                                   echo" tabindex=\"27\"";
                                                }
                                                ?>>
                                         Bestellen           

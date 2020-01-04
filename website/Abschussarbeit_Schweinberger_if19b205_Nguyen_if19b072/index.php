@@ -63,7 +63,7 @@ if (!empty($_GET['colormode'])) {
         <link rel="icon" href="img/748989-200.png">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
         <?php if (!empty($_GET['viewme']) && $_GET['viewme'] == "Colorhelper") { ?>
-            <link rel="stylesheet" href="css/examplecolors.css" type="text/css"
+        <link rel="stylesheet" href="css/examplecolors.css" type="text/css">
         <?php } ?>
         <?php
         if (isset($_COOKIE['colormode'])) {
@@ -80,7 +80,6 @@ if (!empty($_GET['colormode'])) {
             }
         }
         ?>
-              <!--jQuery first, then Popper.js, then Bootstrap JS-->
         <script src = "js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/popper-utils.js"></script>

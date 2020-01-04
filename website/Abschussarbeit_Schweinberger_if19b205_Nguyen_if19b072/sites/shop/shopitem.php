@@ -4,7 +4,7 @@
         <div class="py-5 bg-white text-center">
         <h1 class="mb-3">FH-Technikum Merch-Shop &lt;3</h1>
         <?php if((!empty($_SESSION['cart'])) || $user->usertype == "admin" ){?>
-        <a  titel=Checkout-page" tabindex="25" href="shop.php?viewme=checkout" class="btn-primary btn-lg rounded">
+        <a  tabindex="25" href="shop.php?viewme=checkout" class="btn-primary btn-lg rounded">
            <?php if($user->usertype== "admin" ){ echo"Visit Checkout-page"; }
                 else{echo"Kauf abschließen";}?>
         
