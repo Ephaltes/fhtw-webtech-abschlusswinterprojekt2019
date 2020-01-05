@@ -82,7 +82,7 @@ footer ul, footer li{
     max-height:300px;
 }
 main {
-    min-height:68vh;
+    min-height:69vh;
 }
 .dropdown-menu.p_basket {
 }
@@ -112,4 +112,8 @@ body{
 }
 .header-graphic{
     background-image: url('../img/header.jpg');
+}
+.bg-primary {
+  background-color: #0275d8 !important;
+  color:#FCFFFC;
 }

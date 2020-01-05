@@ -108,9 +108,9 @@
                             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">An den Webshopbetreiber
                             </div>
                             <div class="p-4">
-                                <label for="checkouttextarea"><small class="font-italic mb-4">Wenn  Sie eine Nachricht mit ihrem Einkauf an den Verkäufer senden wollen, benutzen Sie bitte das Textfeld unterhalb.</small>
+                                <label for="checkouttextarea"><small class="font-italic mb-4">Wenn  Sie eine Nachricht mit ihrem Einkauf an den Verkäufer senden wollen, benutzen Sie bitte das Textfeld unterhalb. (1400 Zeichen)</small>
                                 </label>
-                                <textarea name="feedback" cols="30"  id="checkouttextarea" rows="2" class="form-control" <?php
+                                <textarea  maxlength="1400" name="feedback" cols="30"  id="checkouttextarea" rows="2" class="form-control" <?php
                                     if ((!empty($user) && $user->usertype == 'admin') || empty($_SESSION['TOTALPREIS'])) {
                                         echo " disabled tabindex=\"-1\"";
                                     } else {

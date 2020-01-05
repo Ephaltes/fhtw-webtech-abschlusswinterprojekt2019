@@ -1,2 +1,0 @@
-Anzahl:1_Pricewas:7.9_itemID:7_end
-Anzahl:1_Pricewas:9.9_itemID:5_end

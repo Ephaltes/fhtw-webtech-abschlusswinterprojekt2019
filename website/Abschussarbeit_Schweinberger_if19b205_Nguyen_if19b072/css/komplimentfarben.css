@@ -62,3 +62,8 @@
   text-decoration: none;
   background-color: #FFB433;
 }
+
+.bg-primary {
+    background-color: #FFBB45 !important;
+    color:black;
+}

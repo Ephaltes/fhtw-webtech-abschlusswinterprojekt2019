@@ -17,7 +17,7 @@ if (!empty($_SESSION["user"])) {
     if (UserModel::IsSessionTimeOut())
         header('location: /');
     $user = $_SESSION["user"];
-}else{
+} else {
     header('location: /');
 }
 
@@ -25,7 +25,7 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
 ?>
-<?php include('sites/shop/shoppingcartadd.php') // needed to add items to cart initally     ?>
+<?php include('sites/shop/shoppingcartadd.php') // needed to add items to cart initally      ?>
 <!doctype html>
 <html lang="de">
     <head>
@@ -48,11 +48,12 @@ if (!isset($_SESSION['cart'])) {
                     echo"<link rel='stylesheet' href='css/lowcontrastlayout.css' type='text/css'>";
                     break;
                 case"Kompliment":
-                   echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'>";
+                    echo"<link rel='stylesheet' href='css/komplimentfarben.css' type='text/css'>";
                     break;
                 default: break;
             }
-        }?>
+        }
+        ?>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.4.1.min.js"></script>
@@ -67,13 +68,23 @@ if (!isset($_SESSION['cart'])) {
     <body>
         <header>
 
-            <?php include('sites/nav_footer/navbar.php'); ?>
+<?php include('sites/nav_footer/navbar.php'); ?>
 
         </header>
         <main>
             <?php
-            if (!empty($_GET['viewme']) && $_GET['viewme'] == "checkout") {
-                include('sites/shop/checkout.php');
+            if (!empty($_GET['viewme'])) {
+                switch ($_GET['viewme']) {
+                    case"checkout":
+                        include('sites/shop/checkout.php');
+                        break;
+                    case"MeineBestellungen":
+                        include('sites/shop/MeineBestellungen.php');
+                        break;
+                    default:
+                        include('sites/shop/shopitem.php');
+                        break;
+                }
             } else {
                 include('sites/shop/shopitem.php');
             }
@@ -84,7 +95,7 @@ if (!isset($_SESSION['cart'])) {
             <?php include('sites/nav_footer/quicklinks.php'); ?>
             <?php include('sites/nav_footer/footer.php'); ?>
         </footer>
-        
+
         <script>
             $(document).ready(function () {
                 $("#checkoutform").submit(function (event) {

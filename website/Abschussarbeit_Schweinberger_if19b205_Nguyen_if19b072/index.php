@@ -34,15 +34,15 @@ if (!empty($_GET['colormode'])) {
     switch ($_GET['colormode']) {
         case"Default":
             setcookie("colormode", "Default", time() + 50000000, '/');//578 tage
-            header('location: index.php');
+            header('location: /');
             break; 
         case"Contrast":
             setcookie("colormode", "Contrast", time() + 50000000, '/');
-            header('location: index.php');
+            header('location: /');
             break;
         case"Kompliment":
             setcookie("colormode", "Kompliment", time() + 50000000, '/');
-            header('location: index.php');
+            header('location: /');
             break;
         default: break;
     }
