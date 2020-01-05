@@ -1,5 +1,6 @@
 <?php
-// should simulate an actual buy offer coming in.
+// should simulate an actual buy offer coming in and writes in same dir as json file.
+// used in Meine Bestellungen.php zum zeigen der Bestellung
 require_once("../../../Entities/UserEntity.php");
 include_once ("../../../Model/UserModel.php");
 use Model\UserModel;

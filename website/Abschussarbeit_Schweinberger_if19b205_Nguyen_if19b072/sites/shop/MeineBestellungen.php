@@ -16,8 +16,7 @@
                 $data = json_decode($data, false, 512, JSON_UNESCAPED_UNICODE);
             }
             $bestellungsid = basename($link, ".json");
-            $timewithuser = basename($link, ".json");
-            $timeutc =preg_replace('/\D/', '', $timewithuser);
+            $timeutc =preg_replace('/\D/', '', $bestellungsid);
             $dateInLocal = date("Y-m-d H:i:s", $timeutc);
             ?>
 
