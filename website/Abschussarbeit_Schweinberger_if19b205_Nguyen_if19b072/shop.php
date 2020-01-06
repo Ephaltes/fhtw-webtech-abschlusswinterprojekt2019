@@ -36,6 +36,7 @@ if (!isset($_SESSION['cart'])) {
         <meta name="keywords" content="shop,merchandise,kaufen,buy">
         <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
         <!-- Bootstrap CSS -->
+        <link rel="icon" href="img/responsive.ico">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">

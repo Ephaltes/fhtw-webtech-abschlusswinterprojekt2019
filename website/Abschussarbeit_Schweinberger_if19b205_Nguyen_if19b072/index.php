@@ -60,7 +60,7 @@ if (!empty($_GET['colormode'])) {
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="icon" href="img/748989-200.png">
+        <link rel="icon" href="img/responsive.ico">
         <link rel="stylesheet" href="vendor/fontawesome/css/all.css" type="text/css">
         <?php if (!empty($_GET['viewme']) && $_GET['viewme'] == "Colorhelper") { ?>
         <link rel="stylesheet" href="css/examplecolors.css" type="text/css">

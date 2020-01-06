@@ -17,6 +17,7 @@ if(!empty($_SESSION["user"])){
     <meta name="description" content="Login für die Projektwebseite für die FH-Technikum">
     <meta name="keywords" content="FH,Technikum,wien,projekt,abschluss,login">
     <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
+    <link rel="icon" href="img/responsive.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <?php

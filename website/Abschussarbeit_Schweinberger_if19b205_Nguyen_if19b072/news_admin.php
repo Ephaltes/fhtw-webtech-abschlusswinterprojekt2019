@@ -30,6 +30,7 @@ if($user->usertype!='admin'){
     <meta name="keywords" content="FH,Technikum,wien,projekt,abschluss,administrator,news,admin,news erstelle,create news">
     <meta name="author" content="Lukas Schweinberger,Lam Nguyen">
     <link rel="stylesheet" href="vendor/summernote/summernote-bs4.css">
+    <link rel="icon" href="img/responsive.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
