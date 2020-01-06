@@ -132,7 +132,7 @@ if (!empty($_GET['colormode'])) {
                     default:
                         ?>
                         <div class="text-center py-3">
-                            <h1 class="pb-2">Sorry, wir fanden keine passende Unterwebseite in unserer Datenbank!</h1>
+                            <h1 class="pb-2">Sorry, wir fanden keine passende Unterwebseite in unserer Datenbank!</h1> <!-- no actaul database but user should think so ;)-->
                             <a class="btn btn-primary" tabindex="25" href="index.php">Zurück zur News-Übersicht</a>
                         </div>
                         <?php
@@ -162,6 +162,10 @@ if (!empty($_GET['colormode'])) {
 
                 case "Fehler":
                     echo"<script>$(document).ready(function () {alert(\"Etwas ist mit der Bestellung schiefgelaufen, bitte wiederholen sie den Vorgang\");});</script>";
+                    unset($_SESSION['Einkaufdank']);
+                    break;
+                case "internerfehler":
+                    echo"<script>$(document).ready(function () {alert(\"Interner Verschlüsselungsfehler, bestellung konnte nicht verarbeitet werden. Bitte kontaktieren Sie den Support!\");});</script>";
                     unset($_SESSION['Einkaufdank']);
                     break;
                 default:
