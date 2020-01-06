@@ -18,8 +18,9 @@ if (isset($_COOKIE['USERHASH'])) {
 if (!empty($_POST['username'])&&!empty($_POST['password'])) {
     if ($model->IsPassword($_POST["username"], $_POST["password"])) {
         $_SESSION["user"] = $model->GetUserObject();
+        $user = $_SESSION["user"];
         if (!empty($_POST['rememberme'])) {
-            $model->CreateUserHash($_POST['username']);
+            $model->CreateUserHash($user->username);
             return header("Location: /index.php?rem=1");
         }
         return header("Location: /index.php");

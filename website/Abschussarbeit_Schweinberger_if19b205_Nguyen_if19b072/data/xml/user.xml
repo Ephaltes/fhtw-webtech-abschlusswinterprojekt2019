@@ -42,4 +42,19 @@
             Musteradmin
         </lastname>
     </user>
+    <user type="user">
+        <!-- This user was created to test unusual long Names -->
+        <username>
+            johannes
+        </username>
+        <password>
+            johannespw
+        </password>
+        <firstname>
+            Johannes
+        </firstname>
+        <lastname>
+            Schweinberger
+        </lastname>
+    </user>
 </userlist>

@@ -29,10 +29,12 @@ class UserModel {
     public function IsPassword($username, $password) {
         foreach ($this->xml->xpath('//user') as $user) {
             if ($username == trim($user->username) && $password == trim($user->password)) {
-                $this->username = strval($user->username);
-                $this->firstname = strval($user->firstname);
-                $this->lastname = strval($user->lastname);
-                $this->usertype = strval($user['type']);
+                //below regex replace needed because of weird caracters in xml
+                $this->username =  preg_replace("/[^a-zA-Z]/", "", $user->username);
+                $this->firstname =  preg_replace("/[^a-zA-Z]/", "", $user->firstname);
+                $this->lastname =   preg_replace("/[^a-zA-Z]/", "", $user->lastname);
+                $this->usertype =  preg_replace("/[^a-zA-Z]/", "", $user['type']);
+          
                 return true;
             }
         }
@@ -50,14 +52,15 @@ class UserModel {
     //Checks if cookie is valid
     public function ValidateCookie($USERHASH) {
         foreach ($this->xml->xpath('//user') as $hashcheck) {
-            $compare = strval($hashcheck->username);
-            $hashme = preg_replace("/[^a-zA-Z]/", "", $compare);
+            $hashme = preg_replace("/[^a-zA-Z]/", "", $hashcheck->username);
             $hashed = hash('sha256', $hashme);
             if ($hashed == $USERHASH) {
-                $this->username = strval($hashcheck->username);
-                $this->firstname = strval($hashcheck->firstname);
-                $this->lastname = strval($hashcheck->lastname);
-                $this->usertype = strval($hashcheck['type']);
+                //below regex replace needed because of weird caracters in xml
+                $this->username =  preg_replace("/[^a-zA-Z]/", "", $hashcheck->username);
+                $this->firstname =  preg_replace("/[^a-zA-Z]/", "", $hashcheck->firstname);
+                $this->lastname =   preg_replace("/[^a-zA-Z]/", "", $hashcheck->lastname);
+                $this->usertype =  preg_replace("/[^a-zA-Z]/", "", $hashcheck['type']);
+              
                 return true;
             }
         }

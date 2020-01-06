@@ -26,7 +26,7 @@ if (!empty($_SESSION['cart'])&& $user->usertype =='user') {
     $myfile = fopen($dir, "c") or die("Unable to open file!"); // create new file with UTC timestamp + username
     $gesamtpreis =0;
     $json=array();
-    foreach ($_SESSION['cart'] as $key) {
+    foreach ($_SESSION['cart'] as $key) { //foreach item in $session cart
         $anzahl = $key['quantity'];
         $item = $key['item'];
         
