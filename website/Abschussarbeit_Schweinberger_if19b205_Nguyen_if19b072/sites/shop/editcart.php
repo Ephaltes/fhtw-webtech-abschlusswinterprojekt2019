@@ -14,7 +14,7 @@ if (!empty($_SESSION["user"])) {
         header('location: /');
     $user = $_SESSION["user"];
 } else {
-    header('location: ../../index.php');
+    header('location: /');
 }
 
 if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action']) && $user->usertype == "user") {
@@ -40,6 +40,6 @@ if (!empty($_GET['item']) && !empty($_GET['site']) && !empty($_GET['action']) &&
     }
     header("location: $redirect");
 } else {
-    header('location: ../../index.php');
+    header('location: /');
 }
 ?>

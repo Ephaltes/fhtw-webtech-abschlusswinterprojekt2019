@@ -45,6 +45,7 @@ if (!empty($_SESSION['cart'])&& $user->usertype =='user') {
             }
         }
     }
+    $gesamtpreis = round($gesamtpreis, 4);
     $feedback = array('feedback'=>$_POST['feedback'], 'Gesamtpreis' => $gesamtpreis);
     array_push($json, $feedback);
     fwrite($myfile, json_encode($json));

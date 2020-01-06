@@ -1,0 +1,34 @@
+[{
+        "Anzahl": 1,
+        "Price": 9.9,
+        "itemID": "6",
+        "titel": "T-Shirt Damen rot"
+    }, {
+        "Anzahl": 1,
+        "Price": 59.9,
+        "itemID": "4",
+        "titel": "Swater&Rucksack"
+    }, {
+        "Anzahl": 1,
+        "Price": 0.5,
+        "itemID": "1",
+        "titel": "FHTW Sackerl"
+    }, {
+        "Anzahl": 1,
+        "Price": 29.9,
+        "itemID": "2",
+        "titel": "BaseCap"
+    }, {
+        "Anzahl": 1,
+        "Price": 7.9,
+        "itemID": "7",
+        "titel": "T-Shirt 2016"
+    }, {
+        "Anzahl": 1,
+        "Price": 9.9,
+        "itemID": "5",
+        "titel": "T-Shirt neutral "
+    }, {
+        "feedback": "test",
+        "Gesamtpreis": 118
+    }]

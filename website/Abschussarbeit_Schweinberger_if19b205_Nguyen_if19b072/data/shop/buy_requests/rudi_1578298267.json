@@ -1,0 +1,24 @@
+[{
+        "Anzahl": 1,
+        "Price": 9.9,
+        "itemID": "5",
+        "titel": "T-Shirt neutral "
+    }, {
+        "Anzahl": 1,
+        "Price": 0.5,
+        "itemID": "1",
+        "titel": "FHTW Sackerl"
+    }, {
+        "Anzahl": 1,
+        "Price": 9.9,
+        "itemID": "6",
+        "titel": "T-Shirt Damen rot"
+    }, {
+        "Anzahl": 1,
+        "Price": 7.9,
+        "itemID": "7",
+        "titel": "T-Shirt 2016"
+    }, {
+        "feedback": "meine Bestellung bitte in rot",
+        "Gesamtpreis": 28.200000000000003
+    }]
