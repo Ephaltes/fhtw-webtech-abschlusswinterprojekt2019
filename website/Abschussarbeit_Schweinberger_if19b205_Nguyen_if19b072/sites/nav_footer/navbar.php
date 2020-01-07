@@ -82,9 +82,9 @@ $link .= $_SERVER['REQUEST_URI'];
                             <a role="link" class="dropdown-item" href="news_admin.php" tabindex="6"><i title="link to news edit" class="fas fa-newspaper" ></i> News
                                 Verwaltung</a>
                         <?php } ?>
-                        <a role="link" class="dropdown-item" href="shop.php?viewme=MeineBestellungen" tabindex="7"><i class="far fa-sticky-note"></i> Bestellungen</a>
-                        <a role="link" class="dropdown-item" href="index.php?viewme=Colorhelper" tabindex="8"><i title="Farbenhilfe" class="fas fa-palette"></i> Farbenhilfe</a>
-                        <a role="link" class="dropdown-item" href="index.php?logout=true" tabindex="9"><i title="Abmelden" class="fas fa-sign-out-alt"></i> Abmelden</a>
+                        <a role="link" class="dropdown-item" href="shop.php?viewme=MeineBestellungen" tabindex="7"><i aria-hidden="true" title="Bestellungen" class="far fa-sticky-note"></i> Bestellungen</a>
+                        <a role="link" class="dropdown-item" href="index.php?viewme=Colorhelper" tabindex="8"><i aria-hidden="true" title="Farbenhilfe" class="fas fa-palette"></i> Farbenhilfe</a>
+                        <a role="link" class="dropdown-item" href="index.php?logout=true" tabindex="9"><i aria-hidden="true" title="Abmelden" class="fas fa-sign-out-alt"></i> Abmelden</a>
                     </div>
 
                 </li>

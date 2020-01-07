@@ -1,5 +1,5 @@
 
-<section id="MeineBestellung" class="container container-fluid">
+<section id="MeineBestellung" class=" px-5 container-fluid">
     <h1 class="text-center pt-3 mb-5 mt-2">Meine Bestellungen</h1>  
     <?php
 
@@ -34,34 +34,33 @@ if (!(UserModel::hasaescrypt())) {
                 $timeutc = preg_replace('/\D/', '', $bestellungsid);
                 $dateInLocal = date("Y-m-d H:i:s", $timeutc);
                 ?>
-
-                <div class="card p-0 ">
-                    <div class="card-header bg-primary text-center"><h2>BestellungsID</h2><br><h3><?php echo $bestellungsid; ?></h3></div>
-                    <div class="card-body">
-                        <p>Aufgegeben am <?php echo $dateInLocal; ?>
-                            <?php
-                            foreach ($data as $onlyone) {
-                                if (!(array_key_exists('feedback', $onlyone))) {
-                                    echo"<p><strong class=\"card-text\">$onlyone->titel</strong></p>";
-                                    echo"<ul>";
-                                    echo"<li><span class=\"card-text\">Preis: $onlyone->Price&#x20AC;</span></li>";
-                                    echo"<li><span class=\"card-text\">Anzahl: $onlyone->Anzahl</span></li> ";
-                                    echo " </ul>";
-                                } else {
-                                    if (!empty($onlyone->feedback)) {
-                                        echo"<p class=\"card-text\">Nachricht an uns war:<br> $onlyone->feedback</p>";
+                    <div class="card p-0 ">
+                        <div class="card-header bg-primary text-center"><h2>BestellungsID</h2><br><h3><?php echo $bestellungsid; ?></h3></div>
+                        <div class="card-body">
+                            <p>Aufgegeben am <?php echo $dateInLocal; ?>
+                                <?php
+                                foreach ($data as $onlyone) {
+                                    if (!(array_key_exists('feedback', $onlyone))) {
+                                        echo"<p><strong class=\"card-text\">$onlyone->titel</strong></p>";
+                                        echo"<ul>";
+                                        echo"<li><span class=\"card-text\">Preis: $onlyone->Price&#x20AC;</span></li>";
+                                        echo"<li><span class=\"card-text\">Anzahl: $onlyone->Anzahl</span></li> ";
+                                        echo " </ul>";
                                     } else {
-                                        echo"<p class=\"card-text\">Nachricht an den Besteller wurde Leer gelassen.</p>";
+                                        if (!empty($onlyone->feedback)) {
+                                            echo"<p class=\"card-text\">Nachricht an uns war:<br> $onlyone->feedback</p>";
+                                        } else {
+                                            echo"<p class=\"card-text\">Nachricht an den Besteller wurde Leer gelassen.</p>";
+                                        }
+                                        $gesamtpreis = round($onlyone->Gesamtpreis, 2);
+                                        echo"<p class=\"card-text\">Gesamtpreis der Bestellung: <strong> $gesamtpreis&#x20AC;</strong></p>";
+                                        echo"<p> Bei Problemen, Kontaktieren Sie uns gerne und Erwähen Sie bitte die BestellungsID!</p>";
+                                        ?><a class="btn-primary btn" href="index.php?viewme=Kontakt" tabindex="25">Kontakt</a><?php
                                     }
-                                    $gesamtpreis = round($onlyone->Gesamtpreis, 2);
-                                    echo"<p class=\"card-text\">Gesamtpreis der Bestellung: <strong> $gesamtpreis&#x20AC;</strong></p>";
-                                    echo"<p> Bei Problemen, Kontaktieren Sie uns gerne und Erwähen Sie bitte die BestellungsID!</p>";
-                                    ?><a class="btn-primary btn" href="index.php?viewme=Kontakt" tabindex="25">Kontakt</a><?php
-                }
-            }
-                            ?>
+                                }
+                                ?>
+                        </div>
                     </div>
-                </div>
                 <?php
             }
             echo"</div>";
@@ -73,7 +72,7 @@ if (!(UserModel::hasaescrypt())) {
                 <?php } else {
                     ?>
                     <h2 class="mb-3">Sie haben noch keine Bestellung bei uns!</h2>
-            <?php } ?>
+                <?php } ?>
                 <a class="btn-primary btn" tabindex="25" href="shop.php">Zurück zum Shop</a>
             </div>
             <?php
