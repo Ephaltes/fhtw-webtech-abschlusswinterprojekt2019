@@ -226,6 +226,7 @@ if (!empty($_GET["edit"])) {
     $('input[type="file"]').change(function (e) {
 
         emptyCarousel();
+        emptyHiddenNotUploaded();
         imagesPreviewToCarousel(this);
 
         $('.carousel-item').first().addClass('active');
@@ -401,6 +402,11 @@ if (!empty($_GET["edit"])) {
     var emptyCarousel = function () {
         $(".carousel-indicators").empty();
         $(".carousel-inner").empty();
+    };
+
+    var emptyHiddenNotUploaded = function () {
+        //console.log( $( "#ImageToUpload" ).children().not(".thumbnail_upload"));
+        $( "#ImageToUpload" ).children().not(".thumbnail_upload").remove();
     };
 
     var caption = $('div.carousel-item:nth-child(1) .carousel-caption');

@@ -28,7 +28,7 @@ if (!empty($_SESSION["user"])) {
         <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/jinbCZGWR8w"
                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
-       <!-- <video controls  ><source src="/img/samplevideo.mp4" type="video/mp4"> Video of FH Technikum</video> -->
+       <!-- <video controls  ><source src="/img/technikum.mp4" type="video/mp4"> Video of FH Technikum</video> -->
     </div>
 </div>
 
