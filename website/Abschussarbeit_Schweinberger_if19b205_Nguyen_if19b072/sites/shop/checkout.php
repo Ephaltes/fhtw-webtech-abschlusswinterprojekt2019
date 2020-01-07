@@ -67,10 +67,10 @@
                                                     <td class="ml-2"><?php echo $data->preis ?>&#x20AC;</td>
 
 
-                                                    <td>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><small><i  title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></a></span>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart text-dark" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><small><i  title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></a></span>
-                                                        <span class="ml-2"><a tabindex="25" class="removefromcart text-dark" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><small><i  title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></a></span>
+                                                    <td class="text-nowrap">
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart p-1" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=x&dontkeepopen=true"><small><i  title="Aus dem Warenkorb löschen" class="fas fa-trash-alt text-danger"></i></small><span class="d-none">Aus dem Warenkorb löschen</span></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart text-dark  p-1" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=u&dontkeepopen=true"><small><i  title="Ware um 1 erhöhen" class="fas fa-plus"></i></small><span class="d-none">Ware um 1 erhöhren</span></a></span>
+                                                        <span class="ml-2"><a tabindex="25" class="removefromcart text-dark  p-1" href="sites/shop/editcart.php?item=<?php echo $item ?>&site=<?php echo $link ?>&action=d&dontkeepopen=true"><small><i  title="Ware um 1 verringern" class="fas fa-minus"></i></small><span class="d-none">Ware um 1 verringern</span></a></span>
                                                     </td>
                                                 </tr>
                                                 <?php
